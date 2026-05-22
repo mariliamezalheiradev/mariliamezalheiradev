@@ -41,7 +41,7 @@ Tenho experiência com suporte técnico, atendimento ao usuário, análise de pr
 
 Para conhecer melhor meus projetos, minha trajetória e ver mais detalhes do meu desenvolvimento, acesse meu portfólio pessoal:
 
-🔗 **Portfólio:** 
+🔗 **Portfólio:** https://mariliamezalheiradev.github.io/mariliamezalheiradev/
 
 
 ## Projetos
