@@ -1,16 +1,13 @@
-## Hi there 👋
+Objetivo
 
-<!--
-**mariliamezalheiradev/mariliamezalheiradev** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+O objetivo deste portfólio é apresentar meus estudos, projetos e evolução como Desenvolvedora Full Stack em formação.
 
-Here are some ideas to get you started:
+Além de reunir meus projetos, este site também representa minha prática com HTML, CSS, JavaScript, responsividade, animações e organização visual de interfaces.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+Contato
+LinkedIn: Marília Mezalheira
+GitHub: mariliamezalheiradev
+Instagram: @liamezalheira
+E-mail: mariliagpedrosa@outlook.com
+
+Feito com 💜 por Marília Mezalheira
