@@ -76,7 +76,6 @@ HTML, CSS, JavaScript, LocalStorage e API ViaCEP
 - Organização de dados no navegador
 - Experiência do usuário em sistemas web
 
----
 
 ## Meu objetivo
 
@@ -84,19 +83,21 @@ Meu objetivo é continuar evoluindo na área de tecnologia, desenvolvendo projet
 
 Busco aprimorar minhas habilidades em front-end, back-end, banco de dados e boas práticas de desenvolvimento, sempre unindo aprendizado técnico com uma visão humana sobre o usuário final.
 
----
 
-## GitHub Stats
+## Em constante evolução
 
-<div align="center">
+Atualmente estou construindo meus primeiros projetos com foco em desenvolvimento web, praticando a criação de interfaces modernas, responsivas e funcionais.
 
-![Marília GitHub stats](https://github-readme-stats.vercel.app/api?username=mariliamezalheiradev&show_icons=true&theme=midnight-purple)
+Meu foco no momento está em:
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=mariliamezalheiradev&layout=compact&theme=midnight-purple)
+- Aprimorar meus conhecimentos em HTML, CSS e JavaScript
+- Desenvolver projetos próprios para fortalecer meu portfólio
+- Estudar back-end com Java
+- Melhorar minha lógica de programação
+- Aprender boas práticas de organização de código
 
-</div>
+Cada projeto publicado aqui representa uma etapa da minha evolução como desenvolvedora.
 
----
 
 <p align="center">
   Feito com 💜 por <strong>Marília Mezalheira</strong>
