@@ -42,8 +42,8 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, {
-  threshold: 0.1,
-  rootMargin: '0px 0px -40px 0px'
+  threshold: 0.05,
+  rootMargin: '0px 0px -10px 0px'
 });
 
 reveals.forEach(el => observer.observe(el));
@@ -81,9 +81,11 @@ document.querySelectorAll('.projeto-img').forEach(img => {
 const btnProjetos = document.getElementById('btnProjetos');
 const secaoProjetos = document.getElementById('projetos');
 
-btnProjetos.addEventListener('click', () => {
-  secaoProjetos.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start'
+if (btnProjetos && secaoProjetos) {
+  btnProjetos.addEventListener('click', () => {
+    secaoProjetos.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
   });
-});
+}

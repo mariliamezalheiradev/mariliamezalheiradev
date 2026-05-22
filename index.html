@@ -14,6 +14,22 @@
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
 
+  <!-- MENU FIXO IMPLEMENTADO -->
+  <header class="topbar">
+    <a href="#home" class="logo-home" aria-label="Voltar para o início">
+      <span class="home-text">HOME</span>
+    </a>
+
+    <nav class="menu-fixo">
+      <a href="#home">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#estudos">Estudos</a>
+      <a href="#stack">Tecnologias</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
   <section class="hero" id="home">
     <div class="hero-bg">
       <div class="orb orb-1"></div>
@@ -22,52 +38,70 @@
       <div class="noise"></div>
     </div>
 
-    <div class="hero-card">
-      <div class="avatar-wrap">
-        <img src="imagens/img.marilia.png" alt="Marília Mezalheira" class="avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-        <div class="avatar-fallback">MM</div>
+    <div class="perfil-hero">
+      <div class="perfil-icon-card reveal hero-reveal-left" style="--delay: 0.15s">
+        <div class="avatar-wrap perfil-avatar">
+          <img src="imagens/img.marilia.png" alt="Marília Mezalheira" class="avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="avatar-fallback">MM</div>
+        </div>
       </div>
 
-      <div class="tag animate-in" style="--delay: 0.2s">DESENVOLVEDORA FULL STACK</div>
-      <h1 class="animate-in" style="--delay: 0.35s">Marília<br><em>Mezalheira</em></h1>
-      <p class="bio animate-in" style="--delay: 0.5s">
-        Estudante de TADS na UNINOVE e Desenvolvedora Full Stack em formação.
-        Com quase 4 anos de experiência em suporte técnico e análise de processos
-        (incluindo a Stefanini Group), trago a visão de usabilidade do usuário direto
-        para a construção de sistemas. Desenvolvo interfaces modernas com JavaScript
-        e estou expandindo meus conhecimentos em Java para o Back-End.
-      </p>
+      <div class="perfil-resumo reveal hero-reveal-right" style="--delay: 0.3s">
+        <div class="tag">DESENVOLVEDORA FULL STACK</div>
 
-      <div class="links animate-in" style="--delay: 0.65s">
-        <a href="https://www.linkedin.com/in/mar%C3%ADlia-mezalheira/" target="_blank" class="link-btn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://github.com/mariliamezalheiradev" target="_blank" class="link-btn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-        <a href="https://www.instagram.com/liamezalheira/" target="_blank" class="link-btn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="var(--bg-deep)"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="var(--bg-deep)" stroke-width="2"/></svg>
-          Instagram
-        </a>
-        <a href="mailto:mariliagpedrosa@outlook.com" class="link-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Contato via E-mail
-        </a>
+        <h1>Marília<br><em>Mezalheira</em></h1>
+
+        <p>
+          Estudante na área de desenvolvimento.
+          Tenho experiência com suporte técnico, resolução de bugs e atendimento ao usuário, o que me ajuda a criar interfaces pensando na usabilidade e na experiência real das pessoas.
+        </p>
+
+        <div class="perfil-actions">
+          <button class="scroll-cta perfil-contato-btn botao-projetos-igual" id="btnProjetos">
+            Ver meus projetos
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+          </button>
+
+          <a href="#contato" class="perfil-contato-btn">Falar comigo</a>
+        </div>
       </div>
-
-        <button class="scroll-cta animate-in" style="--delay: 0.8s" id="btnProjetos">
-        Ver meus projetos
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M12 5v14M5 12l7 7 7-7"/>
-       </svg>
-      </button>
-      </button>
     </div>
   </section>
-  
-  <section class="projetos" id="projetos">
+
+  <section class="sobre-mim reveal" id="sobre">
+    <div class="section-label">SOBRE MIM</div>
+    <h2 class="section-title">Minha <em>trajetória</em></h2>
+
+    <div class="sobre-mim-card">
+      <p>
+        Trabalhei por quase 2 anos em suporte técnico e atendimento e foi justamente lá que percebi o que realmente queria fazer: estar do outro lado, construindo os sistemas que as pessoas usam.
+      </p>
+
+      <p>
+        Hoje estou em transição para Desenvolvimento Frontend. Curso TADS (Análise e Desenvolvimento de Sistemas) na UNINOVE, e estou desenvolvendo habilidades em HTML, CSS, JavaScript, Java e React aplicando em projetos práticos enquanto avanço na graduação.
+      </p>
+
+      <p>
+        Na Stefanini Group, passei 1 ano e 8 meses prestando suporte a uma plataforma de bolsa de valores (AGF), resolvendo bugs, acompanhando chamados e trabalhando com sistemas integrados via WhatsApp. Depois, atuei como Analista de Processos em contexto jurídico monitorando informações em sistemas como ADA e Intranet, exigindo atenção a detalhes e organização que levo direto para o código.
+      </p>
+
+      <p>
+        O que me diferencia: não sou só quem escreve código. Sou quem já esteve no lado do usuário, sabe o que frustra e o que encanta e quer resolver isso com tecnologia.
+      </p>
+
+      <div class="sobre-highlights">
+        <span>Suporte técnico</span>
+        <span>Resolução de bugs</span>
+        <span>Desenvolvimento Frontend</span>
+        <span>Java em estudo</span>
+        <span>React em aprendizado</span>
+      </div>
+    </div>
+  </section>
+
+<section class="projetos" id="projetos">
     <div class="section-label">PORTFÓLIO</div>
     <h2 class="section-title">Projetos que <em>construí</em></h2>
 
@@ -85,13 +119,11 @@
 
       <div class="projeto-info">
         <div class="projeto-num">01</div>
+        <span class="status-projeto status-finalizado">Projeto de estudo · Pendente de Evolução</span>
         <h3>Mario Cart <em>Game</em></h3>
         <p>
-          Mini-jogo web inspirado no clássico Mario, desenvolvido para praticar conceitos fundamentais
-          de front-end. O jogo apresenta um personagem animado que precisa saltar para evitar obstáculos
-          (canos), com detecção de colisão, animações CSS e lógica de game over.
+          Mini-jogo web inspirado no clássico Mario, desenvolvido com o objetivo de praticar conceitos fundamentais de front-end. O projeto apresenta um personagem animado que deve saltar para desviar de obstáculos, como canos, utilizando detecção de colisão, animações em CSS e lógica de game over. Ainda pretendo adicionar novas funcionalidades e melhorias ao jogo.</p>
         </p>
-
         <div class="tech-list">
           <span>HTML5</span>
           <span>CSS3 Animations</span>
@@ -118,10 +150,17 @@
           </div>
         </div>
 
-        <a href="https://github.com/mariliamezalheiradev/mario-cart-game" target="_blank" class="projeto-link">
-          Ver no GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </a>
+        <div class="projeto-actions">
+          <a href="https://mariliamezalheiradev.github.io/mario-cart-game/" target="_blank" class="projeto-link">
+            Ver projeto online
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+
+          <a href="https://github.com/mariliamezalheiradev/mario-cart-game" target="_blank" class="projeto-link">
+            Ver no GitHub
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
       </div>
     </article>
 
@@ -139,11 +178,12 @@
 
       <div class="projeto-info">
         <div class="projeto-num">02</div>
+        <span class="status-projeto status-evolucao">Projeto acadêmico · Finalizado</span>
         <h3>Flow<em>Salon</em></h3>
         <p>
           Plataforma de gestão completa para salões de beleza e barbearias. O sistema inclui
           agendamento online para clientes, painel administrativo com controle de agenda, gestão
-          de clientes, catálogo de serviços e equipe de profissionais — tudo com uma interface
+          de clientes, catálogo de serviços e equipe de profissionais, tudo com uma interface
           dark moderna e fluida.
         </p>
 
@@ -174,17 +214,54 @@
           </div>
         </div>
 
-        <a href="https://github.com/mariliamezalheiradev" target="_blank" class="projeto-link">
-          Ver no GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </a>
+        <div class="projeto-actions">
+          <a href="https://mariliamezalheiradev.github.io/projeto-faculdade/" target="_blank" class="projeto-link">
+            Ver projeto online
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+
+          <a href="https://github.com/mariliamezalheiradev/projeto-faculdade" target="_blank" class="projeto-link">
+            Ver no GitHub
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
       </div>
     </article>
   </section>
 
-  <section class="stack" id="stack">
+  <section class="estudos reveal" id="estudos">
+  <div class="section-label">EM APRENDIZADO</div>
+  <h2 class="section-title">Estudando <em>agora</em></h2>
+
+  <div class="estudos-grid">
+    <div class="estudo-card">
+      <span class="estudo-num">01</span>
+      <h3>Java</h3>
+      <p>Fundamentos da linguagem Java, orientação a objetos, classes, métodos e organização de código.</p>
+    </div>
+
+    <div class="estudo-card">
+      <span class="estudo-num">02</span>
+      <h3>JavaScript</h3>
+      <p>Interatividade, manipulação do DOM, lógica de programação e evolução para projetos mais dinâmicos.</p>
+    </div>
+
+    <div class="estudo-card">
+      <span class="estudo-num">03</span>
+      <h3>HTML5</h3>
+      <p>Estruturação de páginas web, organização semântica do conteúdo e criação da base visual dos projetos.</p>
+    </div>
+
+    <div class="estudo-card">
+      <span class="estudo-num">04</span>
+      <h3>CSS3</h3>
+      <p>Estilização de interfaces, responsividade, animações, layouts com Flexbox e Grid e melhoria da experiência visual.</p>
+    </div>
+  </div>
+</section>
+<section class="stack" id="stack">
     <div class="section-label">TECNOLOGIAS</div>
-    <h2 class="section-title">Minhas <em>Stacks</em></h2>
+    <h2 class="section-title">Tecnologias e <em>Ferramentas</em></h2>
 
     <div class="stack-grid reveal">
   <div class="stack-item">
@@ -215,15 +292,39 @@
   <div class="stack-item">
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="stack-icon-img">
     <span class="stack-nome">VS Code</span>
-    <p class="stack-desc">Editor principal para desenvolvimento de projetos front-end.</p>
+    <p class="stack-desc">Ferramenta utilizada para desenvolvimento front-end e organização dos projetos.</p>
   </div>
+
+    <div class="stack-item">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" class="stack-icon-img" alt="IntelliJ IDEA">
+  <span class="stack-nome">IntelliJ IDEA</span>
+  <p class="stack-desc">IDE utilizada para estudos e desenvolvimento em Java.</p>
+</div>
 </div>
   </section>
   
-  <footer class="footer">
+  <section class="contato reveal" id="contato">
+    <div class="section-label">CONTATO</div>
+    <h2 class="section-title">Vamos <em>conversar?</em></h2>
+
+    <div class="contato-card">
+      <p class="contato-texto">
+        Estou aberta a oportunidades de estágio, conexões na área de tecnologia, projetos e novos aprendizados.
+        Se quiser conversar comigo, escolha uma das opções abaixo.
+      </p>
+
+      <div class="contato-actions">
+        <a href="mailto:mariliagpedrosa@outlook.com" class="link-btn">Enviar e-mail</a>
+        <a href="https://www.linkedin.com/in/mar%C3%ADlia-mezalheira/" target="_blank" class="link-btn">LinkedIn</a>
+        <a href="https://github.com/mariliamezalheiradev" target="_blank" class="link-btn">GitHub</a>
+        <a href="https://www.instagram.com/liamezalheira/" target="_blank" class="link-btn">Instagram</a>
+      </div>
+    </div>
+  </section>
+<footer class="footer">
     <div class="footer-orb"></div>
     <p>Feito com 💜 por <strong>Marília Mezalheira</strong></p>
-    <p class="footer-sub">© 2025 · Todos os direitos reservados</p>
+    <p class="footer-sub">© 2026 · Todos os direitos reservados</p>
   </footer>
 
   <script src="js/script.js"></script>
