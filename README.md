@@ -1,28 +1,24 @@
 <h1 align="center">Olá, eu sou a Marília Mezalheira 💜</h1>
 
 <p align="center">
-  Desenvolvedora Full Stack em formação | Estudante de Análise e Desenvolvimento de Sistemas
+  Desenvolvedora Full Stack em formação • Estudante de Análise e Desenvolvimento de Sistemas
 </p>
 
 <p align="center">
   <a href="https://www.linkedin.com/in/mar%C3%ADlia-mezalheira/">LinkedIn</a> •
-  <a href="https://github.com/mariliamezalheiradev">GitHub</a> •
-  <a href="mailto:mariliagpedrosa@outlook.com">E-mail</a>
+  <a href="mailto:mariliagpedrosa@outlook.com">E-mail</a> •
+  <a href="https://github.com/mariliamezalheiradev">GitHub</a>
 </p>
 
----
 
 ## Sobre mim
 
-Sou estudante de **Tecnólogo em Análise e Desenvolvimento de Sistemas** e estou em formação para atuar como **Desenvolvedora Full Stack**.
+Estou iniciando minha jornada na área de desenvolvimento, criando projetos com foco em interfaces modernas, responsivas e funcionais.
 
-Tenho experiência com suporte técnico, análise de processos, atendimento ao usuário, abertura e acompanhamento de chamados, resolução de bugs e utilização de sistemas internos. Essa vivência me ajudou a desenvolver uma visão mais prática sobre usabilidade, organização de informações e solução de problemas.
+Tenho experiência com suporte técnico, atendimento ao usuário, análise de processos e resolução de bugs, o que me ajuda a desenvolver soluções pensando também na experiência de quem utiliza o sistema.
 
-Atualmente estou focada em evoluir meus conhecimentos em desenvolvimento web, criando projetos com **HTML, CSS, JavaScript** e iniciando meus estudos em tecnologias voltadas ao back-end.
 
----
-
-## Tecnologias que estou estudando
+## Tecnologias
 
 <div align="center">
 
@@ -40,63 +36,23 @@ Atualmente estou focada em evoluir meus conhecimentos em desenvolvimento web, cr
 
 </div>
 
----
 
-## Projetos em destaque
+## Projetos
 
-### Mario Cart Game
+**Mario Cart Game**  
+Mini-jogo web desenvolvido com HTML, CSS e JavaScript, utilizando animações, colisão e lógica de game over.
 
-Mini-jogo web inspirado no universo do Mario, desenvolvido para praticar conceitos fundamentais de front-end.
+**FlowSalon**  
+Sistema web para salão/barbearia, com agendamento, painel administrativo, LocalStorage e integração com API ViaCEP.
 
-**Tecnologias utilizadas:**  
-HTML, CSS e JavaScript
 
-**Principais aprendizados:**
+## Atualmente estudando
 
-- Animações com CSS
-- Manipulação do DOM
-- Lógica de colisão
-- Controle de eventos com JavaScript
-- Estruturação de um mini-game no navegador
-
----
-
-### FlowSalon
-
-Sistema web desenvolvido para salões de beleza e barbearias, com foco em agendamentos, organização e gestão.
-
-**Tecnologias utilizadas:**  
-HTML, CSS, JavaScript, LocalStorage e API ViaCEP
-
-**Principais aprendizados:**
-
-- Criação de interfaces modernas
+- HTML, CSS e JavaScript
+- Java para back-end
 - Responsividade
-- Validação de formulários
-- Organização de dados no navegador
-- Experiência do usuário em sistemas web
-
-
-## Meu objetivo
-
-Meu objetivo é continuar evoluindo na área de tecnologia, desenvolvendo projetos cada vez mais completos, organizados e funcionais.
-
-Busco aprimorar minhas habilidades em front-end, back-end, banco de dados e boas práticas de desenvolvimento, sempre unindo aprendizado técnico com uma visão humana sobre o usuário final.
-
-
-## Em constante evolução
-
-Atualmente estou construindo meus primeiros projetos com foco em desenvolvimento web, praticando a criação de interfaces modernas, responsivas e funcionais.
-
-Meu foco no momento está em:
-
-- Aprimorar meus conhecimentos em HTML, CSS e JavaScript
-- Desenvolver projetos próprios para fortalecer meu portfólio
-- Estudar back-end com Java
-- Melhorar minha lógica de programação
-- Aprender boas práticas de organização de código
-
-Cada projeto publicado aqui representa uma etapa da minha evolução como desenvolvedora.
+- Organização de código
+- Boas práticas de desenvolvimento
 
 
 <p align="center">
