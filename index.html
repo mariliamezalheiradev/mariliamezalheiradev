@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marília Mezalheira | Dev Full Stack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="noise"></div>
+    </div>
+
+    <div class="hero-card">
+      <div class="avatar-wrap">
+        <img src="imagens/img.marilia.png" alt="Marília Mezalheira" class="avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="avatar-fallback">MM</div>
+      </div>
+
+      <div class="tag animate-in" style="--delay: 0.2s">DESENVOLVEDORA FULL STACK</div>
+      <h1 class="animate-in" style="--delay: 0.35s">Marília<br><em>Mezalheira</em></h1>
+      <p class="bio animate-in" style="--delay: 0.5s">
+        Estudante de TADS na UNINOVE e Desenvolvedora Full Stack em formação.
+        Com quase 4 anos de experiência em suporte técnico e análise de processos
+        (incluindo a Stefanini Group), trago a visão de usabilidade do usuário direto
+        para a construção de sistemas. Desenvolvo interfaces modernas com JavaScript
+        e estou expandindo meus conhecimentos em Java para o Back-End.
+      </p>
+
+      <div class="links animate-in" style="--delay: 0.65s">
+        <a href="https://www.linkedin.com/in/mar%C3%ADlia-mezalheira/" target="_blank" class="link-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/mariliamezalheiradev" target="_blank" class="link-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.instagram.com/liamezalheira/" target="_blank" class="link-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="var(--bg-deep)"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="var(--bg-deep)" stroke-width="2"/></svg>
+          Instagram
+        </a>
+        <a href="mailto:mariliagpedrosa@outlook.com" class="link-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Contato via E-mail
+        </a>
+      </div>
+
+        <button class="scroll-cta animate-in" style="--delay: 0.8s" id="btnProjetos">
+        Ver meus projetos
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+       </svg>
+      </button>
+      </button>
+    </div>
+  </section>
+  
+  <section class="projetos" id="projetos">
+    <div class="section-label">PORTFÓLIO</div>
+    <h2 class="section-title">Projetos que <em>construí</em></h2>
+
+    <article class="projeto-card reveal" id="mario">
+      <div class="projeto-media">
+        <div class="media-frame mario-frame">
+          <img src="imagens/mariocartvideo.gif" alt="Mario Cart Game" class="projeto-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="media-placeholder">
+            <span>🎮</span>
+            <p>Adicione um screenshot do jogo aqui<br><small><imagens-mario class="png"></imagens-mario></small></p>
+          </div>
+          <div class="frame-badge">HTML · CSS · JS</div>
+        </div>
+      </div>
+
+      <div class="projeto-info">
+        <div class="projeto-num">01</div>
+        <h3>Mario Cart <em>Game</em></h3>
+        <p>
+          Mini-jogo web inspirado no clássico Mario, desenvolvido para praticar conceitos fundamentais
+          de front-end. O jogo apresenta um personagem animado que precisa saltar para evitar obstáculos
+          (canos), com detecção de colisão, animações CSS e lógica de game over.
+        </p>
+
+        <div class="tech-list">
+          <span>HTML5</span>
+          <span>CSS3 Animations</span>
+          <span>JavaScript</span>
+          <span>Game Logic</span>
+        </div>
+
+        <div class="feature-list">
+          <div class="feature">
+            <div class="feature-dot"></div>
+            <span>Animações de pulo com keyframes CSS</span>
+          </div>
+          <div class="feature">
+            <div class="feature-dot"></div>
+            <span>Detecção de colisão em tempo real</span>
+          </div>
+          <div class="feature">
+            <div class="feature-dot"></div>
+            <span>Obstáculos com velocidade dinâmica</span>
+          </div>
+          <div class="feature">
+            <div class="feature-dot"></div>
+            <span>Tela de Game Over com sprite</span>
+          </div>
+        </div>
+
+        <a href="https://github.com/mariliamezalheiradev/mario-cart-game" target="_blank" class="projeto-link">
+          Ver no GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <article class="projeto-card reveal" id="salon">
+      <div class="projeto-media">
+        <div class="media-frame salon-frame">
+          <img src="imagens/flowsalonvideo.gif" alt="FlowSalon Dashboard" class="projeto-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="media-placeholder">
+            <span>💈</span>
+            <p>Adicione um screenshot do dashboard aqui<br><small><imagem-flowsalon class="png"></imagem-flowsalon></small></p>
+          </div>
+          <div class="frame-badge">Sistema Web</div>
+        </div>
+      </div>
+
+      <div class="projeto-info">
+        <div class="projeto-num">02</div>
+        <h3>Flow<em>Salon</em></h3>
+        <p>
+          Plataforma de gestão completa para salões de beleza e barbearias. O sistema inclui
+          agendamento online para clientes, painel administrativo com controle de agenda, gestão
+          de clientes, catálogo de serviços e equipe de profissionais — tudo com uma interface
+          dark moderna e fluida.
+        </p>
+
+        <div class="tech-list">
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>JavaScript</span>
+          <span>LocalStorage</span>
+          <span>API ViaCEP</span>
+        </div>
+
+        <div class="feature-list">
+          <div class="feature">
+            <div class="feature-dot"></div>
+            <span>Agendamento online com validação de formulário</span>
+          </div>
+          <div class="feature">
+            <div class="feature-dot"></div>
+            <span>Dashboard administrativo completo</span>
+          </div>
+          <div class="feature">
+            <div class="feature-dot"></div>
+            <span>Gestão de clientes, serviços e profissionais</span>
+          </div>
+          <div class="feature">
+            <div class="feature-dot"></div>
+            <span>Design responsivo com tema dark neon</span>
+          </div>
+        </div>
+
+        <a href="https://github.com/mariliamezalheiradev" target="_blank" class="projeto-link">
+          Ver no GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </article>
+  </section>
+
+  <section class="stack" id="stack">
+    <div class="section-label">TECNOLOGIAS</div>
+    <h2 class="section-title">Minhas <em>Stacks</em></h2>
+
+    <div class="stack-grid reveal">
+  <div class="stack-item">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="stack-icon-img">
+    <span class="stack-nome">HTML5</span>
+    <p class="stack-desc">Estruturação semântica de páginas e interfaces web modernas.</p>
+  </div>
+  <div class="stack-item">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="stack-icon-img">
+    <span class="stack-nome">CSS3</span>
+    <p class="stack-desc">Estilização, animações, responsividade e layouts com Flexbox e Grid.</p>
+  </div>
+  <div class="stack-item">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="stack-icon-img">
+    <span class="stack-nome">JavaScript</span>
+    <p class="stack-desc">Lógica de programação, manipulação do DOM e interatividade.</p>
+  </div>
+  <div class="stack-item">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="stack-icon-img">
+    <span class="stack-nome">Java</span>
+    <p class="stack-desc">Desenvolvimento back-end em formação, orientação a objetos.</p>
+  </div>
+  <div class="stack-item">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="stack-icon-img" style="filter: invert(1);">
+    <span class="stack-nome">Git & GitHub</span>
+    <p class="stack-desc">Versionamento de código e colaboração em repositórios.</p>
+  </div>
+  <div class="stack-item">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="stack-icon-img">
+    <span class="stack-nome">VS Code</span>
+    <p class="stack-desc">Editor principal para desenvolvimento de projetos front-end.</p>
+  </div>
+</div>
+  </section>
+  
+  <footer class="footer">
+    <div class="footer-orb"></div>
+    <p>Feito com 💜 por <strong>Marília Mezalheira</strong></p>
+    <p class="footer-sub">© 2025 · Todos os direitos reservados</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
