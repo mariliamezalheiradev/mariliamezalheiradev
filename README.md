@@ -37,6 +37,13 @@ Tenho experiência com suporte técnico, atendimento ao usuário, análise de pr
 </div>
 
 
+## Portfólio pessoal
+
+Para conhecer melhor meus projetos, minha trajetória e ver mais detalhes do meu desenvolvimento, acesse meu portfólio pessoal:
+
+🔗 **Portfólio:** 
+
+
 ## Projetos
 
 **Mario Cart Game**  
