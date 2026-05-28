@@ -154,7 +154,7 @@ em { font-style: italic; font-family: 'DM Sans', sans-serif; font-weight: 300; c
 .tag {
   display: inline-block;
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.82rem;
+  font-size: 1.0rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
