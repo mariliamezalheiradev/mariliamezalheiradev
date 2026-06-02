@@ -2284,3 +2284,76 @@ em { font-style: italic; font-family: 'DM Sans', sans-serif; font-weight: 300; c
     transform: none;
   }
 }
+
+/* Frame do projeto Finanças Pessoais */
+.financas-frame {
+  width: 100%;
+  aspect-ratio: 400 / 171;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #f4f7fb !important;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.financas-frame .financas-gif {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform: scale(1.02);
+}
+
+.financas-frame .frame-badge {
+  background: rgba(255, 255, 255, 0.94);
+  color: #111113;
+}
+
+@media (max-width: 600px) {
+  .financas-frame {
+    aspect-ratio: 400 / 171;
+  }
+}
+
+/* Ajuste final para remover qualquer faixa/borda preta do GIF Finanças */
+.financas-frame {
+  aspect-ratio: 400 / 160 !important;
+  background: #f4f7fb !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.38) !important;
+  overflow: hidden !important;
+}
+
+.financas-frame .financas-gif {
+  width: 100% !important;
+  height: 112% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform: translateY(-6px) scale(1.08) !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.financas-frame:hover .financas-gif,
+.projeto-card:hover .financas-frame .financas-gif {
+  transform: translateY(-6px) scale(1.1) !important;
+}
+
+/* Ajuste do GIF do projeto Finanças Pessoais para ficar do mesmo tamanho do FlowSalon */
+.financas-frame {
+  width: min(700px, 100%);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.financas-frame .projeto-img,
+.financas-gif {
+  width: 100% !important;
+  height: 305px !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+}
