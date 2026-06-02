@@ -230,7 +230,7 @@
     <article class="projeto-card reveal" id="financas">
       <div class="projeto-media">
         <div class="media-frame financas-frame">
-          <img src="imagens/projetofinancas.gif" alt="Dashboard do projeto Finanças Pessoais" class="projeto-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <img src="imagens/projetofinancas.gif" alt="Demonstração do projeto Finanças Pessoais com Firebase" class="projeto-img financas-gif" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
           <div class="media-placeholder">
             <span>💰</span>
             <p>Adicione um screenshot do dashboard financeiro aqui<br><small>telainicialfinancas.png</small></p>
@@ -244,35 +244,37 @@
         <span class="status-projeto status-finalizado">Projeto pessoal · Finalizado</span>
         <h3>Finanças <em>Pessoais</em></h3>
         <p>
-          Sistema web desenvolvido para controle financeiro pessoal, com login e cadastro local,
-          dashboard mensal, páginas separadas por área, cadastro de transações, contas a pagar,
-          total em aberto, alertas automáticos de vencimento e alarme visual/sonoro dentro do próprio site.
+          Sistema web desenvolvido para controle financeiro pessoal, integrado ao Firebase,
+          com login e cadastro por e-mail e senha, salvamento online de dados, dashboard mensal,
+          páginas separadas por área, cadastro de transações, contas a pagar, total em aberto,
+          alertas automáticos de vencimento e alarme visual/sonoro dentro do próprio site.
         </p>
 
         <div class="tech-list">
           <span>HTML5</span>
           <span>CSS3</span>
           <span>JavaScript</span>
-          <span>LocalStorage</span>
+          <span>Firebase Auth</span>
+          <span>Cloud Firestore</span>
           <span>Responsividade</span>
         </div>
 
         <div class="feature-list">
           <div class="feature">
             <div class="feature-dot"></div>
+            <span>Login e cadastro com autenticação pelo Firebase</span>
+          </div>
+          <div class="feature">
+            <div class="feature-dot"></div>
+            <span>Dados salvos online para acessar pelo celular, PC ou notebook</span>
+          </div>
+          <div class="feature">
+            <div class="feature-dot"></div>
             <span>Dashboard mensal com entradas, saídas, saldo e total em aberto</span>
           </div>
           <div class="feature">
             <div class="feature-dot"></div>
-            <span>Cadastro manual de transações e contas a pagar</span>
-          </div>
-          <div class="feature">
-            <div class="feature-dot"></div>
-            <span>Badge de notificação no menu de Alertas</span>
-          </div>
-          <div class="feature">
-            <div class="feature-dot"></div>
-            <span>Alarme automático quando faltar 2 dias ou 1 dia para vencer</span>
+            <span>Cadastro de transações, contas a pagar, alertas e alarme automático</span>
           </div>
         </div>
 
