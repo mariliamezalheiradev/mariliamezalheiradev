@@ -57,6 +57,7 @@ Para conhecer melhor meus projetos, minha trajetória e ver mais detalhes do meu
 Mini-jogo web desenvolvido com HTML, CSS e JavaScript, utilizando animações, colisão em tempo real e lógica de game over.
 
 **Projeto online:** https://mariliamezalheiradev.github.io/mario-cart-game/
+
 **Repositório:** https://github.com/mariliamezalheiradev/mario-cart-game
 
 ---
@@ -66,6 +67,7 @@ Mini-jogo web desenvolvido com HTML, CSS e JavaScript, utilizando animações, c
 Sistema web para salão/barbearia, com agendamento online, painel administrativo, gestão de clientes, serviços e profissionais, LocalStorage e integração com API ViaCEP.
 
 **Projeto online:** https://mariliamezalheiradev.github.io/projeto-faculdade/
+
 **Repositório:** https://github.com/mariliamezalheiradev/projeto-faculdade
 
 ---
@@ -77,6 +79,7 @@ Sistema web desenvolvido para controle de finanças pessoais, com login e cadast
 O projeto foi criado com foco em organização mensal, usabilidade e praticidade, utilizando HTML, CSS, JavaScript e LocalStorage para armazenamento dos dados no navegador.
 
 **Projeto online:** https://mariliamezalheiradev.github.io/financas-pessoais/
+
 **Repositório:** https://github.com/mariliamezalheiradev/financas-pessoais
 
 ---
