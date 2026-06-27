@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Background rounded square in deep blue -->
+  <rect x="0" y="0" width="64" height="64" rx="14" fill="#0b121f"/>
+  <!-- Inner cyan glow ring -->
+  <rect x="3" y="3" width="58" height="58" rx="11" fill="none" stroke="#00b4d8" stroke-width="1.5" opacity="0.55"/>
+  <!-- Pixel art "M" monogram (Marília) -->
+  <g fill="#caf0f8" font-family="'Space Mono', monospace" font-weight="700" text-anchor="middle">
+    <text x="32" y="42" font-size="32" fill="#90e0ef">M</text>
+  </g>
+  <!-- Cyan accent dot bottom-right -->
+  <circle cx="50" cy="50" r="4" fill="#00f5d4"/>
+</svg>

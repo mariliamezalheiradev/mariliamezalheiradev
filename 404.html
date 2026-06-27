@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Página não encontrada — Marília Mezalheira">
+  <meta name="theme-color" content="#0b121f">
+  <title>404 — Página não encontrada | Marília Mezalheira</title>
+
+  <link rel="icon" type="image/svg+xml" href="imagens/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-page: #0b121f;
+      --text-white: #f5fbff;
+      --text-muted: #a0b3c6;
+      --blue-main: #00b4d8;
+      --blue-light: #90e0ef;
+      --cyan-acc: #00f5d4;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      background: radial-gradient(ellipse at top, #0a2a4a 0%, var(--bg-page) 60%);
+      color: var(--text-white);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      overflow: hidden;
+    }
+    .wrap {
+      max-width: 560px;
+      position: relative;
+      z-index: 2;
+    }
+    .code {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(6rem, 16vw, 10rem);
+      font-weight: 700;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--blue-light) 0%, var(--cyan-acc) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.02em;
+      text-shadow: 0 0 60px rgba(0, 180, 216, 0.35);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    p {
+      color: var(--text-muted);
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue-main), var(--cyan-acc));
+      color: #04293a;
+      box-shadow: 0 6px 24px rgba(0, 180, 216, 0.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(0, 180, 216, 0.55); }
+    .btn-ghost {
+      background: rgba(0, 180, 216, 0.06);
+      border: 1px solid rgba(0, 180, 216, 0.35);
+      color: var(--text-white);
+    }
+    .btn-ghost:hover { background: rgba(0, 180, 216, 0.18); border-color: var(--blue-main); transform: translateY(-2px); }
+
+    /* Decorative orbs */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .orb-1 { width: 400px; height: 400px; background: radial-gradient(circle, #0077b6 0%, transparent 70%); top: -80px; left: -120px; }
+    .orb-2 { width: 320px; height: 320px; background: radial-gradient(circle, #00f5d4 0%, transparent 70%); bottom: -60px; right: -80px; opacity: 0.35; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <div class="code" aria-hidden="true">404</div>
+    <h1>Página não encontrada</h1>
+    <p>O link que você procura pode ter sido movido, renomeado ou nunca existiu. Volte ao portfólio para explorar meus projetos.</p>
+    <div class="actions">
+      <a href="./" class="btn btn-primary">← Voltar ao portfólio</a>
+      <a href="https://github.com/mariliamezalheiradev" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Ver no GitHub</a>
+    </div>
+  </main>
+</body>
+</html>

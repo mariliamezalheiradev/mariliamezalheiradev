@@ -115,6 +115,39 @@ body.theme-light {
   color-scheme: light;
 }
 
+/* ============================================
+   ACCESSIBILITY: Respect prefers-reduced-motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  /* Desativa keyframes (orbs, cursor blink, status pulse) */
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Desativa o anel conic-gradient giratório */
+  .hero-avatar-ring {
+    animation: none !important;
+  }
+
+  /* Reveal: mostra conteúdo imediatamente */
+  .reveal,
+  .stack-item, .estudo-card, .projeto-card,
+  .section-label, .section-title,
+  .hero-avatar, .hero-tag, .hero-name, .hero-status,
+  .hero-about-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* GSAP não deve animar via ScrollTrigger */
+  .orb-1, .orb-2, .orb-3 {
+    animation: none !important;
+  }
+}
+
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
