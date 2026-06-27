@@ -47,7 +47,23 @@ jobs:
   # Job 2: Lighthouse CI Audit
   # Roda em paralelo ao deploy para detectar
   # regressões de performance/accessibility.
-  # ============================================
+  #
+  # ============================================================
+  # COMO CONFIGURAR O LHCI_GITHUB_APP_TOKEN
+  # ============================================================
+  # Para que o Lighthouse CI poste as pontuações de volta nos
+  # Pull Requests, instale o "Lighthouse CI GitHub App":
+  #
+  #   1. Acesse https://github.com/apps/lighthouse-ci
+  #   2. Clique em "Install" e selecione o repositório
+  #      `mariliamezalheiradev/mariliamezalheiradev`
+  #   3. Após a instalação, o GitHub cria automaticamente o
+  #      secret `LHCI_GITHUB_APP_TOKEN` no repositório.
+  #
+  # Verifique em: Settings → Secrets and variables → Actions
+  # Se o secret não aparecer automaticamente, gere um novo token
+  # em https://github.com/settings/tokens com escopo `repo`.
+  # ============================================================
   lighthouse:
     name: Lighthouse CI Audit
     runs-on: ubuntu-latest
@@ -69,6 +85,10 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
           # Falha o job se a pontuação cair abaixo dos thresholds
-          # configurados em lighthouse-budget.json
+          # configurados em lighthouse-budget.json.
+          #
+          # IMPORTANTE: ajuste os thresholds em lighthouse-budget.json
+          # após rodar o primeiro Lighthouse local para refletir o
+          # peso real dos assets (veja README.md → "Lighthouse local").
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
