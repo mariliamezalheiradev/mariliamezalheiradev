@@ -5,8 +5,7 @@
    ============================================ */
 
 /* === DARK MODE (default) === */
-:root,
-body.theme-dark {
+:root, body.theme-dark {
   --bg-deep:      #0b121f;
   --bg-page:      #0b121f;
   --bg-card:      rgba(21, 33, 55, 0.72);
@@ -28,8 +27,7 @@ body.theme-dark {
   --border-strong:rgba(0, 180, 216, 0.55);
 
   --card-shadow:  0 32px 80px rgba(0, 119, 182, 0.3);
-  --topbar-bg:    linear-gradient(135deg, rgba(11, 32, 58, 0.84), rgba(11, 18, 31, 0.92)),
-                  rgba(11, 18, 31, 0.88);
+  --topbar-bg:    linear-gradient(135deg, rgba(11, 32, 58, 0.84), rgba(11, 18, 31, 0.92)), rgba(11, 18, 31, 0.88);
   --topbar-bg-solid: rgba(11, 18, 31, 0.96);
 
   --pill-bg:      rgba(0, 180, 216, 0.10);
@@ -119,7 +117,6 @@ body.theme-light {
    ACCESSIBILITY: Respect prefers-reduced-motion
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
-  /* Desativa keyframes (orbs, cursor blink, status pulse) */
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
@@ -128,9 +125,7 @@ body.theme-light {
   }
 
   /* Desativa o anel conic-gradient giratório */
-  .hero-avatar-ring {
-    animation: none !important;
-  }
+  .hero-avatar-ring { animation: none !important; }
 
   /* Reveal: mostra conteúdo imediatamente */
   .reveal,
@@ -143,9 +138,7 @@ body.theme-light {
   }
 
   /* GSAP não deve animar via ScrollTrigger */
-  .orb-1, .orb-2, .orb-3 {
-    animation: none !important;
-  }
+  .orb-1, .orb-2, .orb-3 { animation: none !important; }
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -299,21 +292,14 @@ a, button { cursor: none; }
   height: 220px;
   border-radius: 50%;
   margin-top: 6px;
-  /* Fundo sólido profundo combinando com a imagem do avatar */
   background: #0b121f;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Importante: não usamos overflow:hidden aqui para que o anel
-     giratório fique visível por FORA das bordas do avatar. */
 }
-body.theme-light .hero-avatar {
-  background: #0b121f;
-}
+body.theme-light .hero-avatar { background: #0b121f; }
 
-/* Anel conic-gradient girando ao redor do avatar — funciona como
-   "borda brilhante" cyan/blue. Fica visível porque o wrapper não
-   recorta o overflow. */
+/* Anel conic-gradient girando */
 .hero-avatar-ring {
   position: absolute;
   inset: -8px;
@@ -329,13 +315,10 @@ body.theme-light .hero-avatar {
   z-index: 1;
   animation: ring-spin 8s linear infinite;
   filter: blur(0.6px);
-  /* Halo externo do anel */
   box-shadow:
     0 0 0 6px rgba(0, 180, 216, 0.20),
     0 0 40px rgba(0, 180, 216, 0.40);
 }
-/* Miolo do anel = mesma cor do fundo do site, criando o "vazio"
-   que revela o gradiente só como aro. */
 .hero-avatar-ring::after {
   content: "";
   position: absolute;
@@ -356,16 +339,10 @@ body.theme-light .hero-avatar {
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
-  /* Fundo sólido idêntico ao da imagem nova — sem transparência visível */
   background: #0b121f;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
-  /* Camadas de sombra:
-     1) Borda sólida cyan para o pixel art se destacar;
-     2) Halo externo sutil em rgba cyan;
-     3) Glow borrado amplo em cyan;
-     4) Drop shadow inferior para profundidade. */
   box-shadow:
     0 0 0 3px rgba(0, 180, 216, 0.85),
     0 0 0 6px rgba(0, 180, 216, 0.20),
@@ -381,7 +358,7 @@ body.theme-light .hero-avatar-img {
     0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* Tag pequena abaixo do avatar */
+/* Tag pequena */
 .hero-tag {
   display: inline-block;
   font-family: 'Space Mono', monospace;
@@ -441,24 +418,6 @@ body.theme-light .hero-status {
   box-shadow: 0 0 22px rgba(0, 168, 150, 0.20);
 }
 
-/* Tagline com Typed.js (substitui o "scroll-cta" antigo) */
-.hero-tagline {
-  margin-top: 4px;
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 500;
-  color: var(--text-muted);
-  text-align: center;
-  letter-spacing: 0.005em;
-}
-.hero-typed {
-  color: var(--cyan-acc);
-  font-weight: 600;
-  text-shadow: 0 0 16px rgba(0, 245, 212, 0.35);
-}
-body.theme-light .hero-typed {
-  color: var(--blue-dark);
-  text-shadow: 0 0 14px rgba(0, 119, 182, 0.20);
-}
 .hero-status-dot {
   position: relative;
   width: 10px;
@@ -569,80 +528,8 @@ body.theme-light .hero-about-card::before {
   margin-bottom: 0;
 }
 
-/* Hero Contact stack removido — agora está na seção Contato antes do footer */
 /* ============================================
-   TAG (PILL) — mantida para outras seções
-   ============================================ */
-.tag {
-  display: inline-block;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1.0rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--blue-glow);
-  background: rgba(0, 180, 216, 0.20);
-  border: 1.5px solid rgba(144, 224, 239, 0.55);
-  padding: 8px 18px;
-  border-radius: 999px;
-  margin-bottom: 18px;
-  box-shadow:
-    0 0 18px rgba(0, 180, 216, 0.20),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-
-
-/* ============================================
-   SCROLL CTA (Primary Gradient Button)
-   ============================================ */
-.scroll-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: linear-gradient(135deg, var(--blue-main), var(--cyan-acc));
-  border: none;
-  color: #04293a;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  padding: 13px 28px;
-  border-radius: 999px;
-  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
-  box-shadow: 0 4px 24px rgba(0, 180, 216, 0.4);
-}
-.scroll-cta svg { width: 16px; height: 16px; transition: transform 0.3s; }
-.scroll-cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(0, 180, 216, 0.55);
-  filter: brightness(1.08);
-}
-.scroll-cta:hover svg { transform: translateY(4px); }
-
-/* Botão "Ver meus projetos" — variante outline consistente */
-.botao-projetos-igual,
-.botao-projetos-igual:hover {
-  background: rgba(255, 255, 255, 0.04) !important;
-  background-image: none !important;
-  color: var(--blue-glow) !important;
-  border: 1px solid rgba(144, 224, 239, 0.38) !important;
-  box-shadow: none !important;
-  min-height: 48px;
-  padding: 13px 28px !important;
-  border-radius: 999px !important;
-  font-weight: 700;
-}
-.botao-projetos-igual:hover {
-  color: #fff !important;
-  background: rgba(0, 180, 216, 0.18) !important;
-  border-color: var(--blue-main) !important;
-  transform: translateY(-3px);
-}
-.botao-projetos-igual svg { width: 16px; height: 16px; }
-
-/* ============================================
-   TOPBAR (Header fixo) — transparente no topo,
-   vira sólido opaco ao rolar a página
+   TOPBAR — transparente no topo, sólido ao rolar
    ============================================ */
 .topbar {
   position: fixed;
@@ -822,13 +709,7 @@ body.theme-light .theme-icon-sun  { display: block; }
 .section-title.visible  { opacity: 1 !important; transform: none !important; }
 
 /* ============================================
-   SOBRE MIM (seção absorvida pelo Hero centralizado)
-   Mantida como referência caso seja reintroduzida.
-   ============================================ */
-
-/* ============================================
    TERMINAL INTERATIVO (macOS-like)
-   Mantém visual escuro independente do tema
    ============================================ */
 .terminal-wrapper {
   margin-top: 4px;
@@ -864,7 +745,6 @@ body.theme-light .terminal-wrapper {
   border-bottom: 1px solid var(--term-border-header);
   transition: background 0.4s ease, border-color 0.4s ease;
 }
-/* Os 3 dots do macOS permanecem estáticos e coloridos em ambos os temas */
 .terminal-dot {
   width: 12px; height: 12px;
   border-radius: 50%;
@@ -912,8 +792,7 @@ body.theme-light .terminal-wrapper {
 .terminal-body .dim    { color: var(--term-dim); }
 .terminal-body .title  { color: var(--term-title); font-weight: 700; }
 
-/* Links no output do terminal (comando `contact`) — usam a variável
-   de tema para se adaptar ao light mode sem hardcode. */
+/* Links no output do terminal */
 .terminal-body a.term-link,
 .terminal-body a.term-link:visited {
   color: var(--term-cyan);
@@ -934,9 +813,7 @@ body.theme-light .terminal-wrapper {
   text-shadow: 0 0 8px rgba(88, 166, 255, 0.5);
   transition: color 0.4s ease, text-shadow 0.4s ease;
 }
-body.theme-light .prompt-symbol {
-  text-shadow: none;
-}
+body.theme-light .prompt-symbol { text-shadow: none; }
 
 .terminal-input-line {
   display: flex;
@@ -966,7 +843,6 @@ body.theme-light .prompt-symbol {
 
 #terminal-input:focus { color: var(--term-text-bright); }
 
-/* Cursor piscando no terminal */
 .terminal-cursor {
   display: inline-block;
   width: 8px;
@@ -1064,9 +940,6 @@ body.theme-light .salon-frame {
 .media-placeholder span { font-size: 3rem; }
 .media-placeholder p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
 .media-placeholder small { color: var(--text-faint); font-family: 'Space Mono', monospace; font-size: 0.72rem; }
-
-body.theme-light .media-placeholder p { color: var(--text-muted); }
-body.theme-light .media-placeholder small { color: var(--text-faint); }
 
 .frame-badge {
   position: absolute;
@@ -1406,7 +1279,6 @@ body.theme-light .financas-frame .frame-badge {
   line-height: 1.65;
 }
 
-/* Ícones que precisam de tratamento especial no tema dark */
 .stack-icon-img.invert { filter: invert(1) hue-rotate(180deg); }
 body.theme-light .stack-icon-img.invert { filter: invert(0) hue-rotate(0deg); }
 
@@ -1503,7 +1375,6 @@ body.theme-light .stack-icon-img.invert { filter: invert(0) hue-rotate(0deg); }
 }
 .reveal.visible { opacity: 1; transform: none; }
 
-/* Stagger para os cards da stack e estudos */
 .stack-item, .estudo-card, .projeto-card {
   opacity: 0;
   transform: translateY(20px);

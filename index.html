@@ -8,63 +8,49 @@
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#eef3f8">
   <title>Marília Mezalheira | Dev Full Stack</title>
 
-  <!-- Canonical URL: evita conteúdo duplicado nos mecanismos de busca
-       quando a página é indexada por variações de URL. -->
+  <!-- Canonical -->
   <link rel="canonical" href="https://mariliamezalheiradev.github.io/mariliamezalheiradev/">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
   <link rel="icon" type="image/svg+xml" href="imagens/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="imagens/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="imagens/apple-touch-icon.png">
 
-  <!-- Open Graph / Social preview -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:url" content="https://mariliamezalheiradev.github.io/mariliamezalheiradev/">
   <meta property="og:title" content="Marília Mezalheira | Dev Full Stack">
-  <meta property="og:description" content="Desenvolvedora Full Stack em formação • Estudante de Análise e Desenvolvimento de Sistemas (UNINOVE) • HTML, CSS, JavaScript, React, Java.">
-  <meta property="og:image" content="https://mariliamezalheiradev.github.io/mariliamezalheiradev/imagens/img.marilia.png">
+  <meta property="og:description" content="Desenvolvedora Full Stack em formação • Estudante de TADS (UNINOVE) • HTML, CSS, JavaScript, React, Java.">
+  <meta property="og:image" content="https://mariliamezalheiradev.github.io/mariliamezalheiradev/imagens/pixel-art-marilia.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Marília Mezalheira — pixel art avatar">
+  <meta property="og:image:alt" content="Marília Mezalheira — avatar pixel art">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Marília Mezalheira | Dev Full Stack">
-  <meta name="twitter:description" content="Desenvolvedora Full Stack em formação • Estudante de TADS na UNINOVE.">
-  <meta name="twitter:image" content="https://mariliamezalheiradev.github.io/mariliamezalheiradev/imagens/img.marilia.png">
+  <meta name="twitter:description" content="Desenvolvedora Full Stack em formação • Estudante de TADS (UNINOVE).">
+  <meta name="twitter:image" content="https://mariliamezalheiradev.github.io/mariliamezalheiradev/imagens/pixel-art-marilia.png">
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Critical CSS inlined para First Contentful Paint (FCP).
-       Apenas variáveis e background/color do body — o resto vem do style.css. -->
-  <style>
-    :root { color-scheme: dark; --bg-page: #0b121f; --text-white: #f5fbff; }
-    body { background: var(--bg-page); color: var(--text-white); margin: 0; }
-  </style>
+  <!-- Critical CSS inlined for FCP -->
+  <style>:root{color-scheme:dark;--bg-page:#0b121f;--text-white:#f5fbff;}body{background:var(--bg-page);color:var(--text-white);margin:0;}</style>
 
-  <!-- Vendor scripts — todos com `defer` (já estavam) e `async` removido
-       para preservar ordem de dependência (ScrollTrigger depende do GSAP). -->
-  <!-- GSAP (animações de scroll) -->
+  <!-- Vendor scripts (defer para não bloquear render) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-
-  <!-- Particles.js (fundo de partículas azul/ciano) -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
-
-  <!-- Typed.js (efeito de digitação no Hero) -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" defer></script>
 
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Fallback visível caso o JavaScript esteja desabilitado -->
+  <!-- Fallback noscript -->
   <noscript>
     <div style="position:fixed;top:0;left:0;right:0;z-index:99999;background:#0b121f;color:#caf0f8;border-bottom:1px solid #00b4d8;padding:12px 16px;font-family:'Space Mono',monospace;font-size:14px;text-align:center;">
       ⚠ JavaScript is required to use the interactive terminal. Please enable JavaScript in your browser for the full experience.
@@ -75,7 +61,7 @@
   <div class="cursor" aria-hidden="true"></div>
   <div class="cursor-follower" aria-hidden="true"></div>
 
-  <!-- Topbar / Header fixo -->
+  <!-- Topbar: nav centralizada + toggles à direita -->
   <header class="topbar" id="topbar">
     <nav class="menu-fixo" aria-label="Navegação principal">
       <a href="#home" data-i18n="nav.home">Início</a>
@@ -84,21 +70,13 @@
       <a href="#stack" data-i18n="nav.stack">Tecnologias</a>
       <a href="#contato" data-i18n="nav.contact">Contato</a>
     </nav>
-
     <div class="topbar-actions">
       <button class="topbar-toggle" id="langToggle" type="button" aria-label="Alternar idioma" title="Português / English">
-        <span class="topbar-toggle-opt is-active" data-lang="pt">PT</span>
-        <span class="topbar-toggle-sep">/</span>
-        <span class="topbar-toggle-opt" data-lang="en">EN</span>
+        <span class="topbar-toggle-opt is-active" data-lang="pt">PT</span><span class="topbar-toggle-sep">/</span><span class="topbar-toggle-opt" data-lang="en">EN</span>
       </button>
       <button class="topbar-toggle topbar-theme" id="themeToggle" type="button" aria-label="Alternar tema" title="Tema claro / escuro">
-        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
-        </svg>
-        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
-        </svg>
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
       </button>
     </div>
   </header>
@@ -124,7 +102,7 @@
           width="220"
           height="220"
           decoding="async"
-          onerror="this.onerror=null;this.src='imagens/img.marilia.png';"
+          onerror="if(!this.hasAttribute('data-retry')){this.setAttribute('data-retry','true');this.src='imagens/img.marilia.png';}else{this.style.display='none';}"
         >
       </div>
 
@@ -142,19 +120,13 @@
         <span data-i18n="hero.status">Aberta a oportunidades</span> <span class="hero-status-divider">/</span> <span data-i18n="hero.statusInternship">Estágio</span>
       </div>
 
-      <!-- Tagline animada com Typed.js. O <span id="typed-tagline">
-           é o alvo onde o Typed.js escreve as strings traduzidas. -->
-      <p class="hero-tagline reveal" style="--delay: 0.40s">
-        <span class="hero-typed" id="typed-tagline"></span>
-      </p>
-
       <!-- About Me (largura completa) + Terminal aninhado -->
       <div class="hero-about-card reveal" style="--delay: 0.42s">
         <div class="hero-card-header">
           <span class="hero-card-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </span>
-          <span class="hero-card-title" data-i18n="hero.aboutTitle">About me</span>
+          <span class="hero-card-title" data-i18n="hero.aboutTitle">Sobre mim</span>
         </div>
 
         <p class="hero-about-text" id="bio-text" data-i18n="hero.bio">
@@ -198,10 +170,7 @@
     <article class="projeto-card reveal" id="mario">
       <div class="projeto-media">
         <div class="media-frame mario-frame">
-          <!-- GIF servido via CDN (jsDelivr) com lazy loading.
-               Fallback local via onerror (caso a CDN esteja offline).
-               TODO: comprimir com gifsicle -O3 --lossy=80 ou converter para WebM/MP4. -->
-          <img src="https://cdn.jsdelivr.net/gh/mariliamezalheiradev/mariliamezalheiradev/imagens/mariocartvideo.gif" alt="Mario Cart Game" class="projeto-img" loading="lazy" onerror="if(!this.hasAttribute('data-retry')){this.setAttribute('data-retry','true');this.src='imagens/mariocartvideo.gif';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">
+          <img src="imagens/mariocartvideo.gif" alt="Mario Cart Game" class="projeto-img" loading="lazy" onerror="if(!this.hasAttribute('data-retry')){this.setAttribute('data-retry','true');this.src='imagens/mariocartvideo.gif';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">
           <div class="media-placeholder">
             <p>Adicione um screenshot do jogo aqui<br><small>mariocart.png</small></p>
           </div>
@@ -213,26 +182,16 @@
         <div class="projeto-num">01</div>
         <span class="status-projeto status-finalizado" data-i18n="projects.mario.status">Projeto de estudo · Pendente de Evolução</span>
         <h3>Mario Cart <em data-i18n="projects.mario.title">Game</em></h3>
-        <p data-i18n="projects.mario.desc">
-          Mini-jogo web inspirado no clássico Mario, desenvolvido com o objetivo de praticar
-          conceitos fundamentais de front-end. O projeto apresenta um personagem animado que
-          deve saltar para desviar de obstáculos, utilizando detecção de colisão, animações em
-          CSS e lógica de game over.
-        </p>
+        <p data-i18n="projects.mario.desc">Mini-jogo web inspirado no clássico Mario, desenvolvido com o objetivo de praticar conceitos fundamentais de front-end. O projeto apresenta um personagem animado que deve saltar para desviar de obstáculos, utilizando detecção de colisão, animações em CSS e lógica de game over.</p>
         <div class="tech-list">
-          <span>HTML5</span>
-          <span>CSS3 Animations</span>
-          <span>JavaScript</span>
-          <span>Game Logic</span>
+          <span>HTML5</span><span>CSS3 Animations</span><span>JavaScript</span><span>Game Logic</span>
         </div>
-
         <div class="feature-list">
           <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.mario.f1">Animações de pulo com keyframes CSS</span></div>
           <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.mario.f2">Detecção de colisão em tempo real</span></div>
           <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.mario.f3">Obstáculos com velocidade dinâmica</span></div>
           <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.mario.f4">Tela de Game Over com sprite</span></div>
         </div>
-
         <div class="projeto-actions">
           <a href="https://mariliamezalheiradev.github.io/mario-cart-game/" target="_blank" rel="noopener noreferrer" class="projeto-link">
             <span data-i18n="projects.btnView">Ver projeto online</span>
@@ -249,10 +208,7 @@
     <article class="projeto-card reveal" id="salon">
       <div class="projeto-media">
         <div class="media-frame salon-frame">
-          <!-- GIF FlowSalon (~16 MB) servido via jsDelivr CDN com lazy loading
-               para não bloquear a renderização inicial da homepage.
-               Fallback local mantido via onerror. -->
-          <img src="https://cdn.jsdelivr.net/gh/mariliamezalheiradev/mariliamezalheiradev/imagens/flowsalonvideo.gif" alt="FlowSalon Dashboard" class="projeto-img" loading="lazy" onerror="if(!this.hasAttribute('data-retry')){this.setAttribute('data-retry','true');this.src='imagens/flowsalonvideo.gif';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">
+          <img src="imagens/flowsalonvideo.gif" alt="FlowSalon Dashboard" class="projeto-img" loading="lazy" onerror="if(!this.hasAttribute('data-retry')){this.setAttribute('data-retry','true');this.src='imagens/flowsalonvideo.gif';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">
           <div class="media-placeholder">
             <p>Adicione um screenshot do dashboard aqui<br><small>flowsalon.png</small></p>
           </div>
@@ -264,28 +220,16 @@
         <div class="projeto-num">02</div>
         <span class="status-projeto status-evolucao" data-i18n="projects.salon.status">Projeto acadêmico · Finalizado</span>
         <h3>Flow<em data-i18n="projects.salon.title">Salon</em></h3>
-        <p data-i18n="projects.salon.desc">
-          Plataforma de gestão completa para salões de beleza e barbearias. O sistema inclui
-          agendamento online para clientes, painel administrativo com controle de agenda,
-          gestão de clientes, catálogo de serviços e equipe de profissionais, tudo com uma
-          interface dark moderna e fluida.
-        </p>
-
+        <p data-i18n="projects.salon.desc">Plataforma de gestão completa para salões de beleza e barbearias. O sistema inclui agendamento online para clientes, painel administrativo com controle de agenda, gestão de clientes, catálogo de serviços e equipe de profissionais, tudo com uma interface dark moderna e fluida.</p>
         <div class="tech-list">
-          <span>HTML5</span>
-          <span>CSS3</span>
-          <span>JavaScript</span>
-          <span>LocalStorage</span>
-          <span>API ViaCEP</span>
+          <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>LocalStorage</span><span>API ViaCEP</span>
         </div>
-
         <div class="feature-list">
           <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.salon.f1">Agendamento online com validação de formulário</span></div>
           <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.salon.f2">Dashboard administrativo completo</span></div>
           <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.salon.f3">Gestão de clientes, serviços e profissionais</span></div>
           <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.salon.f4">Design responsivo com tema dark moderno</span></div>
         </div>
-
         <div class="projeto-actions">
           <a href="https://mariliamezalheiradev.github.io/projeto-faculdade/" target="_blank" rel="noopener noreferrer" class="projeto-link">
             <span data-i18n="projects.btnView">Ver projeto online</span>
@@ -302,9 +246,7 @@
     <article class="projeto-card reveal" id="financas">
       <div class="projeto-media">
         <div class="media-frame financas-frame">
-          <!-- GIF Finanças Pessoais (~4 MB) servido via jsDelivr CDN com lazy loading.
-               Fallback local mantido via onerror. -->
-          <img src="https://cdn.jsdelivr.net/gh/mariliamezalheiradev/mariliamezalheiradev/imagens/projetofinancas.gif" alt="Demonstração do projeto Finanças Pessoais com Firebase" class="projeto-img financas-gif" loading="lazy" onerror="if(!this.hasAttribute('data-retry')){this.setAttribute('data-retry','true');this.src='imagens/projetofinancas.gif';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">
+          <img src="imagens/projetofinancas.gif" alt="Demonstração do projeto Finanças Pessoais com Firebase" class="projeto-img financas-gif" loading="lazy" onerror="if(!this.hasAttribute('data-retry')){this.setAttribute('data-retry','true');this.src='imagens/projetofinancas.gif';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">
           <div class="media-placeholder">
             <p>Adicione um screenshot do dashboard financeiro aqui<br><small>telainicialfinancas.png</small></p>
           </div>
@@ -316,29 +258,16 @@
         <div class="projeto-num">03</div>
         <span class="status-projeto status-finalizado" data-i18n="projects.financas.status">Projeto pessoal · Finalizado</span>
         <h3>Finanças <em data-i18n="projects.financas.title">Pessoais</em></h3>
-        <p data-i18n="projects.financas.desc">
-          Sistema web desenvolvido para controle financeiro pessoal, integrado ao Firebase,
-          com login e cadastro por e-mail e senha, salvamento online de dados, dashboard mensal,
-          páginas separadas por área, cadastro de transações, contas a pagar, total em aberto,
-          alertas automáticos de vencimento e alarme visual/sonoro dentro do próprio site.
-        </p>
-
+        <p data-i18n="projects.financas.desc">Sistema web desenvolvido para controle financeiro pessoal, integrado ao Firebase, com login e cadastro por e-mail e senha, salvamento online de dados, dashboard mensal, páginas separadas por área, cadastro de transações, contas a pagar, total em aberto, alertas automáticos de vencimento e alarme visual/sonoro dentro do próprio site.</p>
         <div class="tech-list">
-          <span>HTML5</span>
-          <span>CSS3</span>
-          <span>JavaScript</span>
-          <span>Firebase Auth</span>
-          <span>Cloud Firestore</span>
-          <span>Responsividade</span>
+          <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Firebase Auth</span><span>Cloud Firestore</span><span>Responsivo</span>
         </div>
-
         <div class="feature-list">
           <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.financas.f1">Login e cadastro com autenticação pelo Firebase</span></div>
           <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.financas.f2">Dados salvos online para acessar pelo celular, PC ou notebook</span></div>
           <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.financas.f3">Dashboard mensal com entradas, saídas, saldo e total em aberto</span></div>
           <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.financas.f4">Cadastro de transações, contas a pagar, alertas e alarme automático</span></div>
         </div>
-
         <div class="projeto-actions">
           <a href="https://mariliamezalheiradev.github.io/financas-pessoais/" target="_blank" rel="noopener noreferrer" class="projeto-link">
             <span data-i18n="projects.btnView">Ver projeto online</span>
@@ -359,112 +288,41 @@
     <h2 class="section-title"><span data-i18n="studies.titleA">Estudando</span> <em data-i18n="studies.titleB">agora</em></h2>
 
     <div class="estudos-grid">
-      <div class="estudo-card">
-        <span class="estudo-num">01</span>
-        <h3 data-i18n="studies.s1.title">Java &amp; Python</h3>
-        <p data-i18n="studies.s1.desc">Fundamentos de orientação a objetos e lógica de programação back-end com Java e Python.</p>
-      </div>
-
-      <div class="estudo-card">
-        <span class="estudo-num">02</span>
-        <h3 data-i18n="studies.s2.title">JavaScript &amp; TypeScript</h3>
-        <p data-i18n="studies.s2.desc">Manipulação do DOM, lógica avançada e tipagem estática para projetos robustos.</p>
-      </div>
-
-      <div class="estudo-card">
-        <span class="estudo-num">03</span>
-        <h3 data-i18n="studies.s3.title">React &amp; Next.js</h3>
-        <p data-i18n="studies.s3.desc">Criação de SPAs modernas, componentes reutilizáveis, SSR e roteamento avançado.</p>
-      </div>
-
-      <div class="estudo-card">
-        <span class="estudo-num">04</span>
-        <h3 data-i18n="studies.s4.title">Tailwind CSS</h3>
-        <p data-i18n="studies.s4.desc">Estilização rápida e utilitária, layouts responsivos e design system moderno.</p>
-      </div>
+      <div class="estudo-card"><span class="estudo-num">01</span><h3 data-i18n="studies.s1.title">Java &amp; Python</h3><p data-i18n="studies.s1.desc">Fundamentos de orientação a objetos e lógica de programação back-end com Java e Python.</p></div>
+      <div class="estudo-card"><span class="estudo-num">02</span><h3 data-i18n="studies.s2.title">JavaScript &amp; TypeScript</h3><p data-i18n="studies.s2.desc">Manipulação do DOM, lógica avançada e tipagem estática para projetos robustos.</p></div>
+      <div class="estudo-card"><span class="estudo-num">03</span><h3 data-i18n="studies.s3.title">React &amp; Next.js</h3><p data-i18n="studies.s3.desc">Criação de SPAs modernas, componentes reutilizáveis, SSR e roteamento avançado.</p></div>
+      <div class="estudo-card"><span class="estudo-num">04</span><h3 data-i18n="studies.s4.title">Tailwind CSS</h3><p data-i18n="studies.s4.desc">Estilização rápida e utilitária, layouts responsivos e design system moderno.</p></div>
     </div>
   </section>
 
-  <!-- STACK / TECNOLOGIAS -->
+  <!-- STACK -->
   <section class="stack" id="stack">
     <div class="section-label" data-i18n="stack.label">TECNOLOGIAS</div>
     <h2 class="section-title"><span data-i18n="stack.titleA">Tecnologias e</span> <em data-i18n="stack.titleB">Ferramentas</em></h2>
 
     <div class="stack-grid reveal">
-      <div class="stack-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="stack-icon-img" loading="lazy">
-        <span class="stack-nome">HTML5</span>
-        <p class="stack-desc">Estruturação semântica de páginas e interfaces web modernas.</p>
-      </div>
-      <div class="stack-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="stack-icon-img" loading="lazy">
-        <span class="stack-nome">CSS3</span>
-        <p class="stack-desc">Estilização, animações, responsividade e layouts com Flexbox e Grid.</p>
-      </div>
-      <div class="stack-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="stack-icon-img" loading="lazy">
-        <span class="stack-nome">JavaScript</span>
-        <p class="stack-desc">Lógica de programação, manipulação do DOM e interatividade.</p>
-      </div>
-      <div class="stack-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="stack-icon-img" loading="lazy">
-        <span class="stack-nome">TypeScript</span>
-        <p class="stack-desc">Superset tipado do JavaScript para aplicações escaláveis.</p>
-      </div>
-      <div class="stack-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="stack-icon-img" loading="lazy">
-        <span class="stack-nome">React</span>
-        <p class="stack-desc">Biblioteca para construção de interfaces de usuário reativas.</p>
-      </div>
-      <div class="stack-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="stack-icon-img" loading="lazy">
-        <span class="stack-nome">Next.js</span>
-        <p class="stack-desc">Framework React com SSR, SSG e roteamento para produção.</p>
-      </div>
-      <div class="stack-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="stack-icon-img" loading="lazy">
-        <span class="stack-nome">Tailwind CSS</span>
-        <p class="stack-desc">Framework CSS utilitário para designs rápidos e responsivos.</p>
-      </div>
-      <div class="stack-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="stack-icon-img" loading="lazy">
-        <span class="stack-nome">Python</span>
-        <p class="stack-desc">Linguagem versátil para back-end, automação e ciência de dados.</p>
-      </div>
-      <div class="stack-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="stack-icon-img" loading="lazy">
-        <span class="stack-nome">Java</span>
-        <p class="stack-desc">Desenvolvimento back-end em formação, orientação a objetos.</p>
-      </div>
-      <div class="stack-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="stack-icon-img invert" loading="lazy">
-        <span class="stack-nome">Git &amp; GitHub</span>
-        <p class="stack-desc">Versionamento de código e colaboração em repositórios.</p>
-      </div>
-      <div class="stack-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" class="stack-icon-img" loading="lazy">
-        <span class="stack-nome">VS Code</span>
-        <p class="stack-desc">Editor principal para desenvolvimento front-end e organização.</p>
-      </div>
-      <div class="stack-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" alt="IntelliJ IDEA" class="stack-icon-img" loading="lazy">
-        <span class="stack-nome">IntelliJ IDEA</span>
-        <p class="stack-desc">IDE utilizada para estudos e desenvolvimento em Java.</p>
-      </div>
+      <div class="stack-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="stack-icon-img" loading="lazy"><span class="stack-nome">HTML5</span><p class="stack-desc">Estruturação semântica de páginas e interfaces web modernas.</p></div>
+      <div class="stack-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="stack-icon-img" loading="lazy"><span class="stack-nome">CSS3</span><p class="stack-desc">Estilização, animações, responsividade e layouts com Flexbox e Grid.</p></div>
+      <div class="stack-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="stack-icon-img" loading="lazy"><span class="stack-nome">JavaScript</span><p class="stack-desc">Lógica de programação, manipulação do DOM e interatividade.</p></div>
+      <div class="stack-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="stack-icon-img" loading="lazy"><span class="stack-nome">TypeScript</span><p class="stack-desc">Superset tipado do JavaScript para aplicações escaláveis.</p></div>
+      <div class="stack-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="stack-icon-img" loading="lazy"><span class="stack-nome">React</span><p class="stack-desc">Biblioteca para construção de interfaces de usuário reativas.</p></div>
+      <div class="stack-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="stack-icon-img" loading="lazy"><span class="stack-nome">Next.js</span><p class="stack-desc">Framework React com SSR, SSG e roteamento para produção.</p></div>
+      <div class="stack-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="stack-icon-img" loading="lazy"><span class="stack-nome">Tailwind CSS</span><p class="stack-desc">Framework CSS utilitário para designs rápidos e responsivos.</p></div>
+      <div class="stack-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="stack-icon-img" loading="lazy"><span class="stack-nome">Python</span><p class="stack-desc">Linguagem versátil para back-end, automação e ciência de dados.</p></div>
+      <div class="stack-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="stack-icon-img" loading="lazy"><span class="stack-nome">Java</span><p class="stack-desc">Desenvolvimento back-end em formação, orientação a objetos.</p></div>
+      <div class="stack-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="stack-icon-img invert" loading="lazy"><span class="stack-nome">Git &amp; GitHub</span><p class="stack-desc">Versionamento de código e colaboração em repositórios.</p></div>
+      <div class="stack-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" class="stack-icon-img" loading="lazy"><span class="stack-nome">VS Code</span><p class="stack-desc">Editor principal para desenvolvimento front-end e organização.</p></div>
+      <div class="stack-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" alt="IntelliJ IDEA" class="stack-icon-img" loading="lazy"><span class="stack-nome">IntelliJ IDEA</span><p class="stack-desc">IDE utilizada para estudos e desenvolvimento em Java.</p></div>
     </div>
   </section>
 
-  <!-- CONTATO (movido para logo antes do footer) -->
+  <!-- CONTATO -->
   <section class="contato reveal" id="contato">
     <div class="section-label" data-i18n="contact.label">CONTATO</div>
     <h2 class="section-title"><span data-i18n="contact.titleA">Vamos</span> <em data-i18n="contact.titleB">conversar?</em></h2>
 
     <div class="contato-card">
-      <p class="contato-texto" data-i18n="contact.text">
-        Estou aberta a oportunidades de estágio, conexões na área de tecnologia, projetos e
-        novos aprendizados. Se quiser conversar comigo, escolha uma das opções abaixo.
-      </p>
-
+      <p class="contato-texto" data-i18n="contact.text">Estou aberta a oportunidades de estágio, conexões na área de tecnologia, projetos e novos aprendizados. Se quiser conversar comigo, escolha uma das opções abaixo.</p>
       <div class="contato-actions">
         <a href="mailto:mariliagpedrosa@outlook.com" class="link-btn" data-i18n="contact.email">Enviar e-mail</a>
         <a href="https://www.linkedin.com/in/mar%C3%ADlia-mezalheira/" target="_blank" rel="noopener noreferrer" class="link-btn">LinkedIn</a>

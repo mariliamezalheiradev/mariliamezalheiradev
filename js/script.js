@@ -1,796 +1,898 @@
-/* ============================================
-   MARÍLIA MEZALHEIRA | DEV FULL STACK
-   Script principal - Blue & Cyan Theme
-   Recursos: Cursor | Particles.js | GSAP |
-             Typed.js | Terminal Interativo |
-             Smooth Scroll | Reveal Observer |
-             Topbar Scroll | i18n PT/EN |
-             Theme Toggle Dark/Light
-   ============================================ */
+/* =============================================
+   MARÍLIA MEZALHEIRA — Portfolio script.js
+   Refatorado: blue/cyan theme + PT/EN toggle
+   ============================================= */
 
 (function () {
   'use strict';
 
-  /* ============================================
-     HELPERS GLOBAIS
-     ============================================ */
-  // Helper de escape usado por applyLang() e pelos handlers do terminal.
-  // Declarado no topo do IIFE para evitar problemas de TDZ/Temporal Dead Zone.
-  const escapeHTML = (str) =>
-    String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
-  /* ============================================
-     DICIONÁRIO DE TRADUÇÃO (PT / EN)
-     ============================================ */
-  const TRANSLATIONS = {
-    pt: {
-      meta: {
-        description: 'Marília Mezalheira | Desenvolvedora Full Stack em formação, apaixonada por criar experiências digitais modernas.'
-      },
-      nav: {
-        home: 'Início',
-        projects: 'Projetos',
-        studies: 'Estudos',
-        stack: 'Tecnologias',
-        contact: 'Contato'
-      },
-      hero: {
-        tag: 'DESENVOLVEDORA FULL STACK',
-        lastname: 'Mezalheira',
-        status: 'Aberta a oportunidades',
-        statusInternship: 'Estágio',
-        aboutTitle: 'Sobre mim',
-        bio: 'Sou Marília Mezalheira, estudante de Análise e Desenvolvimento de Sistemas na UNINOVE, em transição de carreira do suporte técnico para o Desenvolvimento Full Stack. Busco unir minha experiência com usuários à criação de interfaces funcionais e bem projetadas.'
-      },
-      terminal: {
-        title: '~/marilia-mezalheira — terminal: digite "help"',
-        placeholder: 'clique aqui e pressione Enter para executar um comando',
-        banner: '● Terminal pronto. Digite help para começar.',
-        prompt: 'terminal pronto. digite',
-        promptAction: 'para começar.',
-        available: '[ comandos disponíveis ]',
-        login: 'Último login: sex jun 27 14:32:01 on ttys000',
-        commands: {
-          helpHeader: '[ comandos disponíveis ]',
-          helpHelp: 'help → mostra essa lista',
-          helpAbout: 'about → quem sou eu',
-          helpSkills: 'skills → minhas habilidades',
-          helpStatus: 'status → onde está meu foco',
-          helpContact: 'contact → como me achar',
-          helpClear: 'clear → limpa o terminal'
-        },
-        about: {
-          line1: 'Marília Mezalheira — Dev Full Stack',
-          line1Dim: '— Dev Full Stack',
-          bio1: 'Trabalhei por quase 2 anos em suporte técnico e atendimento e foi justamente lá que percebi o que realmente queria fazer: estar do outro lado, construindo os sistemas que as pessoas usam.',
-          bio2: 'Hoje estou em transição para Desenvolvimento Frontend. Curso TADS (Análise e Desenvolvimento de Sistemas) na UNINOVE, e estou desenvolvendo habilidades em HTML, CSS, JavaScript e Java, aplicando em projetos práticos enquanto avanço na graduação.',
-          bio3: 'Na Stefanini Group, passei 1 ano e 8 meses prestando suporte a uma plataforma de bolsa de valores (AGF), resolvendo bugs, acompanhando chamados e trabalhando com sistemas integrados via WhatsApp. Depois, atuei como Analista de Processos em contexto jurídico monitorando informações em sistemas como ADA e Intranet, exigindo atenção a detalhes e organização que levo direto para o código.',
-          bio4: 'O que me diferencia: não sou só quem escreve código. Sou quem já esteve no lado do usuário, sabe o que frustra e o que encanta e quer resolver isso com tecnologia.'
-        },
-        skills: {
-          header: '[ skills completas ]',
-          langs: '▸ Linguagens & Ferramentas:',
-          langsList: '   HTML5, CSS3, JavaScript, TypeScript, React, Next.js, Tailwind CSS, Java, Python, Git, GitHub, VS Code, IntelliJ IDEA, Intermediate English',
-          frameworks: '▸ Frameworks & Bibliotecas:',
-          frameworksList: '   React, Next.js, Tailwind CSS',
-          tools: '▸ Ferramentas:',
-          toolsList: '   Git, GitHub, VS Code, IntelliJ IDEA',
-          total: 'Total: 14 habilidades ativas no stack (incluindo Inglês Intermediário).'
-        },
-        status: {
-          text: 'Meu foco está em construir habilidades sólidas que impulsionem meu crescimento profissional e pessoal. Busco não apenas aprender, mas também conectar-me com pessoas que compartilham da mesma paixão por tecnologia e inovação. Acredito que as melhores oportunidades surgem quando nos cercamos de pessoas inspiradoras que nos desafiam a ser melhores.'
-        },
-        contact: {
-          emailLabel: '▸ E-mail:',
-          linkedinLabel: '▸ LinkedIn:',
-          githubLabel: '▸ GitHub:'
-        },
-        notFound: 'comando não encontrado:',
-        notFoundHint: 'Digite help para ver os comandos.'
-      },
-      typed: {
-        strings: [
-          'experiências visuais incríveis.',
-          'código limpo e moderno.',
-          'interfaces fluidas e acessíveis.',
-          'soluções full stack de ponta a ponta.'
-        ]
-      },
-      projects: {
-        label: 'PORTFÓLIO',
-        titleA: 'Projetos que',
-        titleB: 'construí',
-        btnView: 'Ver projeto online',
-        btnGithub: 'Ver no GitHub',
-        mario: {
-          status: 'Projeto de estudo · Pendente de Evolução',
-          title: 'Game',
-          desc: 'Mini-jogo web inspirado no clássico Mario, desenvolvido com o objetivo de praticar conceitos fundamentais de front-end. O projeto apresenta um personagem animado que deve saltar para desviar de obstáculos, utilizando detecção de colisão, animações em CSS e lógica de game over.',
-          f1: 'Animações de pulo com keyframes CSS',
-          f2: 'Detecção de colisão em tempo real',
-          f3: 'Obstáculos com velocidade dinâmica',
-          f4: 'Tela de Game Over com sprite'
-        },
-        salon: {
-          status: 'Projeto acadêmico · Finalizado',
-          title: 'Salon',
-          desc: 'Plataforma de gestão completa para salões de beleza e barbearias. O sistema inclui agendamento online para clientes, painel administrativo com controle de agenda, gestão de clientes, catálogo de serviços e equipe de profissionais, tudo com uma interface dark moderna e fluida.',
-          f1: 'Agendamento online com validação de formulário',
-          f2: 'Dashboard administrativo completo',
-          f3: 'Gestão de clientes, serviços e profissionais',
-          f4: 'Design responsivo com tema dark moderno'
-        },
-        financas: {
-          status: 'Projeto pessoal · Finalizado',
-          title: 'Pessoais',
-          desc: 'Sistema web desenvolvido para controle financeiro pessoal, integrado ao Firebase, com login e cadastro por e-mail e senha, salvamento online de dados, dashboard mensal, páginas separadas por área, cadastro de transações, contas a pagar, total em aberto, alertas automáticos de vencimento e alarme visual/sonoro dentro do próprio site.',
-          f1: 'Login e cadastro com autenticação pelo Firebase',
-          f2: 'Dados salvos online para acessar pelo celular, PC ou notebook',
-          f3: 'Dashboard mensal com entradas, saídas, saldo e total em aberto',
-          f4: 'Cadastro de transações, contas a pagar, alertas e alarme automático'
-        }
-      },
-      studies: {
-        label: 'EM APRENDIZADO',
-        titleA: 'Estudando',
-        titleB: 'agora',
-        s1: { title: 'Java & Python',  desc: 'Fundamentos de orientação a objetos e lógica de programação back-end com Java e Python.' },
-        s2: { title: 'JavaScript & TypeScript', desc: 'Manipulação do DOM, lógica avançada e tipagem estática para projetos robustos.' },
-        s3: { title: 'React & Next.js', desc: 'Criação de SPAs modernas, componentes reutilizáveis, SSR e roteamento avançado.' },
-        s4: { title: 'Tailwind CSS',   desc: 'Estilização rápida e utilitária, layouts responsivos e design system moderno.' }
-      },
-      stack: {
-        label: 'TECNOLOGIAS',
-        titleA: 'Tecnologias e',
-        titleB: 'Ferramentas'
-      },
-      contact: {
-        label: 'CONTATO',
-        titleA: 'Vamos',
-        titleB: 'conversar?',
-        text: 'Estou aberta a oportunidades de estágio, conexões na área de tecnologia, projetos e novos aprendizados. Se quiser conversar comigo, escolha uma das opções abaixo.',
-        email: 'Enviar e-mail'
-      },
-      footer: {
-        made: 'Feito com 💙 por',
-        copy: '© 2026 · Todos os direitos reservados'
-      }
-    },
-
-    en: {
-      meta: {
-        description: 'Marília Mezalheira | Full Stack Developer in training, passionate about creating modern digital experiences.'
-      },
-      nav: {
-        home: 'Home',
-        projects: 'Projects',
-        studies: 'Studies',
-        stack: 'Technologies',
-        contact: 'Contact'
-      },
-      hero: {
-        tag: 'FULL STACK DEVELOPER',
-        lastname: 'Mezalheira',
-        status: 'Open to opportunities',
-        statusInternship: 'Internship',
-        aboutTitle: 'About me',
-        bio: 'I am Marília Mezalheira, a Systems Analysis and Development student at UNINOVE, transitioning my career from technical support to Full Stack Development. I aim to combine my user-facing experience with the creation of functional and well-designed interfaces.'
-      },
-      terminal: {
-        title: '~/marilia-mezalheira — terminal: type "help"',
-        placeholder: 'click here and press Enter to run a command',
-        banner: '● Terminal ready. Type help to start.',
-        prompt: 'terminal ready. type',
-        promptAction: 'to start.',
-        available: '[ available commands ]',
-        login: 'Last login: Fri Jun 27 14:32:01 on ttys000',
-        commands: {
-          helpHeader: '[ available commands ]',
-          helpHelp: 'help → shows this list',
-          helpAbout: 'about → who I am',
-          helpSkills: 'skills → my abilities',
-          helpStatus: 'status → where my focus is',
-          helpContact: 'contact → how to reach me',
-          helpClear: 'clear → clears the terminal'
-        },
-        about: {
-          line1: 'Marília Mezalheira',
-          line1Dim: '— Full Stack Developer',
-          bio1: 'I worked for nearly two years in technical support and customer service, and that is exactly where I realized what I truly wanted to do: be on the other side, building the systems that people use.',
-          bio2: 'I am currently transitioning into Frontend Development. I am studying Systems Analysis and Development (TADS) at UNINOVE, building skills in HTML, CSS, JavaScript and Java, and applying them in hands-on projects while I advance through my degree.',
-          bio3: 'At Stefanini Group, I spent 1 year and 8 months supporting a stock trading platform (AGF), fixing bugs, tracking tickets and working with systems integrated via WhatsApp. After that, I worked as a Process Analyst in a legal context, monitoring information in systems like ADA and Intranet — which demands attention to detail and organization that I bring straight into my code.',
-          bio4: 'What sets me apart: I am not only someone who writes code. I have been on the user side, I know what frustrates and what delights — and I want to solve that with technology.'
-        },
-        skills: {
-          header: '[ full skills ]',
-          langs: '▸ Languages & Tools:',
-          langsList: '   HTML5, CSS3, JavaScript, TypeScript, React, Next.js, Tailwind CSS, Java, Python, Git, GitHub, VS Code, IntelliJ IDEA, Intermediate English',
-          frameworks: '▸ Frameworks & Libraries:',
-          frameworksList: '   React, Next.js, Tailwind CSS',
-          tools: '▸ Tools:',
-          toolsList: '   Git, GitHub, VS Code, IntelliJ IDEA',
-          total: 'Total: 14 active skills in the stack (including Intermediate English).'
-        },
-        status: {
-          text: 'My focus is on building solid skills that drive my professional and personal growth. I seek not only to learn but also to connect with people who share the same passion for technology and innovation. I believe that the best opportunities arise when we surround ourselves with inspiring people who challenge us to be better.'
-        },
-        contact: {
-          emailLabel: '▸ Email:',
-          linkedinLabel: '▸ LinkedIn:',
-          githubLabel: '▸ GitHub:'
-        },
-        notFound: 'command not found:',
-        notFoundHint: 'Type help to see the commands.'
-      },
-      typed: {
-        strings: [
-          'incredible visual experiences.',
-          'clean and modern code.',
-          'fluid and accessible interfaces.',
-          'end-to-end full stack solutions.'
-        ]
-      },
-      projects: {
-        label: 'PORTFOLIO',
-        titleA: 'Projects I',
-        titleB: 'built',
-        btnView: 'View project online',
-        btnGithub: 'View on GitHub',
-        mario: {
-          status: 'Study project · Pending evolution',
-          title: 'Game',
-          desc: 'A web mini-game inspired by the classic Mario, developed with the goal of practicing core front-end concepts. The project features an animated character that must jump to avoid obstacles, using collision detection, CSS animations and game over logic.',
-          f1: 'Jump animations with CSS keyframes',
-          f2: 'Real-time collision detection',
-          f3: 'Obstacles with dynamic speed',
-          f4: 'Game Over screen with sprite'
-        },
-        salon: {
-          status: 'Academic project · Finished',
-          title: 'Salon',
-          desc: 'A complete management platform for beauty salons and barbershops. The system includes online scheduling for clients, an administrative dashboard with schedule control, client management, service catalog and professional team — all wrapped in a modern and fluid dark interface.',
-          f1: 'Online scheduling with form validation',
-          f2: 'Complete administrative dashboard',
-          f3: 'Clients, services and staff management',
-          f4: 'Responsive design with modern dark theme'
-        },
-        financas: {
-          status: 'Personal project · Finished',
-          title: 'Personal',
-          desc: 'A web system built for personal finance control, integrated with Firebase, with email/password login and sign-up, online data saving, monthly dashboard, area-separated pages, transaction registry, bills to pay, total outstanding, automatic due-date alerts and visual/audible alarm right inside the site.',
-          f1: 'Login and sign-up with Firebase authentication',
-          f2: 'Data saved online to access from phone, PC or notebook',
-          f3: 'Monthly dashboard with income, expenses, balance and total outstanding',
-          f4: 'Transactions, bills to pay, alerts and automatic alarm'
-        }
-      },
-      studies: {
-        label: 'CURRENTLY LEARNING',
-        titleA: 'Studying',
-        titleB: 'right now',
-        s1: { title: 'Java & Python',  desc: 'Object-oriented fundamentals and back-end programming logic with Java and Python.' },
-        s2: { title: 'JavaScript & TypeScript', desc: 'DOM manipulation, advanced logic and static typing for robust projects.' },
-        s3: { title: 'React & Next.js', desc: 'Modern SPAs, reusable components, SSR and advanced routing.' },
-        s4: { title: 'Tailwind CSS',   desc: 'Fast utility-first styling, responsive layouts and modern design system.' }
-      },
-      stack: {
-        label: 'TECHNOLOGIES',
-        titleA: 'Technologies and',
-        titleB: 'Tools'
-      },
-      contact: {
-        label: 'CONTACT',
-        titleA: "Let's",
-        titleB: 'talk?',
-        text: 'I am open to internship opportunities, connections in the tech field, projects and new learning. If you want to talk to me, pick one of the options below.',
-        email: 'Send email'
-      },
-      footer: {
-        made: 'Made with 💙 by',
-        copy: '© 2026 · All rights reserved'
-      }
-    }
-  };
-
-  /* ============================================
-     ESTADO ATUAL (idioma + tema)
-     ============================================ */
-  const STORAGE_KEY_LANG  = 'mm_lang';
-  const STORAGE_KEY_THEME = 'mm_theme';
-
-  function detectInitialLang() {
-    const saved = localStorage.getItem(STORAGE_KEY_LANG);
-    if (saved === 'pt' || saved === 'en') return saved;
-    const nav = (navigator.language || 'pt-BR').toLowerCase();
-    return nav.startsWith('pt') ? 'pt' : 'en';
+  /* ========================
+     HELPER: Escape HTML
+     ======================== */
+  function escapeHTML(str) {
+    if (str === undefined || str === null) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
   }
+
+  /* ========================
+     STORAGE KEYS
+     ======================== */
+  const STORAGE_KEY_LANG  = 'portfolio_lang';
+  const STORAGE_KEY_THEME = 'portfolio_theme';
+
+  /* ========================
+     INITIAL DETECTION
+     ======================== */
+  function detectInitialLang() {
+    const stored = localStorage.getItem(STORAGE_KEY_LANG);
+    if (stored === 'pt' || stored === 'en') return stored;
+    const navLang = (navigator.language || 'pt').toLowerCase();
+    return navLang.startsWith('pt') ? 'pt' : 'en';
+  }
+
   function detectInitialTheme() {
-    const saved = localStorage.getItem(STORAGE_KEY_THEME);
-    if (saved === 'dark' || saved === 'light') return saved;
+    const stored = localStorage.getItem(STORAGE_KEY_THEME);
+    if (stored === 'light' || stored === 'dark') return stored;
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
     return 'dark';
   }
 
-  let currentLang  = detectInitialLang();
+  /* ========================
+     I18N DICTIONARY
+     ======================== */
+  const TRANSLATIONS = {
+    pt: {
+      htmlLang: 'pt-BR',
+      meta: {
+        description: 'Desenvolvedora Full Stack em formação, focada em criar interfaces modernas, responsivas e funcionais.',
+      },
+      nav: {
+        inicio:    'Início',
+        projetos:  'Projetos',
+        estudos:   'Estudos',
+        tecnologias: 'Tecnologias',
+        contato:   'Contato',
+      },
+      topbar: {
+        langAria: 'Selecionar idioma',
+        themeAria: 'Alternar tema claro/escuro',
+        themeTitle: 'Alternar tema',
+      },
+      hero: {
+        tag:     '> Desenvolvedora Full Stack',
+        name:    'Marília <em>Mezalheira</em>',
+        status:  'Disponível para novos projetos',
+        statusSep: ' • ',
+        typed:   [
+          'Full Stack em formação',
+          'Front-end com React & Next.js',
+          'Back-end com Java & Python',
+          'Interfaces modernas e responsivas',
+          'Aprendizado contínuo 💙',
+        ],
+        aboutCard: {
+          title:  'Sobre Mim',
+          paragraph: [
+            'Iniciei minha jornada na área de desenvolvimento criando projetos com foco em interfaces modernas, responsivas e funcionais. Antes da programação, trabalhei com suporte técnico, atendimento ao usuário, análise de processos e resolução de bugs — uma base que me ajuda a pensar em soluções também pela perspectiva de quem usa o sistema.',
+            'Atualmente curso Análise e Desenvolvimento de Sistemas na UNINOVE e sigo construindo projetos práticos para evoluir no ecossistema Full Stack, do front-end com React ao back-end com Java e Python.',
+            'Para conhecer melhor meus projetos e minha trajetória, acesse meu portfólio completo abaixo 👇',
+          ],
+          portfolioBtn: 'Ver portfólio completo',
+        },
+        terminal: {
+          placeholder: 'digite "help" para ver os comandos',
+        },
+      },
+      terminal: {
+        placeholder: 'digite "help" para ver os comandos',
+        promptPrefix: 'marilia@portfolio',
+        promptCwd:    '~',
+        notFound:     function (cmd) { return 'Comando não reconhecido: <span class="yellow">'+ escapeHTML(cmd) +'</span>. Digite <span class="cyan">help</span> para ver os comandos disponíveis.'; },
+        help: [
+          '<span class="cyan">help</span>     → mostra esta ajuda',
+          '<span class="cyan">about</span>    → conheça um pouco sobre mim',
+          '<span class="cyan">skills</span>   → linguagens, frameworks e ferramentas',
+          '<span class="cyan">status</span>   → minha disponibilidade atual',
+          '<span class="cyan">contact</span>  → formas de entrar em contato',
+          '<span class="cyan">clear</span>    → limpa o terminal',
+        ].join('\n'),
+        about: {
+          title:  '> Marília Mezalheira',
+          lines: [
+            '<span class="cyan">Estudante</span> de Análise e Desenvolvimento de Sistemas (UNINOVE)',
+            '<span class="cyan">Foco</span>     em desenvolvimento Full Stack com ênfase em UI/UX',
+            '<span class="cyan">Stack</span>    HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind',
+            '<span class="cyan">Back-end</span> Java, Python',
+            '<span class="cyan">Soft skills</span> Suporte técnico, análise de processos e resolução de bugs',
+            '',
+            '<span class="dim">> "Código que resolve problemas reais começa por entender pessoas."</span>',
+          ].join('\n'),
+        },
+        skills: {
+          title: '> Stack & Ferramentas',
+          lines: [
+            '<span class="cyan">Linguagens:</span>    JavaScript (ES6+), TypeScript, Java, Python, HTML5, CSS3',
+            '<span class="cyan">Front-end:</span>     React, Next.js, Tailwind CSS',
+            '<span class="cyan">Back-end:</span>      Java, Python',
+            '<span class="cyan">Ferramentas:</span>   Git, GitHub, VS Code, IntelliJ IDEA',
+            '<span class="cyan">Idiomas:</span>       Português (nativo), <span class="cyan">Inglês (Intermediário)</span>',
+          ].join('\n'),
+        },
+        status: {
+          title: '> Status atual',
+          text:  '<span class="green">● Disponível</span> para novos projetos freelance, estágio ou colaborações em desenvolvimento Full Stack. Tem uma ideia ou projeto em mente? Vamos conversar! 🚀',
+        },
+        contact: {
+          title: '> Contato',
+          lines: [
+            '<span class="cyan">LinkedIn:</span> <a href="https://www.linkedin.com/in/mar%C3%ADlia-mezalheira/" target="_blank" rel="noopener" class="term-link">linkedin.com/in/marília-mezalheira</a>',
+            '<span class="cyan">E-mail:</span>   <a href="mailto:mariliagpedrosa@outlook.com" class="term-link">mariliagpedrosa@outlook.com</a>',
+            '<span class="cyan">GitHub:</span>   <a href="https://github.com/mariliamezalheiradev" target="_blank" rel="noopener" class="term-link">github.com/mariliamezalheiradev</a>',
+          ].join('\n'),
+        },
+      },
+      sections: {
+        projetosTitle: 'Projetos',
+        projetosLabel: '/ PROJETOS',
+        projetosLead:  'Conheça alguns dos meus projetos mais recentes',
+        projetosDesc:  'Cada projeto é uma oportunidade de aprendizado. Aqui estão os que mais representaram minha evolução como desenvolvedora Full Stack.',
+        estudosTitle:  'Atualmente Estudando',
+        estudosLabel:  '/ ESTUDOS',
+        stackTitle:    'Stack & Tecnologias',
+        stackLabel:    '/ STACK',
+        contatoTitle:  'Vamos Conversar',
+        contatoLabel:  '/ CONTATO',
+        contatoLead:   'Estou aberta a oportunidades, parcerias e conversas sobre tecnologia. Entre em contato pelo canal de sua preferência:',
+      },
+      projects: {
+        mario: {
+          numero:    '01 /',
+          nome:      'Mario Cart Game',
+          status:    'FINALIZADO',
+          statusKind:'finalizado',
+          descricao: 'Mini-jogo web com HTML, CSS e JavaScript: animações, colisão em tempo real e lógica de game over — meu primeiro projeto de lógica interativa.',
+          techs:     ['HTML5', 'CSS3', 'JavaScript', 'Animação 2D'],
+          features:  ['Animações com CSS', 'Detecção de colisão em tempo real', 'Lógica de Game Over', 'Controles com teclado'],
+          demoLabel: 'Jogar agora',
+          repoLabel: 'Ver repositório',
+        },
+        flowsalon: {
+          numero:    '02 /',
+          nome:      'FlowSalon',
+          status:    'FINALIZADO',
+          statusKind:'finalizado',
+          descricao: 'Sistema web completo para salão/barbearia: agendamento online, painel administrativo, gestão de clientes, profissionais, integração com API ViaCEP e LocalStorage para persistência.',
+          techs:     ['HTML5', 'CSS3', 'JavaScript', 'LocalStorage', 'ViaCEP'],
+          features:  ['Agendamento online', 'Painel administrativo', 'Gestão de clientes', 'Integração ViaCEP', 'Persistência local'],
+          demoLabel: 'Ver online',
+          repoLabel: 'Ver repositório',
+        },
+        financas: {
+          numero:    '03 /',
+          nome:      'Finanças Pessoais',
+          status:    'EM EVOLUÇÃO',
+          statusKind:'evolucao',
+          descricao: 'Sistema de finanças pessoais integrado ao Firebase: autenticação por e-mail/senha, Firestore, dashboard mensal, transações, contas a pagar e alertas automáticos de vencimento.',
+          techs:     ['HTML5', 'CSS3', 'JavaScript', 'Firebase Auth', 'Cloud Firestore'],
+          features:  ['Login e cadastro', 'Dashboard financeiro', 'Transações e contas', 'Alertas de vencimento', 'Notificações no menu'],
+          demoLabel: 'Ver online',
+          repoLabel: 'Ver repositório',
+        },
+      },
+      studies: {
+        items: [
+          { num: '01', nome: 'React & Next.js',      desc: 'Componentização, hooks, server components, roteamento e renderização híbrida no ecossistema moderno.' },
+          { num: '02', nome: 'TypeScript',           desc: 'Tipagem estática avançada, generics, utility types e integração total com React.' },
+          { num: '03', nome: 'Tailwind CSS',         desc: 'Estilização utilitária, design tokens, responsividade rápida e consistência visual.' },
+          { num: '04', nome: 'Java & Python',        desc: 'Programação orientada a objetos, APIs REST, persistência de dados e boas práticas back-end.' },
+        ],
+      },
+      stack: {
+        items: [
+          { nome: 'HTML5',          desc: 'Estrutura semântica e acessível para qualquer projeto web.' },
+          { nome: 'CSS3',           desc: 'Estilização moderna: flexbox, grid, animações e responsividade.' },
+          { nome: 'JavaScript',     desc: 'ES6+, DOM, assíncrono, APIs e lógica de interação.' },
+          { nome: 'TypeScript',     desc: 'Tipagem estática para código mais seguro e manutenível.' },
+          { nome: 'React',          desc: 'Componentização, hooks, contexto e SPAs modernas.' },
+          { nome: 'Next.js',        desc: 'SSR/SSG, roteamento e renderização híbrida para produção.' },
+          { nome: 'Tailwind CSS',   desc: 'Design system utilitário para interfaces escaláveis.' },
+          { nome: 'Java',           desc: 'Orientação a objetos, coleções e ecossistema back-end.' },
+          { nome: 'Python',         desc: 'Versatilidade para scripts, APIs e automações.' },
+          { nome: 'Git',            desc: 'Versionamento, branches e trabalho colaborativo.' },
+          { nome: 'GitHub',         desc: 'Repositórios, PRs, Pages e deploy contínuo.' },
+          { nome: 'VS Code',        desc: 'Editor principal: extensões, atalhos e produtividade.' },
+        ],
+      },
+      contato: {
+        botoes: {
+          linkedin: 'LinkedIn',
+          email:    'E-mail',
+          github:   'GitHub',
+          portfolio:'Portfólio',
+        },
+      },
+      footer: {
+        copy: 'Feito com 💙 por <strong>Marília Mezalheira</strong>',
+        sub:  '© 2026 • Desenvolvedora Full Stack em formação',
+      },
+      scroll: {
+        topTitle: 'Voltar ao topo',
+        projBtn:  'Ver projetos',
+      },
+    },
+    en: {
+      htmlLang: 'en',
+      meta: {
+        description: 'Full Stack Developer in training, focused on building modern, responsive and functional interfaces.',
+      },
+      nav: {
+        inicio:    'Home',
+        projetos:  'Projects',
+        estudos:   'Studies',
+        tecnologias: 'Tech',
+        contato:   'Contact',
+      },
+      topbar: {
+        langAria: 'Select language',
+        themeAria: 'Toggle light/dark theme',
+        themeTitle: 'Toggle theme',
+      },
+      hero: {
+        tag:     '> Full Stack Developer',
+        name:    'Marília <em>Mezalheira</em>',
+        status:  'Available for new projects',
+        statusSep: ' • ',
+        typed:   [
+          'Full Stack Developer in training',
+          'Front-end with React & Next.js',
+          'Back-end with Java & Python',
+          'Modern responsive interfaces',
+          'Continuous learning 💙',
+        ],
+        aboutCard: {
+          title:  'About Me',
+          paragraph: [
+            'I started my journey in development by building projects focused on modern, responsive, and functional interfaces. Before programming, I worked with technical support, user assistance, process analysis, and bug resolution — a foundation that helps me think about solutions from the perspective of the people who use them.',
+            'I am currently studying Systems Analysis and Development at UNINOVE and keep building hands-on projects to grow in the Full Stack ecosystem, from front-end with React to back-end with Java and Python.',
+            'To explore my projects and journey in more detail, check my full portfolio below 👇',
+          ],
+          portfolioBtn: 'View full portfolio',
+        },
+        terminal: {
+          placeholder: 'type "help" to see commands',
+        },
+      },
+      terminal: {
+        placeholder: 'type "help" to see commands',
+        promptPrefix: 'marilia@portfolio',
+        promptCwd:    '~',
+        notFound:     function (cmd) { return 'Command not recognized: <span class="yellow">'+ escapeHTML(cmd) +'</span>. Type <span class="cyan">help</span> to see available commands.'; },
+        help: [
+          '<span class="cyan">help</span>     → show this help',
+          '<span class="cyan">about</span>    → learn a bit about me',
+          '<span class="cyan">skills</span>   → languages, frameworks and tools',
+          '<span class="cyan">status</span>   → my current availability',
+          '<span class="cyan">contact</span>  → ways to reach me',
+          '<span class="cyan">clear</span>    → clear the terminal',
+        ].join('\n'),
+        about: {
+          title:  '> Marília Mezalheira',
+          lines: [
+            '<span class="cyan">Student</span>  of Systems Analysis and Development (UNINOVE)',
+            '<span class="cyan">Focus</span>    on Full Stack development with UI/UX emphasis',
+            '<span class="cyan">Stack</span>    HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind',
+            '<span class="cyan">Back-end</span> Java, Python',
+            '<span class="cyan">Soft skills</span> Technical support, process analysis and bug resolution',
+            '',
+            '<span class="dim">> "Code that solves real problems starts by understanding people."</span>',
+          ].join('\n'),
+        },
+        skills: {
+          title: '> Stack & Tools',
+          lines: [
+            '<span class="cyan">Languages:</span>    JavaScript (ES6+), TypeScript, Java, Python, HTML5, CSS3',
+            '<span class="cyan">Front-end:</span>    React, Next.js, Tailwind CSS',
+            '<span class="cyan">Back-end:</span>     Java, Python',
+            '<span class="cyan">Tools:</span>        Git, GitHub, VS Code, IntelliJ IDEA',
+            '<span class="cyan">Languages:</span>    Portuguese (native), <span class="cyan">English (Intermediate)</span>',
+          ].join('\n'),
+        },
+        status: {
+          title: '> Current status',
+          text:  '<span class="green">● Available</span> for new freelance projects, internships or Full Stack collaborations. Got an idea or project in mind? Let\'s talk! 🚀',
+        },
+        contact: {
+          title: '> Contact',
+          lines: [
+            '<span class="cyan">LinkedIn:</span> <a href="https://www.linkedin.com/in/mar%C3%ADlia-mezalheira/" target="_blank" rel="noopener" class="term-link">linkedin.com/in/marília-mezalheira</a>',
+            '<span class="cyan">E-mail:</span>   <a href="mailto:mariliagpedrosa@outlook.com" class="term-link">mariliagpedrosa@outlook.com</a>',
+            '<span class="cyan">GitHub:</span>   <a href="https://github.com/mariliamezalheiradev" target="_blank" rel="noopener" class="term-link">github.com/mariliamezalheiradev</a>',
+          ].join('\n'),
+        },
+      },
+      sections: {
+        projetosTitle: 'Projects',
+        projetosLabel: '/ PROJECTS',
+        projetosLead:  'Check out some of my most recent projects',
+        projetosDesc:  'Every project is a learning opportunity. Here are the ones that best represent my growth as a Full Stack developer.',
+        estudosTitle:  'Currently Studying',
+        estudosLabel:  '/ STUDIES',
+        stackTitle:    'Stack & Technologies',
+        stackLabel:    '/ STACK',
+        contatoTitle:  'Let\'s Talk',
+        contatoLabel:  '/ CONTACT',
+        contatoLead:   'I\'m open to opportunities, partnerships and conversations about tech. Reach out through any channel:',
+      },
+      projects: {
+        mario: {
+          numero:    '01 /',
+          nome:      'Mario Cart Game',
+          status:    'FINISHED',
+          statusKind:'finalizado',
+          descricao: 'Mini web game built with HTML, CSS and JavaScript: animations, real-time collision and a game over logic — my first hands-on interactive project.',
+          techs:     ['HTML5', 'CSS3', 'JavaScript', '2D Animation'],
+          features:  ['CSS animations', 'Real-time collision detection', 'Game over logic', 'Keyboard controls'],
+          demoLabel: 'Play now',
+          repoLabel: 'View repository',
+        },
+        flowsalon: {
+          numero:    '02 /',
+          nome:      'FlowSalon',
+          status:    'FINISHED',
+          statusKind:'finalizado',
+          descricao: 'Full web system for salon/barbershop: online booking, admin panel, client & staff management, ViaCEP API integration and LocalStorage persistence.',
+          techs:     ['HTML5', 'CSS3', 'JavaScript', 'LocalStorage', 'ViaCEP'],
+          features:  ['Online booking', 'Admin panel', 'Client management', 'ViaCEP integration', 'Local persistence'],
+          demoLabel: 'View live',
+          repoLabel: 'View repository',
+        },
+        financas: {
+          numero:    '03 /',
+          nome:      'Personal Finance',
+          status:    'IN PROGRESS',
+          statusKind:'evolucao',
+          descricao: 'Personal finance app integrated with Firebase: e-mail/password auth, Firestore, monthly dashboard, transactions, bills to pay and automatic due-date alerts.',
+          techs:     ['HTML5', 'CSS3', 'JavaScript', 'Firebase Auth', 'Cloud Firestore'],
+          features:  ['Sign-in & sign-up', 'Finance dashboard', 'Transactions & bills', 'Due-date alerts', 'Menu badge notifications'],
+          demoLabel: 'View live',
+          repoLabel: 'View repository',
+        },
+      },
+      studies: {
+        items: [
+          { num: '01', nome: 'React & Next.js', desc: 'Components, hooks, server components, routing and hybrid rendering in the modern ecosystem.' },
+          { num: '02', nome: 'TypeScript',      desc: 'Advanced static typing, generics, utility types and full React integration.' },
+          { num: '03', nome: 'Tailwind CSS',    desc: 'Utility-first styling, design tokens, fast responsiveness and visual consistency.' },
+          { num: '04', nome: 'Java & Python',   desc: 'OOP, REST APIs, data persistence and back-end best practices.' },
+        ],
+      },
+      stack: {
+        items: [
+          { nome: 'HTML5',          desc: 'Semantic and accessible structure for any web project.' },
+          { nome: 'CSS3',           desc: 'Modern styling: flexbox, grid, animations and responsiveness.' },
+          { nome: 'JavaScript',     desc: 'ES6+, DOM, async, APIs and interaction logic.' },
+          { nome: 'TypeScript',     desc: 'Static typing for safer, more maintainable code.' },
+          { nome: 'React',          desc: 'Components, hooks, context and modern SPAs.' },
+          { nome: 'Next.js',        desc: 'SSR/SSG, routing and hybrid rendering for production.' },
+          { nome: 'Tailwind CSS',   desc: 'Utility-first design system for scalable UIs.' },
+          { nome: 'Java',           desc: 'OOP, collections and the back-end ecosystem.' },
+          { nome: 'Python',         desc: 'Versatile for scripts, APIs and automation.' },
+          { nome: 'Git',            desc: 'Versioning, branches and collaborative work.' },
+          { nome: 'GitHub',         desc: 'Repos, PRs, Pages and continuous deployment.' },
+          { nome: 'VS Code',        desc: 'Main editor: extensions, shortcuts and productivity.' },
+        ],
+      },
+      contato: {
+        botoes: {
+          linkedin: 'LinkedIn',
+          email:    'E-mail',
+          github:   'GitHub',
+          portfolio:'Portfolio',
+        },
+      },
+      footer: {
+        copy: 'Made with 💙 by <strong>Marília Mezalheira</strong>',
+        sub:  '© 2026 • Full Stack Developer in training',
+      },
+      scroll: {
+        topTitle: 'Back to top',
+        projBtn:  'View projects',
+      },
+    },
+  };
+
+  let currentLang = detectInitialLang();
   let currentTheme = detectInitialTheme();
 
-  /* ============================================
-     APLICAÇÃO DE TEMA E IDIOMA
-     ============================================ */
+  /* ========================
+     THEME
+     ======================== */
   function applyTheme(theme) {
+    currentTheme = theme === 'light' ? 'light' : 'dark';
     document.body.classList.remove('theme-dark', 'theme-light');
-    document.body.classList.add(theme === 'light' ? 'theme-light' : 'theme-dark');
-    const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', theme === 'light' ? '#eef3f8' : '#0b121f');
-    currentTheme = theme;
-    try { localStorage.setItem(STORAGE_KEY_THEME, theme); } catch (_) {}
+    document.body.classList.add('theme-' + currentTheme);
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) themeBtn.setAttribute('aria-pressed', currentTheme === 'light' ? 'true' : 'false');
+
+    try { localStorage.setItem(STORAGE_KEY_THEME, currentTheme); } catch (e) { /* noop */ }
+  }
+
+  function toggleTheme() {
+    applyTheme(currentTheme === 'light' ? 'dark' : 'light');
+  }
+
+  /* ========================
+     LANGUAGE
+     ======================== */
+  function dict() {
+    return TRANSLATIONS[currentLang] || TRANSLATIONS.pt;
   }
 
   function applyLang(lang) {
-    const dict = TRANSLATIONS[lang];
-    if (!dict) return;
+    currentLang = (lang === 'en') ? 'en' : 'pt';
+    const d = dict();
 
-    // <html lang> e meta description
-    document.documentElement.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
+    document.documentElement.setAttribute('lang', d.htmlLang);
+
     const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', dict.meta.description);
+    if (metaDesc) metaDesc.setAttribute('content', d.meta.description);
 
-    // textContent via data-i18n (chave com pontos: "hero.tag").
-    // Se o valor for um objeto (ex: hero.bio com p1..p4), usa innerHTML
-    // e renderiza cada chave como <p data-i18n="mesma.chave.filha">.
-    document.querySelectorAll('[data-i18n]').forEach((el) => {
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
       const key = el.getAttribute('data-i18n');
-      const value = key.split('.').reduce((acc, k) => (acc ? acc[k] : null), dict);
-
+      const parts = key.split('.');
+      let value = d;
+      for (let i = 0; i < parts.length; i++) {
+        if (value == null) break;
+        value = value[parts[i]];
+      }
       if (typeof value === 'string') {
-        el.textContent = value;
-      } else if (value && typeof value === 'object') {
-        // Renderiza cada sub-chave como <p> filho, mantendo a estrutura multiline.
-        el.innerHTML = Object.keys(value)
-          .map((sub) => `<p data-i18n="${key}.${sub}">${escapeHTML(value[sub])}</p>`)
-          .join('');
+        el.innerHTML = value;
       }
     });
 
-    // Toggles do topbar
-    document.querySelectorAll('.topbar-toggle-opt').forEach((opt) => {
-      opt.classList.toggle('is-active', opt.getAttribute('data-lang') === lang);
+    document.querySelectorAll('[data-i18n-attr]').forEach(function (el) {
+      const spec = el.getAttribute('data-i18n-attr');
+      spec.split(';').forEach(function (pair) {
+        const tokens = pair.split(':');
+        const k = tokens[0] && tokens[0].trim();
+        const v = tokens[1] && tokens[1].trim();
+        if (k && v) {
+          const parts = v.split('.');
+          let value = d;
+          for (let i = 0; i < parts.length; i++) {
+            if (value == null) break;
+            value = value[parts[i]];
+          }
+          if (typeof value === 'string') {
+            el.setAttribute(k, value);
+          }
+        }
+      });
     });
 
-    // Placeholder do terminal
-    const ti = document.getElementById('terminal-input');
-    if (ti) ti.setAttribute('placeholder', dict.terminal.placeholder);
+    const langBtn = document.getElementById('lang-toggle');
+    if (langBtn) langBtn.setAttribute('aria-pressed', currentLang === 'en' ? 'true' : 'false');
 
-    // Reinicializa o terminal com o idioma novo
-    rerenderTerminal();
+    document.querySelectorAll('.topbar-toggle-opt').forEach(function (el) {
+      const opt = el.getAttribute('data-lang-opt');
+      el.classList.toggle('is-active', opt === currentLang);
+    });
 
-    currentLang = lang;
-    try { localStorage.setItem(STORAGE_KEY_LANG, lang); } catch (_) {}
+    try { localStorage.setItem(STORAGE_KEY_LANG, currentLang); } catch (e) { /* noop */ }
+
+    if (typeof window.refreshTyped === 'function') window.refreshTyped();
+    if (typeof window.rebuildTerminalCommands === 'function') window.rebuildTerminalCommands();
+
+    // Re-render the terminal placeholder
+    const input = document.getElementById('terminal-input');
+    if (input) input.setAttribute('placeholder', d.terminal.placeholder);
   }
 
-  /* ============================================
-     CUSTOM CURSOR
-     ============================================ */
-  const cursor = document.querySelector('.cursor');
-  const follower = document.querySelector('.cursor-follower');
-  let mouseX = 0, mouseY = 0;
-  let followerX = 0, followerY = 0;
-  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  function toggleLang() {
+    applyLang(currentLang === 'pt' ? 'en' : 'pt');
+  }
 
-  if (cursor && follower && !isTouchDevice) {
-    document.addEventListener('mousemove', (e) => {
+  /* ========================
+     CUSTOM CURSOR
+     ======================== */
+  function initCustomCursor() {
+    const cursor = document.getElementById('cursor');
+    const follower = document.getElementById('cursor-follower');
+    if (!cursor || !follower) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let mouseX = 0, mouseY = 0;
+    let fx = 0, fy = 0;
+
+    document.addEventListener('mousemove', function (e) {
       mouseX = e.clientX;
       mouseY = e.clientY;
       cursor.style.left = mouseX + 'px';
       cursor.style.top  = mouseY + 'px';
     });
 
-    function animateCursor() {
-      followerX += (mouseX - followerX) * 0.14;
-      followerY += (mouseY - followerY) * 0.14;
-      follower.style.left = followerX + 'px';
-      follower.style.top  = followerY + 'px';
-      requestAnimationFrame(animateCursor);
+    function loop() {
+      fx += (mouseX - fx) * 0.18;
+      fy += (mouseY - fy) * 0.18;
+      follower.style.left = fx + 'px';
+      follower.style.top  = fy + 'px';
+      requestAnimationFrame(loop);
     }
-    animateCursor();
+    loop();
 
-    const hoverTargets = document.querySelectorAll(
-      'a, button, .stack-item, .estudo-card, .projeto-card, .link-btn, #terminal-input, .topbar-toggle'
-    );
-    hoverTargets.forEach((el) => {
-      el.addEventListener('mouseenter', () => {
+    const hoverSel = 'a, button, .topbar-toggle, .menu-fixo a, .projeto-link, .link-btn, .stack-item, .estudo-card, input';
+    document.querySelectorAll(hoverSel).forEach(function (el) {
+      el.addEventListener('mouseenter', function () {
         cursor.classList.add('hover');
         follower.classList.add('hover');
       });
-      el.addEventListener('mouseleave', () => {
+      el.addEventListener('mouseleave', function () {
         cursor.classList.remove('hover');
         follower.classList.remove('hover');
       });
     });
   }
 
-  /* ============================================
+  /* ========================
      PARTICLES.JS
-     ============================================ */
+     ======================== */
   function initParticles() {
     if (typeof particlesJS !== 'function') return;
-    const el = document.getElementById('particles-js');
-    if (!el) return;
+    if (!document.getElementById('particles-js')) return;
+
+    const isLight = document.body.classList.contains('theme-light');
+    const particleColor = isLight ? '#0077b6' : '#00b4d8';
+    const lineColor     = isLight ? '#0077b6' : '#00b4d8';
 
     particlesJS('particles-js', {
       particles: {
-        number: { value: 90, density: { enable: true, value_area: 850 } },
-        color: { value: ['#00b4d8', '#90e0ef', '#00f5d4', '#48cae4'] },
-        shape: { type: 'circle', stroke: { width: 0, color: '#000000' }, polygon: { nb_sides: 5 } },
-        opacity: { value: 0.55, random: true, anim: { enable: true, speed: 1, opacity_min: 0.15, sync: false } },
-        size:    { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.5, sync: false } },
-        line_linked: { enable: true, distance: 150, color: '#00b4d8', opacity: 0.35, width: 1 },
-        move: { enable: true, speed: 1.4, direction: 'none', random: true, straight: false, out_mode: 'out', bounce: false, attract: { enable: false, rotateX: 600, rotateY: 600 } }
+        number: { value: 60, density: { enable: true, value_area: 900 } },
+        color:  { value: particleColor },
+        shape:  { type: 'circle' },
+        opacity: {
+          value: 0.55, random: true,
+          anim: { enable: true, speed: 1, opacity_min: 0.15, sync: false },
+        },
+        size:   { value: 3, random: true, anim: { enable: false } },
+        line_linked: {
+          enable: true,
+          distance: 140,
+          color: lineColor,
+          opacity: 0.25,
+          width: 1,
+        },
+        move: {
+          enable: true,
+          speed: 1.4,
+          direction: 'none',
+          random: false,
+          straight: false,
+          out_mode: 'out',
+          bounce: false,
+        },
       },
       interactivity: {
         detect_on: 'canvas',
-        events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' }, resize: true },
-        modes: { grab: { distance: 160, line_linked: { opacity: 0.7 } }, bubble: { distance: 200, size: 4, duration: 2, opacity: 0.8, speed: 3 }, repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } }
+        events: {
+          onhover: { enable: true, mode: 'grab' },
+          onclick: { enable: false },
+          resize: true,
+        },
+        modes: {
+          grab: { distance: 180, line_linked: { opacity: 0.45 } },
+        },
       },
-      retina_detect: true
+      retina_detect: true,
     });
   }
 
-  /* ============================================
-     GSAP + SCROLLTRIGGER
-     ============================================ */
+  /* ========================
+     GSAP / SCROLLTRIGGER
+     ======================== */
   function initGSAP() {
     if (typeof gsap === 'undefined') return;
     if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
 
-    gsap.utils.toArray('.reveal').forEach((elem) => {
-      gsap.fromTo(elem,
-        { opacity: 0, y: 28 },
-        { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
-          scrollTrigger: { trigger: elem, start: 'top 85%', toggleActions: 'play none none none' } });
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) return;
+
+    const cardSelectors = ['.estudo-card', '.stack-item', '.projeto-card'];
+    cardSelectors.forEach(function (sel) {
+      gsap.utils.toArray(sel).forEach(function (el, i) {
+        gsap.from(el, {
+          opacity: 0,
+          y: 50,
+          duration: 0.85,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 90%',
+            toggleActions: 'play none none reverse',
+          },
+          delay: (i % 6) * 0.08,
+        });
+      });
     });
 
-    gsap.utils.toArray('.section-label').forEach((el) => {
-      gsap.fromTo(el, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
-    });
-    gsap.utils.toArray('.section-title').forEach((el) => {
-      gsap.fromTo(el, { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out', delay: 0.1, scrollTrigger: { trigger: el, start: 'top 88%' } });
-    });
-
-    gsap.utils.toArray('.estudos-grid .estudo-card').forEach((card, i) => {
-      gsap.fromTo(card, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: i * 0.1, scrollTrigger: { trigger: card, start: 'top 88%' } });
-    });
-    gsap.utils.toArray('.stack-grid .stack-item').forEach((card, i) => {
-      gsap.fromTo(card, { opacity: 0, y: 30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'power3.out', delay: i * 0.06, scrollTrigger: { trigger: card, start: 'top 90%' } });
-    });
-    gsap.utils.toArray('.projeto-card').forEach((card) => {
-      gsap.fromTo(card, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: card, start: 'top 85%' } });
-    });
-
-    gsap.to('.orb-1', { y: 60, x: 30, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
-    gsap.to('.orb-2', { y: -40, x: -25, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+    if (typeof ScrollTrigger !== 'undefined') {
+      gsap.to('.orb-1', {
+        y: 60, x: 30, ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
+      });
+      gsap.to('.orb-2', {
+        y: -50, x: -40, ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
+      });
+      gsap.to('.orb-3', {
+        y: 80, ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
+      });
+    }
   }
 
-  /* ============================================
+  /* ========================
      TYPED.JS
-     ============================================ */
+     ======================== */
   let typedInstance = null;
+
   function initTyped() {
     if (typeof Typed === 'undefined') return;
-    const target = document.getElementById('typed-tagline');
-    if (!target) return;
-    startTyped();
-  }
-  function startTyped() {
-    if (typeof Typed === 'undefined') return;
-    const target = document.getElementById('typed-tagline');
-    if (!target) return;
-    if (typedInstance) { try { typedInstance.destroy(); } catch (_) {} typedInstance = null; }
-    const dict = TRANSLATIONS[currentLang];
-    target.textContent = '';
-    typedInstance = new Typed('#typed-tagline', {
-      strings: dict.typed.strings,
-      typeSpeed: 55,
-      backSpeed: 28,
-      backDelay: 1800,
-      startDelay: 600,
-      loop: true,
-      smartBackspace: true,
-      cursorChar: '|'
-    });
-  }
+    const el = document.getElementById('typed-tagline');
+    if (!el) return;
 
-  /* ============================================
-     TERMINAL INTERATIVO (com i18n)
-     ============================================ */
-  let terminalReady = false;
-  function initTerminal() {
-    const terminalOutput = document.getElementById('terminal-output');
-    const terminalInput = document.getElementById('terminal-input');
-    if (!terminalOutput || !terminalInput) return;
-
-    const print = (html) => {
-      const div = document.createElement('div');
-      div.innerHTML = html;
-      terminalOutput.appendChild(div);
-      terminalOutput.scrollTop = terminalOutput.scrollHeight;
-    };
-
-    const printPrompt = (text) => {
-      const safe = escapeHTML(text);
-      print(`<div class="terminal-line"><span class="prompt-symbol">~$</span> <span class="cyan">${safe}</span></div>`);
-    };
-
-    const dict = () => TRANSLATIONS[currentLang].terminal;
-
-    const buildCommands = () => ({
-      help: () => {
-        const d = dict();
-        return `
-          <div class="terminal-line title">${escapeHTML(d.commands.helpHeader)}</div>
-          <div class="terminal-line">${escapeHTML(d.commands.helpHelp)}</div>
-          <div class="terminal-line">${escapeHTML(d.commands.helpAbout)}</div>
-          <div class="terminal-line">${escapeHTML(d.commands.helpSkills)}</div>
-          <div class="terminal-line">${escapeHTML(d.commands.helpStatus)}</div>
-          <div class="terminal-line">${escapeHTML(d.commands.helpContact)}</div>
-          <div class="terminal-line">${escapeHTML(d.commands.helpClear)}</div>
-        `;
-      },
-
-      about: () => {
-        const d = dict().about;
-        return `
-          <div class="terminal-line"><span class="title">Marília Mezalheira</span> <span class="dim">${escapeHTML(d.line1Dim)}</span></div>
-          <div class="terminal-line"></div>
-          <div class="terminal-line">${escapeHTML(d.bio1)}</div>
-          <div class="terminal-line"></div>
-          <div class="terminal-line">${escapeHTML(d.bio2)}</div>
-          <div class="terminal-line"></div>
-          <div class="terminal-line">${escapeHTML(d.bio3)}</div>
-          <div class="terminal-line"></div>
-          <div class="terminal-line">${escapeHTML(d.bio4)}</div>
-        `;
-      },
-
-      skills: () => {
-        const d = dict().skills;
-        return `
-          <div class="terminal-line title">${escapeHTML(d.header)}</div>
-          <div class="terminal-line"></div>
-          <div class="terminal-line"><span class="cyan">${escapeHTML(d.langs)}</span></div>
-          <div class="terminal-line">${escapeHTML(d.langsList)}</div>
-          <div class="terminal-line"></div>
-          <div class="terminal-line"><span class="cyan">${escapeHTML(d.frameworks)}</span></div>
-          <div class="terminal-line">${escapeHTML(d.frameworksList)}</div>
-          <div class="terminal-line"></div>
-          <div class="terminal-line"><span class="cyan">${escapeHTML(d.tools)}</span></div>
-          <div class="terminal-line">${escapeHTML(d.toolsList)}</div>
-          <div class="terminal-line"></div>
-          <div class="terminal-line"><span class="dim">${escapeHTML(d.total)}</span></div>
-        `;
-      },
-
-      status: () => {
-        // Lê do dicionário i18n (dict().status.text) em vez de consts inline
-        // para manter uma única fonte da verdade.
-        const text = dict().status.text;
-        return `
-          <div class="terminal-line"><span class="green">●</span> ${escapeHTML(text)}</div>
-        `;
-      },
-
-      contact: () => {
-        const d = dict().contact;
-        // Cor dos links via classe `.term-link` (definida no CSS) para
-        // acompanhar o tema light/dark sem hardcode de cor.
-        return `
-          <div class="terminal-line"><span class="cyan">${escapeHTML(d.emailLabel)}</span></div>
-          <div class="terminal-line">   <a class="term-link" href="mailto:mariliagpedrosa@outlook.com">mariliagpedrosa@outlook.com</a></div>
-          <div class="terminal-line"></div>
-          <div class="terminal-line"><span class="cyan">${escapeHTML(d.linkedinLabel)}</span></div>
-          <div class="terminal-line">   <a class="term-link" href="https://www.linkedin.com/in/mar%C3%ADlia-mezalheira/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/marília-mezalheira/</a></div>
-          <div class="terminal-line"></div>
-          <div class="terminal-line"><span class="cyan">${escapeHTML(d.githubLabel)}</span></div>
-          <div class="terminal-line">   <a class="term-link" href="https://github.com/mariliamezalheiradev" target="_blank" rel="noopener noreferrer">https://github.com/mariliamezalheiradev</a></div>
-        `;
-      },
-
-      clear: () => {
-        terminalOutput.innerHTML = '';
-        return null;
-      }
-    });
-
-    const initialState = () => {
-      // Estado inicial vazio: apenas o prompt ~$ aguardando comando.
-      // A lista de comandos só aparece quando o usuário digita `help`.
-      terminalOutput.innerHTML =
-        `<div class="terminal-line"><span class="prompt-symbol">~$</span> <span class="terminal-cursor"></span></div>`;
-    };
-
-    function rerender() {
-      initialState();
-    }
-    window.__rerenderTerminal = rerender;
-
-    initialState();
-
-    terminalInput.addEventListener('keydown', (e) => {
-      if (e.key !== 'Enter') return;
-
-      const raw = terminalInput.value;
-      const inputValue = raw.trim().toLowerCase();
-      terminalInput.value = '';
-
-      if (!raw.trim()) { printPrompt(''); return; }
-
-      printPrompt(raw.trim());
-
-      const commands = buildCommands();
-      if (commands[inputValue]) {
-        const result = commands[inputValue]();
-        if (result !== null && result !== undefined && result !== '') print(result);
-        if (inputValue === 'clear') setTimeout(initialState, 50);
-      } else {
-        const d = dict();
-        print(`<div class="terminal-line"><span class="pink">${escapeHTML(d.notFound)}</span> ${escapeHTML(raw.trim())}. ${escapeHTML(d.notFoundHint)}</div>`);
-      }
-
-      terminalOutput.scrollTop = terminalOutput.scrollHeight;
-    });
-
-    document.querySelector('.terminal-wrapper')?.addEventListener('click', () => {
-      terminalInput.focus();
-    });
-
-    terminalReady = true;
-  }
-
-  function rerenderTerminal() {
-    if (!terminalReady) return;
-    if (typeof window.__rerenderTerminal === 'function') window.__rerenderTerminal();
-  }
-
-  /* ============================================
-     INTERSECTION OBSERVER (reveal fallback)
-     ============================================ */
-  function initRevealObserver() {
-    const reveals = document.querySelectorAll('.reveal, .section-label, .section-title');
-    if (!('IntersectionObserver' in window) || reveals.length === 0) {
-      reveals.forEach((el) => el.classList.add('visible'));
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) {
+      el.textContent = dict().hero.typed[0];
       return;
     }
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, { threshold: 0.05, rootMargin: '0px 0px -10px 0px' });
-    reveals.forEach((el) => observer.observe(el));
+
+    if (typedInstance) {
+      try { typedInstance.destroy(); } catch (e) { /* noop */ }
+      typedInstance = null;
+    }
+
+    typedInstance = new Typed(el, {
+      strings: dict().hero.typed,
+      typeSpeed: 55,
+      backSpeed: 30,
+      backDelay: 1800,
+      loop: true,
+      smartBackspace: true,
+      cursorChar: '|',
+      contentType: 'html',
+    });
+
+    window.refreshTyped = function () {
+      if (typedInstance) {
+        try { typedInstance.destroy(); } catch (e) { /* noop */ }
+        typedInstance = null;
+      }
+      if (el) el.innerHTML = '';
+      initTyped();
+    };
   }
 
-  /* ============================================
-     BOTÕES DE SCROLL + MENU
-     ============================================ */
-  function initScrollButtons() {
-    document.querySelectorAll('.menu-fixo a[href^="#"]').forEach((link) => {
-      link.addEventListener('click', (e) => {
-        const id = link.getAttribute('href');
-        if (id && id.length > 1) {
-          const target = document.querySelector(id);
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  /* ========================
+     TERMINAL
+     ======================== */
+  let terminalState = { commands: {}, history: [] };
+
+  function termAppend(html) {
+    const out = document.getElementById('terminal-output');
+    if (!out) return;
+    const line = document.createElement('div');
+    line.className = 'terminal-line';
+    line.innerHTML = html;
+    out.appendChild(line);
+    out.scrollTop = out.scrollHeight;
+  }
+
+  function termAppendRaw(html) {
+    termAppend(html);
+  }
+
+  function echoPrompt(cmd) {
+    const d = dict();
+    termAppend(
+      '<span class="prompt-symbol">'+ escapeHTML(d.terminal.promptPrefix) +'</span>' +
+      '<span class="dim">'+ escapeHTML(d.terminal.promptCwd) +'</span> ' +
+      '$ ' + escapeHTML(cmd)
+    );
+  }
+
+  function rebuildTerminalCommands() {
+    const d = dict();
+
+    function printBlock(title, lines) {
+      termAppend('<span class="title">'+ escapeHTML(title) +'</span>');
+      if (Array.isArray(lines)) {
+        lines.forEach(function (l) { termAppendRaw(l); });
+      } else if (typeof lines === 'string') {
+        lines.split('\n').forEach(function (l) { termAppendRaw(l); });
+      }
+    }
+
+    terminalState.commands = {
+      help: function () {
+        termAppend('<span class="title">'+ escapeHTML('Comandos disponíveis:') +'</span>');
+        d.terminal.help.split('\n').forEach(function (l) { termAppendRaw(l); });
+      },
+      about: function () {
+        printBlock(d.terminal.about.title, d.terminal.about.lines);
+      },
+      skills: function () {
+        printBlock(d.terminal.skills.title, d.terminal.skills.lines);
+      },
+      status: function () {
+        printBlock(d.terminal.status.title, d.terminal.status.text);
+      },
+      contact: function () {
+        printBlock(d.terminal.contact.title, d.terminal.contact.lines);
+      },
+      clear: function () {
+        const out = document.getElementById('terminal-output');
+        if (out) out.innerHTML = '';
+      },
+    };
+
+    window.rebuildTerminalCommands = function () {
+      rebuildTerminalCommands();
+    };
+  }
+
+  function initTerminal() {
+    const input  = document.getElementById('terminal-input');
+    const out    = document.getElementById('terminal-output');
+    if (!input || !out) return;
+
+    const d = dict();
+    input.setAttribute('placeholder', d.terminal.placeholder);
+
+    rebuildTerminalCommands();
+
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        const raw = input.value.trim();
+        if (!raw) return;
+        echoPrompt(raw);
+        terminalState.history.push(raw);
+
+        const cmd = raw.toLowerCase().split(/\s+/)[0];
+        const handler = terminalState.commands[cmd];
+        if (handler) {
+          try { handler(); } catch (err) { /* noop */ }
+        } else {
+          termAppendRaw(dict().terminal.notFound(raw));
+        }
+        input.value = '';
+      } else if (e.key === 'ArrowUp') {
+        if (terminalState.history.length > 0) {
+          input.value = terminalState.history[terminalState.history.length - 1];
+          e.preventDefault();
+        }
+      } else if (e.key === 'l' && (e.ctrlKey || e.metaKey)) {
+        if (terminalState.commands.clear) terminalState.commands.clear();
+        e.preventDefault();
+      }
+    });
+
+    const wrapper = input.closest('.terminal-wrapper');
+    if (wrapper) {
+      wrapper.addEventListener('click', function (e) {
+        if (e.target.closest('a')) return;
+        input.focus();
+      });
+    }
+  }
+
+  /* ========================
+     IMAGE FALLBACKS (data-retry pattern)
+     ======================== */
+  function initImageFallbacks() {
+    document.querySelectorAll('img[data-fallback-src]').forEach(function (img) {
+      img.addEventListener('error', function handle() {
+        const fallback = img.getAttribute('data-fallback-src');
+        if (fallback && !img.hasAttribute('data-retry')) {
+          img.setAttribute('data-retry', 'true');
+          img.src = fallback;
+        } else {
+          img.style.display = 'none';
+          const ph = img.nextElementSibling;
+          if (ph && ph.classList.contains('media-placeholder')) {
+            ph.style.display = 'flex';
           }
         }
-      });
+      }, { once: false });
     });
   }
 
-  /* ============================================
-     FALLBACK DE IMAGENS
-     Estratégia de 2 tentativas (espelha o data-retry do onerror inline):
-       1ª falha → tenta o arquivo local (fallback)
-       2ª falha → esconde a imagem e mostra o placeholder
-     O atributo `data-retry` impede loop infinito.
-     ============================================ */
-  function initImageFallbacks() {
-    document.querySelectorAll('.projeto-img').forEach((img) => {
-      img.addEventListener('error', () => {
-        const placeholder = img.nextElementSibling;
-        if (!placeholder || !placeholder.classList.contains('media-placeholder')) {
-          img.style.display = 'none';
-          return;
-        }
-        if (!img.hasAttribute('data-retry')) {
-          // 1ª falha: tenta o fallback local antes de desistir.
-          img.setAttribute('data-retry', 'true');
-          // Extrai apenas o basename do src atual para apontar para a versão local.
-          const src = img.getAttribute('src') || '';
-          const filename = src.split('/').pop();
-          if (filename) img.src = 'imagens/' + filename;
-        } else {
-          // 2ª falha (fallback local também ausente): mostra o placeholder.
-          img.style.display = 'none';
-          placeholder.style.display = 'flex';
+  /* ========================
+     INTERSECTION OBSERVER (reveal fallback)
+     ======================== */
+  function initRevealObserver() {
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal, .stack-item, .estudo-card, .projeto-card, .section-label, .section-title')
+        .forEach(function (el) { el.classList.add('visible'); });
+      return;
+    }
+
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
         }
       });
-    });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+
+    document.querySelectorAll('.reveal, .stack-item, .estudo-card, .projeto-card, .section-label, .section-title')
+      .forEach(function (el) { io.observe(el); });
   }
 
-  /* ============================================
-     PARALLAX DOS ORBS NO MOUSE
-     ============================================ */
-  function initOrbParallax() {
-    if (isTouchDevice) return;
-    const orb1 = document.querySelector('.orb-1');
-    const orb2 = document.querySelector('.orb-2');
-    const orb3 = document.querySelector('.orb-3');
-    if (!orb1 || !orb2 || !orb3) return;
-    document.addEventListener('mousemove', (e) => {
-      const cx = window.innerWidth  / 2;
-      const cy = window.innerHeight / 2;
-      const dx = (e.clientX - cx) / cx;
-      const dy = (e.clientY - cy) / cy;
-      orb1.style.transform = `translate(${dx * 24}px, ${dy * 18}px)`;
-      orb2.style.transform = `translate(${-dx * 18}px, ${-dy * 12}px)`;
-      orb3.style.transform = `translate(calc(-50% + ${dx * 12}px), calc(-50% + ${dy * 12}px))`;
-    });
-  }
-
-  /* ============================================
-     TOPBAR SCROLL (transparente → sólido)
-     ============================================ */
+  /* ========================
+     TOPBAR SCROLLED STATE
+     ======================== */
   function initTopbarScroll() {
-    const topbar = document.getElementById('topbar');
+    const topbar = document.querySelector('.topbar');
     if (!topbar) return;
-    const trigger = 80;
     function onScroll() {
-      topbar.classList.toggle('is-scrolled', window.scrollY > trigger);
+      if (window.scrollY > 40) topbar.classList.add('is-scrolled');
+      else topbar.classList.remove('is-scrolled');
     }
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  /* ============================================
-     TOGGLES (Idioma + Tema)
-     ============================================ */
+  /* ========================
+     TOGGLES (idioma + tema)
+     ======================== */
   function initToggles() {
-    const langBtn = document.getElementById('langToggle');
-    const themeBtn = document.getElementById('themeToggle');
-
+    const langBtn = document.getElementById('lang-toggle');
     if (langBtn) {
-      langBtn.addEventListener('click', () => {
-        applyLang(currentLang === 'pt' ? 'en' : 'pt');
-      });
+      langBtn.addEventListener('click', toggleLang);
     }
+
+    const themeBtn = document.getElementById('theme-toggle');
     if (themeBtn) {
-      themeBtn.addEventListener('click', () => {
-        applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
-      });
+      themeBtn.addEventListener('click', toggleTheme);
     }
+
+    document.querySelectorAll('.topbar-toggle-opt').forEach(function (opt) {
+      opt.addEventListener('click', function (e) {
+        e.stopPropagation();
+        applyLang(opt.getAttribute('data-lang-opt'));
+      });
+    });
   }
 
-  /* ============================================
-     INIT
-     ============================================ */
+  /* ========================
+     BOOTSTRAP
+     ======================== */
   function bootstrap() {
-    // Aplica estado persistido ANTES de inicializar componentes que dependem do dicionário
     applyTheme(currentTheme);
     applyLang(currentLang);
 
+    initCustomCursor();
+    initTopbarScroll();
+    initToggles();
     initParticles();
     initGSAP();
     initTyped();
     initTerminal();
-    initRevealObserver();
-    initScrollButtons();
     initImageFallbacks();
-    initOrbParallax();
-    initTopbarScroll();
-    initToggles();
+    initRevealObserver();
   }
 
   if (document.readyState === 'loading') {
-    window.addEventListener('load', bootstrap);
+    document.addEventListener('DOMContentLoaded', bootstrap);
   } else {
-    window.addEventListener('load', bootstrap);
+    bootstrap();
   }
 })();
