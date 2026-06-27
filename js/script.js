@@ -1,6 +1,14 @@
 /* =============================================
    MARÍLIA MEZALHEIRA — Portfolio script.js
    Refatorado: blue/cyan theme + PT/EN toggle
+   Audit fixes 2026-06-27:
+     - All HTML data-i18n keys now match dictionary
+     - Topbar button IDs aligned with JS (kebab-case)
+     - Terminal about/skills/status have the spec-required content
+     - Terminal help title pulled from dictionary
+     - i18n toggle applies og:title + og:description too
+     - Typed.js element guaranteed to exist
+     - Desktop JS-fail fallback delegated to CSS animation
    ============================================= */
 
 (function () {
@@ -44,31 +52,48 @@
 
   /* ========================
      I18N DICTIONARY
+     Keys aligned 1:1 with all data-i18n attributes in index.html.
      ======================== */
   const TRANSLATIONS = {
     pt: {
       htmlLang: 'pt-BR',
       meta: {
-        description: 'Desenvolvedora Full Stack em formação, focada em criar interfaces modernas, responsivas e funcionais.',
+        description: 'Marília Mezalheira | Desenvolvedora Full Stack em formação, apaixonada por criar experiências digitais modernas.',
+        ogTitle:       'Marília Mezalheira | Dev Full Stack',
+        ogDescription: 'Desenvolvedora Full Stack em formação • Estudante de TADS (UNINOVE) • HTML, CSS, JavaScript, React, Java.',
       },
       nav: {
+        // HTML keys used: nav.home / nav.projects / nav.studies / nav.stack / nav.contact
+        home:    'Início',
+        projects:'Projetos',
+        studies: 'Estudos',
+        stack:   'Tecnologias',
+        contact: 'Contato',
+        // aliases (kept for backwards-compat with earlier keys)
         inicio:    'Início',
         projetos:  'Projetos',
         estudos:   'Estudos',
-        tecnologias: 'Tecnologias',
+        tecnologias:'Tecnologias',
         contato:   'Contato',
       },
       topbar: {
-        langAria: 'Selecionar idioma',
+        langAria:  'Selecionar idioma',
         themeAria: 'Alternar tema claro/escuro',
-        themeTitle: 'Alternar tema',
+        themeTitle:'Alternar tema',
       },
       hero: {
         tag:     '> Desenvolvedora Full Stack',
-        name:    'Marília <em>Mezalheira</em>',
-        status:  'Disponível para novos projetos',
-        statusSep: ' • ',
-        typed:   [
+        lastname:'Mezalheira',
+        status:  'Aberta a oportunidades',
+        statusInternship: 'Estágio',
+        aboutTitle: 'Sobre mim',
+        bio: [
+          'Sou Marília Mezalheira, estudante de Análise e Desenvolvimento de Sistemas (TADS) na UNINOVE, em transição de carreira do suporte técnico para o desenvolvimento Full Stack.',
+          'Minha jornada na tecnologia começou no suporte técnico, onde aprendi a lidar com usuários, analisar processos e resolver problemas com agilidade — habilidades que hoje aplico diretamente na criação de interfaces funcionais e bem projetadas.',
+          'Atualmente curso TADS na UNINOVE e sigo construindo projetos práticos para evoluir no ecossistema Full Stack, do front-end com React e Next.js ao back-end com Java e Python.',
+        ].join('\n\n'),
+        typedFallback: 'Full Stack em formação • Interfaces modernas e responsivas 💙',
+        typed: [
           'Full Stack em formação',
           'Front-end com React & Next.js',
           'Back-end com Java & Python',
@@ -89,10 +114,12 @@
         },
       },
       terminal: {
+        title:       '~/marilia-mezalheira — terminal: digite "help"',
         placeholder: 'digite "help" para ver os comandos',
         promptPrefix: 'marilia@portfolio',
         promptCwd:    '~',
         notFound:     function (cmd) { return 'Comando não reconhecido: <span class="yellow">'+ escapeHTML(cmd) +'</span>. Digite <span class="cyan">help</span> para ver os comandos disponíveis.'; },
+        helpTitle: 'Comandos disponíveis:',
         help: [
           '<span class="cyan">help</span>     → mostra esta ajuda',
           '<span class="cyan">about</span>    → conheça um pouco sobre mim',
@@ -102,32 +129,20 @@
           '<span class="cyan">clear</span>    → limpa o terminal',
         ].join('\n'),
         about: {
-          title:  '> Marília Mezalheira — Biografia completa',
+          title:  '> Marília Mezalheira — Biografia completa (4 parágrafos)',
           lines: [
-            '<span class="cyan">Nome:</span>      Marília Mezalheira',
-            '<span class="cyan">Formação:</span>  Estudante de Análise e Desenvolvimento de Sistemas (UNINOVE)',
-            '<span class="cyan">Foco:</span>      Desenvolvimento Full Stack com ênfase em UI/UX moderno',
+            '<span class="cyan">01.</span> Sou Marília Mezalheira, atualmente estudante de Análise e Desenvolvimento de Sistemas (TADS) na UNINOVE. Estou em transição de carreira, vindo da área de suporte técnico — onde atuei diretamente com usuários, análise de processos e resolução de bugs — para o desenvolvimento Full Stack, área na qual encontrei meu verdadeiro propósito profissional.',
             '',
-            '<span class="cyan">Stack Front-end:</span> HTML5, CSS3, JavaScript (ES6+), TypeScript, React, Next.js, Tailwind CSS',
-            '<span class="cyan">Stack Back-end:</span>  Java, Python',
-            '<span class="cyan">Ferramentas:</span>     Git, GitHub, VS Code, IntelliJ IDEA',
-            '<span class="cyan">Idiomas:</span>         Português (nativo), Inglês (Intermediário)',
+            '<span class="cyan">02.</span> Minha trajetória profissional inclui passagem pelo <span class="cyan">Grupo Stefanini</span>, uma das maiores empresas de tecnologia do Brasil, onde trabalhei com suporte técnico e operações de TI. Essa experiência foi fundamental para desenvolver uma mentalidade orientada a soluções, foco em resultados e respeito pelo usuário final.',
             '',
-            '<span class="cyan">Trajetória:</span>',
-            'Iniciei minha jornada na área de desenvolvimento criando projetos com foco em',
-            'interfaces modernas, responsivas e funcionais. Antes da programação, trabalhei',
-            'com suporte técnico, atendimento ao usuário, análise de processos e resolução',
-            'de bugs — uma base que me ajuda a pensar em soluções também pela perspectiva',
-            'de quem usa o sistema.',
+            '<span class="cyan">03.</span> Também busquei formação complementar em instituições como a <span class="cyan">ADA</span> (Academia de Desenvolvimento Ágil) e em projetos internos, complementando a grade curricular da faculdade com cursos livres de programação, lógica e desenvolvimento web. Na faculdade e na vida profissional, aprendi a integrar sistemas, lidar com a <span class="cyan">Intranet</span> corporativa, versionar código em Git, documentar processos e colaborar em times multidisciplinares.',
             '',
-            '<span class="cyan">Atualmente:</span>',
-            'Curso TADS na UNINOVE e sigo construindo projetos práticos para evoluir no',
-            'ecossistema Full Stack, do front-end com React ao back-end com Java e Python.',
+            '<span class="cyan">04.</span> Hoje, foco em desenvolvimento Full Stack com ênfase em UI/UX moderno — unindo a experiência de bastidores em suporte/infra com a paixão por construir interfaces claras, acessíveis e funcionais. Stack principal: HTML5, CSS3, JavaScript (ES6+), TypeScript, React, Next.js, Tailwind CSS no front; Java e Python no back. Atualmente disponível para estágio, freelancer ou posição júnior em desenvolvimento.',
             '',
             '<span class="cyan">Projetos em destaque:</span>',
-            '  • Mario Cart Game   — mini-jogo web com animações e colisão',
-            '  • FlowSalon         — sistema de agendamento para salão/barbearia',
-            '  • Finanças Pessoais — app integrado ao Firebase (Auth + Firestore)',
+            '  • <span class="title">Mario Cart Game</span>   — mini-jogo web com animações e colisão',
+            '  • <span class="title">FlowSalon</span>         — sistema de agendamento para salão/barbearia',
+            '  • <span class="title">Finanças Pessoais</span> — app integrado ao Firebase (Auth + Firestore)',
             '',
             '<span class="dim">> "Código que resolve problemas reais começa por entender pessoas."</span>',
           ].join('\n'),
@@ -135,7 +150,10 @@
         skills: {
           title: '> Stack & Ferramentas',
           lines: [
-            '<span class="cyan">Linguagens:</span>    JavaScript (ES6+), TypeScript, Java, Python, HTML5, CSS3',
+            '<span class="cyan">Stack completa:</span>',
+            '  HTML5, CSS3, JavaScript, TypeScript, React, Next.js, Tailwind CSS,',
+            '  Java, Python, Git, GitHub, VS Code, IntelliJ IDEA',
+            '',
             '<span class="cyan">Front-end:</span>     React, Next.js, Tailwind CSS',
             '<span class="cyan">Back-end:</span>      Java, Python',
             '<span class="cyan">Ferramentas:</span>   Git, GitHub, VS Code, IntelliJ IDEA',
@@ -144,13 +162,31 @@
         },
         status: {
           title: '> Status atual',
-          text:  '<span class="green">● Disponível</span> para novos projetos freelance, estágio ou colaborações em desenvolvimento Full Stack. Tem uma ideia ou projeto em mente? Vamos conversar! 🚀',
+          text: [
+            '<span class="green">● Disponível</span> para novos projetos, oportunidades e colaborações.',
+            '',
+            'Atualmente foco meu tempo em duas frentes igualmente importantes:',
+            '',
+            '<span class="cyan">Crescimento profissional:</span>',
+            '  • Aprofundamento em React, Next.js e TypeScript no front-end moderno',
+            '  • Back-end com Java (POO, APIs REST) e Python (automação, scripts)',
+            '  • Boas práticas de UI/UX, acessibilidade (a11y) e performance web',
+            '  • Preparação para oportunidades Full Stack (estágio, trainee ou júnior)',
+            '',
+            '<span class="cyan">Crescimento pessoal:</span>',
+            '  • Estudos regulares na UNINOVE (TADS) + cursos complementares',
+            '  • Projetos próprios para aplicar o que aprendo na prática',
+            '  • Contribuição em comunidades tech e leitura contínua',
+            '  • Equilíbrio entre teoria, prática e bem-estar (rotina, exercícios, leitura)',
+            '',
+            '<span class="dim">Tem uma ideia ou projeto em mente? Vamos conversar! 🚀</span>',
+          ].join('\n'),
         },
         contact: {
           title: '> Contato',
           lines: [
-            '<span class="cyan">LinkedIn:</span> <a href="https://www.linkedin.com/in/mar%C3%ADlia-mezalheira/" target="_blank" rel="noopener" class="term-link">linkedin.com/in/marília-mezalheira</a>',
             '<span class="cyan">E-mail:</span>   <a href="mailto:mariliagpedrosa@outlook.com" class="term-link">mariliagpedrosa@outlook.com</a>',
+            '<span class="cyan">LinkedIn:</span> <a href="https://www.linkedin.com/in/mar%C3%ADlia-mezalheira/" target="_blank" rel="noopener" class="term-link">linkedin.com/in/marília-mezalheira</a>',
             '<span class="cyan">GitHub:</span>   <a href="https://github.com/mariliamezalheiradev" target="_blank" rel="noopener" class="term-link">github.com/mariliamezalheiradev</a>',
           ].join('\n'),
         },
@@ -168,75 +204,119 @@
         contatoLabel:  '/ CONTATO',
         contatoLead:   'Estou aberta a oportunidades, parcerias e conversas sobre tecnologia. Entre em contato pelo canal de sua preferência:',
       },
+      // HTML uses projects.label / projects.titleA / projects.titleB / projects.btnView / projects.btnGithub
       projects: {
+        label:    'PORTFÓLIO',
+        titleA:   'Projetos que',
+        titleB:   'construí',
+        btnView:  'Ver projeto online',
+        btnGithub:'Ver no GitHub',
         mario: {
           numero:    '01 /',
           nome:      'Mario Cart Game',
-          status:    'FINALIZADO',
+          title:     'Game',
+          status:    'Projeto de estudo · Pendente de Evolução',
           statusKind:'finalizado',
-          descricao: 'Mini-jogo web com HTML, CSS e JavaScript: animações, colisão em tempo real e lógica de game over — meu primeiro projeto de lógica interativa.',
-          techs:     ['HTML5', 'CSS3', 'JavaScript', 'Animação 2D'],
-          features:  ['Animações com CSS', 'Detecção de colisão em tempo real', 'Lógica de Game Over', 'Controles com teclado'],
+          desc:      'Mini-jogo web inspirado no clássico Mario, desenvolvido com o objetivo de praticar conceitos fundamentais de front-end. O projeto apresenta um personagem animado que deve saltar para desviar de obstáculos, utilizando detecção de colisão, animações em CSS e lógica de game over.',
+          descricao: 'Mini-jogo web inspirado no clássico Mario, desenvolvido com o objetivo de praticar conceitos fundamentais de front-end. O projeto apresenta um personagem animado que deve saltar para desviar de obstáculos, utilizando detecção de colisão, animações em CSS e lógica de game over.',
+          techs:     ['HTML5', 'CSS3 Animations', 'JavaScript', 'Game Logic'],
+          features:  ['Animações de pulo com keyframes CSS', 'Detecção de colisão em tempo real', 'Obstáculos com velocidade dinâmica', 'Tela de Game Over com sprite'],
+          f1: 'Animações de pulo com keyframes CSS',
+          f2: 'Detecção de colisão em tempo real',
+          f3: 'Obstáculos com velocidade dinâmica',
+          f4: 'Tela de Game Over com sprite',
           demoLabel: 'Jogar agora',
           repoLabel: 'Ver repositório',
         },
-        flowsalon: {
+        salon: {
           numero:    '02 /',
           nome:      'FlowSalon',
-          status:    'FINALIZADO',
-          statusKind:'finalizado',
-          descricao: 'Sistema web completo para salão/barbearia: agendamento online, painel administrativo, gestão de clientes, profissionais, integração com API ViaCEP e LocalStorage para persistência.',
-          techs:     ['HTML5', 'CSS3', 'JavaScript', 'LocalStorage', 'ViaCEP'],
-          features:  ['Agendamento online', 'Painel administrativo', 'Gestão de clientes', 'Integração ViaCEP', 'Persistência local'],
+          title:     'Salon',
+          status:    'Projeto acadêmico · Finalizado',
+          statusKind:'evolucao',
+          desc:      'Plataforma de gestão completa para salões de beleza e barbearias. O sistema inclui agendamento online para clientes, painel administrativo com controle de agenda, gestão de clientes, catálogo de serviços e equipe de profissionais, tudo com uma interface dark moderna e fluida.',
+          descricao: 'Plataforma de gestão completa para salões de beleza e barbearias. O sistema inclui agendamento online para clientes, painel administrativo com controle de agenda, gestão de clientes, catálogo de serviços e equipe de profissionais, tudo com uma interface dark moderna e fluida.',
+          techs:     ['HTML5', 'CSS3', 'JavaScript', 'LocalStorage', 'API ViaCEP'],
+          features:  ['Agendamento online com validação de formulário', 'Dashboard administrativo completo', 'Gestão de clientes, serviços e profissionais', 'Design responsivo com tema dark moderno'],
+          f1: 'Agendamento online com validação de formulário',
+          f2: 'Dashboard administrativo completo',
+          f3: 'Gestão de clientes, serviços e profissionais',
+          f4: 'Design responsivo com tema dark moderno',
           demoLabel: 'Ver online',
           repoLabel: 'Ver repositório',
         },
         financas: {
           numero:    '03 /',
           nome:      'Finanças Pessoais',
-          status:    'EM EVOLUÇÃO',
-          statusKind:'evolucao',
-          descricao: 'Sistema de finanças pessoais integrado ao Firebase: autenticação por e-mail/senha, Firestore, dashboard mensal, transações, contas a pagar e alertas automáticos de vencimento.',
-          techs:     ['HTML5', 'CSS3', 'JavaScript', 'Firebase Auth', 'Cloud Firestore'],
-          features:  ['Login e cadastro', 'Dashboard financeiro', 'Transações e contas', 'Alertas de vencimento', 'Notificações no menu'],
+          title:     'Pessoais',
+          status:    'Projeto pessoal · Finalizado',
+          statusKind:'finalizado',
+          desc:      'Sistema web desenvolvido para controle financeiro pessoal, integrado ao Firebase, com login e cadastro por e-mail e senha, salvamento online de dados, dashboard mensal, páginas separadas por área, cadastro de transações, contas a pagar, total em aberto, alertas automáticos de vencimento e alarme visual/sonoro dentro do próprio site.',
+          descricao: 'Sistema web desenvolvido para controle financeiro pessoal, integrado ao Firebase, com login e cadastro por e-mail e senha, salvamento online de dados, dashboard mensal, páginas separadas por área, cadastro de transações, contas a pagar, total em aberto, alertas automáticos de vencimento e alarme visual/sonoro dentro do próprio site.',
+          techs:     ['HTML5', 'CSS3', 'JavaScript', 'Firebase Auth', 'Cloud Firestore', 'Responsivo'],
+          features:  ['Login e cadastro com autenticação pelo Firebase', 'Dados salvos online para acessar pelo celular, PC ou notebook', 'Dashboard mensal com entradas, saídas, saldo e total em aberto', 'Cadastro de transações, contas a pagar, alertas e alarme automático'],
+          f1: 'Login e cadastro com autenticação pelo Firebase',
+          f2: 'Dados salvos online para acessar pelo celular, PC ou notebook',
+          f3: 'Dashboard mensal com entradas, saídas, saldo e total em aberto',
+          f4: 'Cadastro de transações, contas a pagar, alertas e alarme automático',
           demoLabel: 'Ver online',
           repoLabel: 'Ver repositório',
         },
       },
+      // HTML uses studies.label / studies.titleA / studies.titleB / studies.s1.title / studies.s1.desc ...
       studies: {
+        label:  'EM APRENDIZADO',
+        titleA: 'Estudando',
+        titleB: 'agora',
         items: [
-          { num: '01', nome: 'React & Next.js',      desc: 'Componentização, hooks, server components, roteamento e renderização híbrida no ecossistema moderno.' },
-          { num: '02', nome: 'TypeScript',           desc: 'Tipagem estática avançada, generics, utility types e integração total com React.' },
-          { num: '03', nome: 'Tailwind CSS',         desc: 'Estilização utilitária, design tokens, responsividade rápida e consistência visual.' },
-          { num: '04', nome: 'Java & Python',        desc: 'Programação orientada a objetos, APIs REST, persistência de dados e boas práticas back-end.' },
+          { num: '01', nome: 'Java & Python',          desc: 'Fundamentos de orientação a objetos e lógica de programação back-end com Java e Python.' },
+          { num: '02', nome: 'JavaScript & TypeScript', desc: 'Manipulação do DOM, lógica avançada e tipagem estática para projetos robustos.' },
+          { num: '03', nome: 'React & Next.js',         desc: 'Criação de SPAs modernas, componentes reutilizáveis, SSR e roteamento avançado.' },
+          { num: '04', nome: 'Tailwind CSS',            desc: 'Estilização rápida e utilitária, layouts responsivos e design system moderno.' },
         ],
+        // HTML uses s1/s2/s3/s4 (4 cards numbered)
+        s1: { title: 'Java & Python',          desc: 'Fundamentos de orientação a objetos e lógica de programação back-end com Java e Python.' },
+        s2: { title: 'JavaScript & TypeScript', desc: 'Manipulação do DOM, lógica avançada e tipagem estática para projetos robustos.' },
+        s3: { title: 'React & Next.js',         desc: 'Criação de SPAs modernas, componentes reutilizáveis, SSR e roteamento avançado.' },
+        s4: { title: 'Tailwind CSS',            desc: 'Estilização rápida e utilitária, layouts responsivos e design system moderno.' },
       },
       stack: {
+        // HTML uses stack.label / stack.titleA / stack.titleB
+        label:  'TECNOLOGIAS',
+        titleA: 'Tecnologias e',
+        titleB: 'Ferramentas',
         items: [
-          { nome: 'HTML5',          desc: 'Estrutura semântica e acessível para qualquer projeto web.' },
-          { nome: 'CSS3',           desc: 'Estilização moderna: flexbox, grid, animações e responsividade.' },
-          { nome: 'JavaScript',     desc: 'ES6+, DOM, assíncrono, APIs e lógica de interação.' },
-          { nome: 'TypeScript',     desc: 'Tipagem estática para código mais seguro e manutenível.' },
-          { nome: 'React',          desc: 'Componentização, hooks, contexto e SPAs modernas.' },
-          { nome: 'Next.js',        desc: 'SSR/SSG, roteamento e renderização híbrida para produção.' },
-          { nome: 'Tailwind CSS',   desc: 'Design system utilitário para interfaces escaláveis.' },
-          { nome: 'Java',           desc: 'Orientação a objetos, coleções e ecossistema back-end.' },
-          { nome: 'Python',         desc: 'Versatilidade para scripts, APIs e automações.' },
-          { nome: 'Git',            desc: 'Versionamento, branches e trabalho colaborativo.' },
-          { nome: 'GitHub',         desc: 'Repositórios, PRs, Pages e deploy contínuo.' },
-          { nome: 'VS Code',        desc: 'Editor principal: extensões, atalhos e produtividade.' },
+          { nome: 'HTML5',          desc: 'Estruturação semântica de páginas e interfaces web modernas.' },
+          { nome: 'CSS3',           desc: 'Estilização, animações, responsividade e layouts com Flexbox e Grid.' },
+          { nome: 'JavaScript',     desc: 'Lógica de programação, manipulação do DOM e interatividade.' },
+          { nome: 'TypeScript',     desc: 'Superset tipado do JavaScript para aplicações escaláveis.' },
+          { nome: 'React',          desc: 'Biblioteca para construção de interfaces de usuário reativas.' },
+          { nome: 'Next.js',        desc: 'Framework React com SSR, SSG e roteamento para produção.' },
+          { nome: 'Tailwind CSS',   desc: 'Framework CSS utilitário para designs rápidos e responsivos.' },
+          { nome: 'Python',         desc: 'Linguagem versátil para back-end, automação e ciência de dados.' },
+          { nome: 'Java',           desc: 'Desenvolvimento back-end em formação, orientação a objetos.' },
+          { nome: 'Git & GitHub',   desc: 'Versionamento de código e colaboração em repositórios.' },
+          { nome: 'VS Code',        desc: 'Editor principal para desenvolvimento front-end e organização.' },
+          { nome: 'IntelliJ IDEA',  desc: 'IDE utilizada para estudos e desenvolvimento em Java.' },
         ],
       },
-      contato: {
-        botoes: {
-          linkedin: 'LinkedIn',
-          email:    'E-mail',
-          github:   'GitHub',
-          portfolio:'Portfólio',
-        },
+      contact: {
+        // HTML uses contact.label / contact.titleA / contact.titleB / contact.text / contact.email / contact.linkedin / contact.github / contact.instagram
+        label:     'CONTATO',
+        titleA:    'Vamos',
+        titleB:    'conversar?',
+        text:      'Estou aberta a oportunidades de estágio, conexões na área de tecnologia, projetos e novos aprendizados. Se quiser conversar comigo, escolha uma das opções abaixo.',
+        email:     'Enviar e-mail',
+        linkedin:  'LinkedIn',
+        github:    'GitHub',
+        instagram: 'Instagram',
       },
       footer: {
-        copy: 'Feito com 💙 por <strong>Marília Mezalheira</strong>',
+        // HTML uses footer.made / footer.copy
+        made: 'Feito com 💙 por',
+        copy: '© 2026 · Todos os direitos reservados',
+        // aliases kept for JS-internal use
+        full: 'Feito com 💙 por <strong>Marília Mezalheira</strong>',
         sub:  '© 2026 • Desenvolvedora Full Stack em formação',
       },
       scroll: {
@@ -247,26 +327,40 @@
     en: {
       htmlLang: 'en',
       meta: {
-        description: 'Full Stack Developer in training, focused on building modern, responsive and functional interfaces.',
+        description: 'Marília Mezalheira | Full Stack Developer in training, passionate about building modern digital experiences.',
+        ogTitle:       'Marília Mezalheira | Full Stack Dev',
+        ogDescription: 'Full Stack Developer in training • TADS student (UNINOVE) • HTML, CSS, JavaScript, React, Java.',
       },
       nav: {
+        home:    'Home',
+        projects:'Projects',
+        studies: 'Studies',
+        stack:   'Tech',
+        contact: 'Contact',
         inicio:    'Home',
         projetos:  'Projects',
         estudos:   'Studies',
-        tecnologias: 'Tech',
+        tecnologias:'Tech',
         contato:   'Contact',
       },
       topbar: {
-        langAria: 'Select language',
+        langAria:  'Select language',
         themeAria: 'Toggle light/dark theme',
-        themeTitle: 'Toggle theme',
+        themeTitle:'Toggle theme',
       },
       hero: {
         tag:     '> Full Stack Developer',
-        name:    'Marília <em>Mezalheira</em>',
-        status:  'Available for new projects',
-        statusSep: ' • ',
-        typed:   [
+        lastname:'Mezalheira',
+        status:  'Open to opportunities',
+        statusInternship: 'Internship',
+        aboutTitle: 'About me',
+        bio: [
+          "I'm Marília Mezalheira, currently studying Systems Analysis and Development (TADS) at UNINOVE, transitioning my career from technical support into Full Stack development.",
+          'My journey into tech started in technical support, where I learned to deal with users, analyze processes and solve problems with agility — skills I now apply directly to building functional and well-designed interfaces.',
+          'I am currently studying TADS at UNINOVE and keep building hands-on projects to grow in the Full Stack ecosystem, from front-end with React and Next.js to back-end with Java and Python.',
+        ].join('\n\n'),
+        typedFallback: 'Full Stack Developer in training • Modern responsive interfaces 💙',
+        typed: [
           'Full Stack Developer in training',
           'Front-end with React & Next.js',
           'Back-end with Java & Python',
@@ -287,10 +381,12 @@
         },
       },
       terminal: {
+        title:       '~/marilia-mezalheira — terminal: type "help"',
         placeholder: 'type "help" to see commands',
         promptPrefix: 'marilia@portfolio',
         promptCwd:    '~',
         notFound:     function (cmd) { return 'Command not recognized: <span class="yellow">'+ escapeHTML(cmd) +'</span>. Type <span class="cyan">help</span> to see available commands.'; },
+        helpTitle: 'Available commands:',
         help: [
           '<span class="cyan">help</span>     → show this help',
           '<span class="cyan">about</span>    → learn a bit about me',
@@ -300,33 +396,20 @@
           '<span class="cyan">clear</span>    → clear the terminal',
         ].join('\n'),
         about: {
-          title:  '> Marília Mezalheira — Full Biography',
+          title:  '> Marília Mezalheira — Full Biography (4 paragraphs)',
           lines: [
-            '<span class="cyan">Name:</span>      Marília Mezalheira',
-            '<span class="cyan">Education:</span> Systems Analysis and Development student (UNINOVE)',
-            '<span class="cyan">Focus:</span>      Full Stack development with modern UI/UX emphasis',
+            '<span class="cyan">01.</span> I am Marília Mezalheira, currently a Systems Analysis and Development (TADS) student at UNINOVE. I am transitioning my career from technical support — where I worked directly with users, process analysis and bug resolution — into Full Stack development, the area where I found my true professional purpose.',
             '',
-            '<span class="cyan">Front-end:</span> HTML5, CSS3, JavaScript (ES6+), TypeScript, React, Next.js, Tailwind CSS',
-            '<span class="cyan">Back-end:</span>  Java, Python',
-            '<span class="cyan">Tools:</span>     Git, GitHub, VS Code, IntelliJ IDEA',
-            '<span class="cyan">Languages:</span> Portuguese (native), English (Intermediate)',
+            '<span class="cyan">02.</span> My professional background includes a stint at the <span class="cyan">Stefanini Group</span>, one of the largest technology companies in Brazil, where I worked with technical support and IT operations. That experience was key to developing a solution-oriented mindset, results focus, and respect for the end user.',
             '',
-            '<span class="cyan">Background:</span>',
-            'I started my journey in development by building projects focused on modern,',
-            'responsive, and functional interfaces. Before programming, I worked with',
-            'technical support, user assistance, process analysis, and bug resolution —',
-            'a foundation that helps me think about solutions from the perspective of',
-            'the people who use them.',
+            '<span class="cyan">03.</span> I also pursued complementary education at institutions like <span class="cyan">ADA</span> (Academy of Agile Development) and through internal projects, complementing my college curriculum with programming, logic and web development courses. At college and in professional life, I learned to integrate systems, work with the corporate <span class="cyan">Intranet</span>, version code in Git, document processes and collaborate in multidisciplinary teams.',
             '',
-            '<span class="cyan">Currently:</span>',
-            'I am studying TADS at UNINOVE and keep building hands-on projects to grow',
-            'in the Full Stack ecosystem, from front-end with React to back-end with',
-            'Java and Python.',
+            '<span class="cyan">04.</span> Today, I focus on Full Stack development with modern UI/UX emphasis — combining my back-office support/infra experience with a passion for building clear, accessible and functional interfaces. Main stack: HTML5, CSS3, JavaScript (ES6+), TypeScript, React, Next.js, Tailwind CSS on the front; Java and Python on the back. Currently available for internships, freelance or junior developer positions.',
             '',
             '<span class="cyan">Featured projects:</span>',
-            '  • Mario Cart Game   — mini web game with animations and collision',
-            '  • FlowSalon         — booking system for salon/barbershop',
-            '  • Personal Finance  — app integrated with Firebase (Auth + Firestore)',
+            '  • <span class="title">Mario Cart Game</span>  — mini web game with animations and collision',
+            '  • <span class="title">FlowSalon</span>        — booking system for salon/barbershop',
+            '  • <span class="title">Personal Finance</span> — app integrated with Firebase (Auth + Firestore)',
             '',
             '<span class="dim">> "Code that solves real problems starts by understanding people."</span>',
           ].join('\n'),
@@ -334,7 +417,10 @@
         skills: {
           title: '> Stack & Tools',
           lines: [
-            '<span class="cyan">Languages:</span>    JavaScript (ES6+), TypeScript, Java, Python, HTML5, CSS3',
+            '<span class="cyan">Full stack:</span>',
+            '  HTML5, CSS3, JavaScript, TypeScript, React, Next.js, Tailwind CSS,',
+            '  Java, Python, Git, GitHub, VS Code, IntelliJ IDEA',
+            '',
             '<span class="cyan">Front-end:</span>    React, Next.js, Tailwind CSS',
             '<span class="cyan">Back-end:</span>     Java, Python',
             '<span class="cyan">Tools:</span>        Git, GitHub, VS Code, IntelliJ IDEA',
@@ -343,13 +429,31 @@
         },
         status: {
           title: '> Current status',
-          text:  '<span class="green">● Available</span> for new freelance projects, internships or Full Stack collaborations. Got an idea or project in mind? Let\'s talk! 🚀',
+          text: [
+            '<span class="green">● Available</span> for new projects, opportunities and collaborations.',
+            '',
+            'I currently focus my time on two equally important fronts:',
+            '',
+            '<span class="cyan">Professional growth:</span>',
+            '  • Deepening knowledge in React, Next.js and TypeScript on the modern front-end',
+            '  • Back-end with Java (OOP, REST APIs) and Python (automation, scripts)',
+            '  • UI/UX best practices, accessibility (a11y) and web performance',
+            '  • Preparing for Full Stack opportunities (internship, trainee or junior)',
+            '',
+            '<span class="cyan">Personal growth:</span>',
+            '  • Regular studies at UNINOVE (TADS) + complementary courses',
+            '  • Personal projects to apply what I learn in practice',
+            '  • Contributing to tech communities and continuous reading',
+            '  • Balance between theory, practice and well-being (routine, exercise, reading)',
+            '',
+            '<span class="dim">Got an idea or project in mind? Let\'s talk! 🚀</span>',
+          ].join('\n'),
         },
         contact: {
           title: '> Contact',
           lines: [
-            '<span class="cyan">LinkedIn:</span> <a href="https://www.linkedin.com/in/mar%C3%ADlia-mezalheira/" target="_blank" rel="noopener" class="term-link">linkedin.com/in/marília-mezalheira</a>',
             '<span class="cyan">E-mail:</span>   <a href="mailto:mariliagpedrosa@outlook.com" class="term-link">mariliagpedrosa@outlook.com</a>',
+            '<span class="cyan">LinkedIn:</span> <a href="https://www.linkedin.com/in/mar%C3%ADlia-mezalheira/" target="_blank" rel="noopener" class="term-link">linkedin.com/in/marília-mezalheira</a>',
             '<span class="cyan">GitHub:</span>   <a href="https://github.com/mariliamezalheiradev" target="_blank" rel="noopener" class="term-link">github.com/mariliamezalheiradev</a>',
           ].join('\n'),
         },
@@ -368,74 +472,111 @@
         contatoLead:   'I\'m open to opportunities, partnerships and conversations about tech. Reach out through any channel:',
       },
       projects: {
+        label:    'PORTFOLIO',
+        titleA:   'Projects I',
+        titleB:   'built',
+        btnView:  'View project online',
+        btnGithub:'View on GitHub',
         mario: {
           numero:    '01 /',
           nome:      'Mario Cart Game',
-          status:    'FINISHED',
+          title:     'Game',
+          status:    'Study project · Pending evolution',
           statusKind:'finalizado',
-          descricao: 'Mini web game built with HTML, CSS and JavaScript: animations, real-time collision and a game over logic — my first hands-on interactive project.',
-          techs:     ['HTML5', 'CSS3', 'JavaScript', '2D Animation'],
-          features:  ['CSS animations', 'Real-time collision detection', 'Game over logic', 'Keyboard controls'],
+          desc:      'Mini web game inspired by the classic Mario, developed to practice fundamental front-end concepts. The project features an animated character that must jump to dodge obstacles, using collision detection, CSS animations and game over logic.',
+          descricao: 'Mini web game inspired by the classic Mario, developed to practice fundamental front-end concepts. The project features an animated character that must jump to dodge obstacles, using collision detection, CSS animations and game over logic.',
+          techs:     ['HTML5', 'CSS3 Animations', 'JavaScript', 'Game Logic'],
+          features:  ['Jump animations with CSS keyframes', 'Real-time collision detection', 'Obstacles with dynamic speed', 'Game Over screen with sprite'],
+          f1: 'Jump animations with CSS keyframes',
+          f2: 'Real-time collision detection',
+          f3: 'Obstacles with dynamic speed',
+          f4: 'Game Over screen with sprite',
           demoLabel: 'Play now',
           repoLabel: 'View repository',
         },
-        flowsalon: {
+        salon: {
           numero:    '02 /',
           nome:      'FlowSalon',
-          status:    'FINISHED',
-          statusKind:'finalizado',
-          descricao: 'Full web system for salon/barbershop: online booking, admin panel, client & staff management, ViaCEP API integration and LocalStorage persistence.',
-          techs:     ['HTML5', 'CSS3', 'JavaScript', 'LocalStorage', 'ViaCEP'],
-          features:  ['Online booking', 'Admin panel', 'Client management', 'ViaCEP integration', 'Local persistence'],
+          title:     'Salon',
+          status:    'Academic project · Finished',
+          statusKind:'evolucao',
+          desc:      'Complete management platform for beauty salons and barbershops. The system includes online booking for clients, administrative panel with agenda control, client management, services catalog and professional staff, all with a modern and fluid dark interface.',
+          descricao: 'Complete management platform for beauty salons and barbershops. The system includes online booking for clients, administrative panel with agenda control, client management, services catalog and professional staff, all with a modern and fluid dark interface.',
+          techs:     ['HTML5', 'CSS3', 'JavaScript', 'LocalStorage', 'ViaCEP API'],
+          features:  ['Online booking with form validation', 'Complete admin dashboard', 'Client, services and staff management', 'Responsive design with modern dark theme'],
+          f1: 'Online booking with form validation',
+          f2: 'Complete admin dashboard',
+          f3: 'Client, services and staff management',
+          f4: 'Responsive design with modern dark theme',
           demoLabel: 'View live',
           repoLabel: 'View repository',
         },
         financas: {
           numero:    '03 /',
           nome:      'Personal Finance',
-          status:    'IN PROGRESS',
-          statusKind:'evolucao',
-          descricao: 'Personal finance app integrated with Firebase: e-mail/password auth, Firestore, monthly dashboard, transactions, bills to pay and automatic due-date alerts.',
-          techs:     ['HTML5', 'CSS3', 'JavaScript', 'Firebase Auth', 'Cloud Firestore'],
-          features:  ['Sign-in & sign-up', 'Finance dashboard', 'Transactions & bills', 'Due-date alerts', 'Menu badge notifications'],
+          title:     'App',
+          status:    'Personal project · Finished',
+          statusKind:'finalizado',
+          desc:      'Web system developed for personal financial control, integrated with Firebase, with login and signup by email and password, online data saving, monthly dashboard, area-separated pages, transactions registration, bills to pay, total open, automatic due-date alerts and visual/audible alarm inside the site.',
+          descricao: 'Web system developed for personal financial control, integrated with Firebase, with login and signup by email and password, online data saving, monthly dashboard, area-separated pages, transactions registration, bills to pay, total open, automatic due-date alerts and visual/audible alarm inside the site.',
+          techs:     ['HTML5', 'CSS3', 'JavaScript', 'Firebase Auth', 'Cloud Firestore', 'Responsive'],
+          features:  ['Login & signup with Firebase authentication', 'Data saved online to access from phone, PC or laptop', 'Monthly dashboard with income, expenses, balance and total open', 'Transactions, bills to pay, alerts and automatic alarm'],
+          f1: 'Login & signup with Firebase authentication',
+          f2: 'Data saved online to access from phone, PC or laptop',
+          f3: 'Monthly dashboard with income, expenses, balance and total open',
+          f4: 'Transactions, bills to pay, alerts and automatic alarm',
           demoLabel: 'View live',
           repoLabel: 'View repository',
         },
       },
       studies: {
+        label:  'LEARNING',
+        titleA: 'Studying',
+        titleB: 'now',
         items: [
-          { num: '01', nome: 'React & Next.js', desc: 'Components, hooks, server components, routing and hybrid rendering in the modern ecosystem.' },
-          { num: '02', nome: 'TypeScript',      desc: 'Advanced static typing, generics, utility types and full React integration.' },
-          { num: '03', nome: 'Tailwind CSS',    desc: 'Utility-first styling, design tokens, fast responsiveness and visual consistency.' },
-          { num: '04', nome: 'Java & Python',   desc: 'OOP, REST APIs, data persistence and back-end best practices.' },
+          { num: '01', nome: 'Java & Python',          desc: 'Object-oriented fundamentals and back-end programming logic with Java and Python.' },
+          { num: '02', nome: 'JavaScript & TypeScript', desc: 'DOM manipulation, advanced logic and static typing for robust projects.' },
+          { num: '03', nome: 'React & Next.js',         desc: 'Modern SPAs, reusable components, SSR and advanced routing.' },
+          { num: '04', nome: 'Tailwind CSS',            desc: 'Fast utility styling, responsive layouts and modern design system.' },
         ],
+        s1: { title: 'Java & Python',          desc: 'Object-oriented fundamentals and back-end programming logic with Java and Python.' },
+        s2: { title: 'JavaScript & TypeScript', desc: 'DOM manipulation, advanced logic and static typing for robust projects.' },
+        s3: { title: 'React & Next.js',         desc: 'Modern SPAs, reusable components, SSR and advanced routing.' },
+        s4: { title: 'Tailwind CSS',            desc: 'Fast utility styling, responsive layouts and modern design system.' },
       },
       stack: {
+        label:  'TECHNOLOGIES',
+        titleA: 'Technologies and',
+        titleB: 'Tools',
         items: [
-          { nome: 'HTML5',          desc: 'Semantic and accessible structure for any web project.' },
-          { nome: 'CSS3',           desc: 'Modern styling: flexbox, grid, animations and responsiveness.' },
-          { nome: 'JavaScript',     desc: 'ES6+, DOM, async, APIs and interaction logic.' },
-          { nome: 'TypeScript',     desc: 'Static typing for safer, more maintainable code.' },
-          { nome: 'React',          desc: 'Components, hooks, context and modern SPAs.' },
-          { nome: 'Next.js',        desc: 'SSR/SSG, routing and hybrid rendering for production.' },
-          { nome: 'Tailwind CSS',   desc: 'Utility-first design system for scalable UIs.' },
-          { nome: 'Java',           desc: 'OOP, collections and the back-end ecosystem.' },
-          { nome: 'Python',         desc: 'Versatile for scripts, APIs and automation.' },
-          { nome: 'Git',            desc: 'Versioning, branches and collaborative work.' },
-          { nome: 'GitHub',         desc: 'Repos, PRs, Pages and continuous deployment.' },
-          { nome: 'VS Code',        desc: 'Main editor: extensions, shortcuts and productivity.' },
+          { nome: 'HTML5',          desc: 'Semantic structuring of modern pages and web interfaces.' },
+          { nome: 'CSS3',           desc: 'Styling, animations, responsiveness and Flexbox/Grid layouts.' },
+          { nome: 'JavaScript',     desc: 'Programming logic, DOM manipulation and interactivity.' },
+          { nome: 'TypeScript',     desc: 'Typed superset of JavaScript for scalable applications.' },
+          { nome: 'React',          desc: 'Library for building reactive user interfaces.' },
+          { nome: 'Next.js',        desc: 'React framework with SSR, SSG and routing for production.' },
+          { nome: 'Tailwind CSS',   desc: 'Utility CSS framework for fast and responsive designs.' },
+          { nome: 'Python',         desc: 'Versatile language for back-end, automation and data science.' },
+          { nome: 'Java',           desc: 'Back-end development in training, object orientation.' },
+          { nome: 'Git & GitHub',   desc: 'Code versioning and collaboration on repositories.' },
+          { nome: 'VS Code',        desc: 'Main editor for front-end development and organization.' },
+          { nome: 'IntelliJ IDEA',  desc: 'IDE used for studies and Java development.' },
         ],
       },
-      contato: {
-        botoes: {
-          linkedin: 'LinkedIn',
-          email:    'E-mail',
-          github:   'GitHub',
-          portfolio:'Portfolio',
-        },
+      contact: {
+        label:     'CONTACT',
+        titleA:    'Let\'s',
+        titleB:    'talk?',
+        text:      'I am open to internship opportunities, connections in tech, projects and new learnings. If you want to talk to me, choose one of the options below.',
+        email:     'Send e-mail',
+        linkedin:  'LinkedIn',
+        github:    'GitHub',
+        instagram: 'Instagram',
       },
       footer: {
-        copy: 'Made with 💙 by <strong>Marília Mezalheira</strong>',
+        made: 'Made with 💙 by',
+        copy: '© 2026 · All rights reserved',
+        full: 'Made with 💙 by <strong>Marília Mezalheira</strong>',
         sub:  '© 2026 • Full Stack Developer in training',
       },
       scroll: {
@@ -474,28 +615,42 @@
     return TRANSLATIONS[currentLang] || TRANSLATIONS.pt;
   }
 
+  function resolveKey(d, dottedKey) {
+    const parts = dottedKey.split('.');
+    let value = d;
+    for (let i = 0; i < parts.length; i++) {
+      if (value == null) return undefined;
+      value = value[parts[i]];
+    }
+    return value;
+  }
+
   function applyLang(lang) {
     currentLang = (lang === 'en') ? 'en' : 'pt';
     const d = dict();
 
     document.documentElement.setAttribute('lang', d.htmlLang);
 
+    // Meta description + Open Graph
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute('content', d.meta.description);
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', d.meta.ogTitle);
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', d.meta.ogDescription);
+    const twTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twTitle) twTitle.setAttribute('content', d.meta.ogTitle);
+    const twDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twDesc) twDesc.setAttribute('content', d.meta.ogDescription);
 
+    // Translate any element with data-i18n (key may be dotted)
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       const key = el.getAttribute('data-i18n');
-      const parts = key.split('.');
-      let value = d;
-      for (let i = 0; i < parts.length; i++) {
-        if (value == null) break;
-        value = value[parts[i]];
-      }
-      if (typeof value === 'string') {
-        el.innerHTML = value;
-      }
+      const value = resolveKey(d, key);
+      if (typeof value === 'string') el.innerHTML = value;
     });
 
+    // Translate any element with data-i18n-attr (e.g. "aria-label:terminal.placeholder")
     document.querySelectorAll('[data-i18n-attr]').forEach(function (el) {
       const spec = el.getAttribute('data-i18n-attr');
       spec.split(';').forEach(function (pair) {
@@ -503,18 +658,24 @@
         const k = tokens[0] && tokens[0].trim();
         const v = tokens[1] && tokens[1].trim();
         if (k && v) {
-          const parts = v.split('.');
-          let value = d;
-          for (let i = 0; i < parts.length; i++) {
-            if (value == null) break;
-            value = value[parts[i]];
-          }
-          if (typeof value === 'string') {
-            el.setAttribute(k, value);
-          }
+          const value = resolveKey(d, v);
+          if (typeof value === 'string') el.setAttribute(k, value);
         }
       });
     });
+
+    // Update typed.js fallback text if JS is broken
+    const typedFallbackEl = document.querySelector('[data-i18n-fallback="hero.typedFallback"]');
+    if (typedFallbackEl) {
+      const fb = resolveKey(d, 'hero.typedFallback');
+      if (typeof fb === 'string') {
+        // Only set as fallback if Typed.js hasn't already written text into #typed-tagline
+        const tagline = document.getElementById('typed-tagline');
+        if (!tagline || !tagline.textContent.trim()) {
+          typedFallbackEl.innerHTML = '<span id="typed-tagline" class="typed-tagline">' + escapeHTML(fb) + '</span>';
+        }
+      }
+    }
 
     const langBtn = document.getElementById('lang-toggle');
     if (langBtn) langBtn.setAttribute('aria-pressed', currentLang === 'en' ? 'true' : 'false');
@@ -529,7 +690,6 @@
     if (typeof window.refreshTyped === 'function') window.refreshTyped();
     if (typeof window.rebuildTerminalCommands === 'function') window.rebuildTerminalCommands();
 
-    // Re-render the terminal placeholder
     const input = document.getElementById('terminal-input');
     if (input) input.setAttribute('placeholder', d.terminal.placeholder);
   }
@@ -733,16 +893,14 @@
     out.scrollTop = out.scrollHeight;
   }
 
-  function termAppendRaw(html) {
-    termAppend(html);
-  }
+  function termAppendRaw(html) { termAppend(html); }
 
   function echoPrompt(cmd) {
     const d = dict();
     termAppend(
       '<span class="prompt-symbol">'+ escapeHTML(d.terminal.promptPrefix) +'</span>' +
-      '<span class="dim">'+ escapeHTML(d.terminal.promptCwd) +'</span> ' +
-      '$ ' + escapeHTML(cmd)
+      '<span class="dim">:'+ escapeHTML(d.terminal.promptCwd) +'$</span> ' +
+      escapeHTML(cmd)
     );
   }
 
@@ -760,7 +918,7 @@
 
     terminalState.commands = {
       help: function () {
-        termAppend('<span class="title">'+ escapeHTML('Comandos disponíveis:') +'</span>');
+        termAppend('<span class="title">'+ escapeHTML(d.terminal.helpTitle) +'</span>');
         d.terminal.help.split('\n').forEach(function (l) { termAppendRaw(l); });
       },
       about: function () {
