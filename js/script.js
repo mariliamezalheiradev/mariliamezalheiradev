@@ -7,8 +7,9 @@
      - Terminal about/skills/status have the spec-required content
      - Terminal help title pulled from dictionary
      - i18n toggle applies og:title + og:description too
-     - Typed.js element guaranteed to exist
      - Desktop JS-fail fallback delegated to CSS animation
+   Cleanup 2026-06-27:
+     - Typed.js removed entirely (CDN script, HTML element, JS logic, dictionary keys)
    ============================================= */
 
 (function () {
@@ -92,14 +93,6 @@
           'Minha jornada na tecnologia começou no suporte técnico, onde aprendi a lidar com usuários, analisar processos e resolver problemas com agilidade — habilidades que hoje aplico diretamente na criação de interfaces funcionais e bem projetadas.',
           'Atualmente curso TADS na UNINOVE e sigo construindo projetos práticos para evoluir no ecossistema Full Stack, do front-end com React e Next.js ao back-end com Java e Python.',
         ].join('\n\n'),
-        typedFallback: 'Full Stack em formação • Interfaces modernas e responsivas 💙',
-        typed: [
-          'Full Stack em formação',
-          'Front-end com React & Next.js',
-          'Back-end com Java & Python',
-          'Interfaces modernas e responsivas',
-          'Aprendizado contínuo 💙',
-        ],
         aboutCard: {
           title:  'Sobre Mim',
           paragraph: [
@@ -359,14 +352,6 @@
           'My journey into tech started in technical support, where I learned to deal with users, analyze processes and solve problems with agility — skills I now apply directly to building functional and well-designed interfaces.',
           'I am currently studying TADS at UNINOVE and keep building hands-on projects to grow in the Full Stack ecosystem, from front-end with React and Next.js to back-end with Java and Python.',
         ].join('\n\n'),
-        typedFallback: 'Full Stack Developer in training • Modern responsive interfaces 💙',
-        typed: [
-          'Full Stack Developer in training',
-          'Front-end with React & Next.js',
-          'Back-end with Java & Python',
-          'Modern responsive interfaces',
-          'Continuous learning 💙',
-        ],
         aboutCard: {
           title:  'About Me',
           paragraph: [
@@ -664,19 +649,6 @@
       });
     });
 
-    // Update typed.js fallback text if JS is broken
-    const typedFallbackEl = document.querySelector('[data-i18n-fallback="hero.typedFallback"]');
-    if (typedFallbackEl) {
-      const fb = resolveKey(d, 'hero.typedFallback');
-      if (typeof fb === 'string') {
-        // Only set as fallback if Typed.js hasn't already written text into #typed-tagline
-        const tagline = document.getElementById('typed-tagline');
-        if (!tagline || !tagline.textContent.trim()) {
-          typedFallbackEl.innerHTML = '<span id="typed-tagline" class="typed-tagline">' + escapeHTML(fb) + '</span>';
-        }
-      }
-    }
-
     const langBtn = document.getElementById('lang-toggle');
     if (langBtn) langBtn.setAttribute('aria-pressed', currentLang === 'en' ? 'true' : 'false');
 
@@ -687,7 +659,6 @@
 
     try { localStorage.setItem(STORAGE_KEY_LANG, currentLang); } catch (e) { /* noop */ }
 
-    if (typeof window.refreshTyped === 'function') window.refreshTyped();
     if (typeof window.rebuildTerminalCommands === 'function') window.rebuildTerminalCommands();
 
     const input = document.getElementById('terminal-input');
@@ -834,48 +805,6 @@
         scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
       });
     }
-  }
-
-  /* ========================
-     TYPED.JS
-     ======================== */
-  let typedInstance = null;
-
-  function initTyped() {
-    if (typeof Typed === 'undefined') return;
-    const el = document.getElementById('typed-tagline');
-    if (!el) return;
-
-    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced) {
-      el.textContent = dict().hero.typed[0];
-      return;
-    }
-
-    if (typedInstance) {
-      try { typedInstance.destroy(); } catch (e) { /* noop */ }
-      typedInstance = null;
-    }
-
-    typedInstance = new Typed(el, {
-      strings: dict().hero.typed,
-      typeSpeed: 55,
-      backSpeed: 30,
-      backDelay: 1800,
-      loop: true,
-      smartBackspace: true,
-      cursorChar: '|',
-      contentType: 'html',
-    });
-
-    window.refreshTyped = function () {
-      if (typedInstance) {
-        try { typedInstance.destroy(); } catch (e) { /* noop */ }
-        typedInstance = null;
-      }
-      if (el) el.innerHTML = '';
-      initTyped();
-    };
   }
 
   /* ========================
@@ -1081,7 +1010,6 @@
     initToggles();
     initParticles();
     initGSAP();
-    initTyped();
     initTerminal();
     initImageFallbacks();
     initRevealObserver();
