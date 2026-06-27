@@ -3,113 +3,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Marília Mezalheira | Desenvolvedora Full Stack em formação, apaixonada por criar experiências digitais modernas.">
+  <meta name="theme-color" content="#0b121f">
   <title>Marília Mezalheira | Dev Full Stack</title>
+
+  <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- GSAP (animações de scroll) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <!-- Particles.js (fundo de partículas azul/ciano) -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+
+  <!-- Typed.js (efeito de digitação no Hero) -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" defer></script>
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <div class="cursor"></div>
-  <div class="cursor-follower"></div>
+  <!-- Custom cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-follower" aria-hidden="true"></div>
 
-  <header class="topbar">
-    <a href="#home" class="logo-home" aria-label="Voltar para o início">
-      <span class="home-text">HOME</span>
-    </a>
-
-    <nav class="menu-fixo">
-      <a href="#home">Início</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#estudos">Estudos</a>
-      <a href="#stack">Tecnologias</a>
-      <a href="#contato">Contato</a>
+  <!-- Topbar / Header fixo -->
+  <header class="topbar" id="topbar">
+    <nav class="menu-fixo" aria-label="Navegação principal">
+      <a href="#home" data-i18n="nav.home">Início</a>
+      <a href="#projetos" data-i18n="nav.projects">Projetos</a>
+      <a href="#estudos" data-i18n="nav.studies">Estudos</a>
+      <a href="#stack" data-i18n="nav.stack">Tecnologias</a>
+      <a href="#contato" data-i18n="nav.contact">Contato</a>
     </nav>
+
+    <div class="topbar-actions">
+      <button class="topbar-toggle" id="langToggle" type="button" aria-label="Alternar idioma" title="Português / English">
+        <span class="topbar-toggle-opt is-active" data-lang="pt">PT</span>
+        <span class="topbar-toggle-sep">/</span>
+        <span class="topbar-toggle-opt" data-lang="en">EN</span>
+      </button>
+      <button class="topbar-toggle topbar-theme" id="themeToggle" type="button" aria-label="Alternar tema" title="Tema claro / escuro">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+        </svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
+        </svg>
+      </button>
+    </div>
   </header>
 
+  <!-- HERO: layout centralizado minimalista -->
   <section class="hero" id="home">
-    <div class="hero-bg">
+    <div class="hero-bg" aria-hidden="true">
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
       <div class="orb orb-3"></div>
       <div class="noise"></div>
     </div>
+    <div id="particles-js" class="particles-bg" aria-hidden="true"></div>
 
-    <div class="perfil-hero">
-      <div class="perfil-icon-card reveal hero-reveal-left" style="--delay: 0.15s">
-        <div class="avatar-wrap perfil-avatar">
-          <img src="imagens/img.marilia.png" alt="Marília Mezalheira" class="avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="avatar-fallback">MM</div>
-        </div>
+    <div class="hero-inner">
+      <!-- Avatar circular central com glow -->
+      <div class="hero-avatar reveal" style="--delay: 0.05s">
+        <div class="hero-avatar-ring" aria-hidden="true"></div>
+        <img
+          src="imagens/pixel-art-marilia.png"
+          alt="Marília Mezalheira"
+          class="hero-avatar-img"
+          onerror="this.onerror=null;this.src='imagens/img.marilia.png';"
+        >
       </div>
 
-      <div class="perfil-resumo reveal hero-reveal-right" style="--delay: 0.3s">
-        <div class="tag">DESENVOLVEDORA FULL STACK</div>
+      <!-- Tag pequena -->
+      <span class="hero-tag reveal" style="--delay: 0.18s" data-i18n="hero.tag">DESENVOLVEDORA FULL STACK</span>
 
-        <h1>Marília<br><em>Mezalheira</em></h1>
+      <!-- Nome grande -->
+      <h1 class="hero-name reveal" style="--delay: 0.26s">
+        Marília <em data-i18n="hero.lastname">Mezalheira</em>
+      </h1>
 
-        <p>
-          Estudante na área de desenvolvimento.
-          Tenho experiência com suporte técnico, resolução de bugs e atendimento ao usuário, o que me ajuda a criar interfaces pensando na usabilidade e na experiência real das pessoas.
+      <!-- Badge de disponibilidade -->
+      <div class="hero-status reveal" style="--delay: 0.34s">
+        <span class="hero-status-dot" aria-hidden="true"></span>
+        <span data-i18n="hero.status">Aberta a oportunidades</span> <span class="hero-status-divider">/</span> <span data-i18n="hero.statusInternship">Estágio</span>
+      </div>
+
+      <!-- About Me (largura completa) + Terminal aninhado -->
+      <div class="hero-about-card reveal" style="--delay: 0.42s">
+        <div class="hero-card-header">
+          <span class="hero-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          <span class="hero-card-title" data-i18n="hero.aboutTitle">About me</span>
+        </div>
+
+        <p class="hero-about-text" id="bio-text" data-i18n="hero.bio">
+          Sou Marília Mezalheira, estudante de Análise e Desenvolvimento de Sistemas na UNINOVE,
+          em transição de carreira do suporte técnico para o Desenvolvimento Full Stack. Busco unir
+          minha experiência com usuários à criação de interfaces funcionais e bem projetadas.
         </p>
 
-        <div class="perfil-actions">
-          <button class="scroll-cta perfil-contato-btn botao-projetos-igual" id="btnProjetos">
-            Ver meus projetos
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 5v14M5 12l7 7 7-7"/>
-            </svg>
-          </button>
+        <!-- Terminal aninhado dentro do card About -->
+        <div class="terminal-wrapper" role="region" aria-label="Terminal interativo">
+          <div class="terminal-header">
+            <span class="terminal-dot red" aria-hidden="true"></span>
+            <span class="terminal-dot yellow" aria-hidden="true"></span>
+            <span class="terminal-dot green" aria-hidden="true"></span>
+            <span class="terminal-title" data-i18n="terminal.title">~/marilia-mezalheira — terminal: digite "help"</span>
+          </div>
 
-          <a href="#contato" class="perfil-contato-btn">Falar comigo</a>
+          <div class="terminal-body" id="terminal-output" aria-live="polite"></div>
+
+          <div class="terminal-input-line">
+            <span class="prompt-symbol">~$</span>
+            <input
+              type="text"
+              id="terminal-input"
+              placeholder="clique aqui e pressione Enter para executar um comando"
+              autocomplete="off"
+              spellcheck="false"
+              aria-label="Entrada de comando do terminal"
+            >
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="sobre-mim reveal" id="sobre">
-    <div class="section-label">SOBRE MIM</div>
-    <h2 class="section-title">Minha <em>trajetória</em></h2>
-
-    <div class="sobre-mim-card">
-      <p>
-        Trabalhei por quase 2 anos em suporte técnico e atendimento e foi justamente lá que percebi o que realmente queria fazer: estar do outro lado, construindo os sistemas que as pessoas usam.
-      </p>
-
-      <p>
-        Hoje estou em transição para Desenvolvimento Frontend. Curso TADS (Análise e Desenvolvimento de Sistemas) na UNINOVE, e estou desenvolvendo habilidades em HTML, CSS, JavaScript e Java, aplicando em projetos práticos enquanto avanço na graduação.
-      </p>
-
-      <p>
-        Na Stefanini Group, passei 1 ano e 8 meses prestando suporte a uma plataforma de bolsa de valores (AGF), resolvendo bugs, acompanhando chamados e trabalhando com sistemas integrados via WhatsApp. Depois, atuei como Analista de Processos em contexto jurídico monitorando informações em sistemas como ADA e Intranet, exigindo atenção a detalhes e organização que levo direto para o código.
-      </p>
-
-      <p>
-        O que me diferencia: não sou só quem escreve código. Sou quem já esteve no lado do usuário, sabe o que frustra e o que encanta e quer resolver isso com tecnologia.
-      </p>
-
-      <div class="sobre-highlights">
-        <span>Suporte técnico</span>
-        <span>Resolução de bugs</span>
-        <span>Desenvolvimento Frontend</span>
-        <span>Java em estudo</span>
-      </div>
-    </div>
-  </section>
-
-<section class="projetos" id="projetos">
-    <div class="section-label">PORTFÓLIO</div>
-    <h2 class="section-title">Projetos que <em>construí</em></h2>
+  <!-- PROJETOS -->
+  <section class="projetos" id="projetos">
+    <div class="section-label" data-i18n="projects.label">PORTFÓLIO</div>
+    <h2 class="section-title"><span data-i18n="projects.titleA">Projetos que</span> <em data-i18n="projects.titleB">construí</em></h2>
 
     <article class="projeto-card reveal" id="mario">
       <div class="projeto-media">
         <div class="media-frame mario-frame">
           <img src="imagens/mariocartvideo.gif" alt="Mario Cart Game" class="projeto-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
           <div class="media-placeholder">
-            <span>🎮</span>
-            <p>Adicione um screenshot do jogo aqui<br><small><imagens-mario class="png"></imagens-mario></small></p>
+            <p>Adicione um screenshot do jogo aqui<br><small>mariocart.png</small></p>
           </div>
           <div class="frame-badge">HTML · CSS · JS</div>
         </div>
@@ -117,10 +156,13 @@
 
       <div class="projeto-info">
         <div class="projeto-num">01</div>
-        <span class="status-projeto status-finalizado">Projeto de estudo · Pendente de Evolução</span>
-        <h3>Mario Cart <em>Game</em></h3>
-        <p>
-          Mini-jogo web inspirado no clássico Mario, desenvolvido com o objetivo de praticar conceitos fundamentais de front-end. O projeto apresenta um personagem animado que deve saltar para desviar de obstáculos, como canos, utilizando detecção de colisão, animações em CSS e lógica de game over. Ainda pretendo adicionar novas funcionalidades e melhorias ao jogo.
+        <span class="status-projeto status-finalizado" data-i18n="projects.mario.status">Projeto de estudo · Pendente de Evolução</span>
+        <h3>Mario Cart <em data-i18n="projects.mario.title">Game</em></h3>
+        <p data-i18n="projects.mario.desc">
+          Mini-jogo web inspirado no clássico Mario, desenvolvido com o objetivo de praticar
+          conceitos fundamentais de front-end. O projeto apresenta um personagem animado que
+          deve saltar para desviar de obstáculos, utilizando detecção de colisão, animações em
+          CSS e lógica de game over.
         </p>
         <div class="tech-list">
           <span>HTML5</span>
@@ -130,33 +172,20 @@
         </div>
 
         <div class="feature-list">
-          <div class="feature">
-            <div class="feature-dot"></div>
-            <span>Animações de pulo com keyframes CSS</span>
-          </div>
-          <div class="feature">
-            <div class="feature-dot"></div>
-            <span>Detecção de colisão em tempo real</span>
-          </div>
-          <div class="feature">
-            <div class="feature-dot"></div>
-            <span>Obstáculos com velocidade dinâmica</span>
-          </div>
-          <div class="feature">
-            <div class="feature-dot"></div>
-            <span>Tela de Game Over com sprite</span>
-          </div>
+          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.mario.f1">Animações de pulo com keyframes CSS</span></div>
+          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.mario.f2">Detecção de colisão em tempo real</span></div>
+          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.mario.f3">Obstáculos com velocidade dinâmica</span></div>
+          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.mario.f4">Tela de Game Over com sprite</span></div>
         </div>
 
         <div class="projeto-actions">
-          <a href="https://mariliamezalheiradev.github.io/mario-cart-game/" target="_blank" class="projeto-link">
-            Ver projeto online
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          <a href="https://mariliamezalheiradev.github.io/mario-cart-game/" target="_blank" rel="noopener noreferrer" class="projeto-link">
+            <span data-i18n="projects.btnView">Ver projeto online</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
-
-          <a href="https://github.com/mariliamezalheiradev/mario-cart-game" target="_blank" class="projeto-link">
-            Ver no GitHub
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          <a href="https://github.com/mariliamezalheiradev/mario-cart-game" target="_blank" rel="noopener noreferrer" class="projeto-link">
+            <span data-i18n="projects.btnGithub">Ver no GitHub</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
         </div>
       </div>
@@ -167,9 +196,7 @@
         <div class="media-frame salon-frame">
           <img src="imagens/flowsalonvideo.gif" alt="FlowSalon Dashboard" class="projeto-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
           <div class="media-placeholder">
-            <span>💈</span>
-            <p>Adicione um screenshot do dashboard
-              aqui<br><small><imagem-flowsalon class="png"></imagem-flowsalon></small></p>
+            <p>Adicione um screenshot do dashboard aqui<br><small>flowsalon.png</small></p>
           </div>
           <div class="frame-badge">Sistema Web</div>
         </div>
@@ -177,13 +204,13 @@
 
       <div class="projeto-info">
         <div class="projeto-num">02</div>
-        <span class="status-projeto status-evolucao">Projeto acadêmico · Finalizado</span>
-        <h3>Flow<em>Salon</em></h3>
-        <p>
+        <span class="status-projeto status-evolucao" data-i18n="projects.salon.status">Projeto acadêmico · Finalizado</span>
+        <h3>Flow<em data-i18n="projects.salon.title">Salon</em></h3>
+        <p data-i18n="projects.salon.desc">
           Plataforma de gestão completa para salões de beleza e barbearias. O sistema inclui
-          agendamento online para clientes, painel administrativo com controle de agenda, gestão
-          de clientes, catálogo de serviços e equipe de profissionais, tudo com uma interface
-          dark moderna e fluida.
+          agendamento online para clientes, painel administrativo com controle de agenda,
+          gestão de clientes, catálogo de serviços e equipe de profissionais, tudo com uma
+          interface dark moderna e fluida.
         </p>
 
         <div class="tech-list">
@@ -195,33 +222,20 @@
         </div>
 
         <div class="feature-list">
-          <div class="feature">
-            <div class="feature-dot"></div>
-            <span>Agendamento online com validação de formulário</span>
-          </div>
-          <div class="feature">
-            <div class="feature-dot"></div>
-            <span>Dashboard administrativo completo</span>
-          </div>
-          <div class="feature">
-            <div class="feature-dot"></div>
-            <span>Gestão de clientes, serviços e profissionais</span>
-          </div>
-          <div class="feature">
-            <div class="feature-dot"></div>
-            <span>Design responsivo com tema dark neon</span>
-          </div>
+          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.salon.f1">Agendamento online com validação de formulário</span></div>
+          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.salon.f2">Dashboard administrativo completo</span></div>
+          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.salon.f3">Gestão de clientes, serviços e profissionais</span></div>
+          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.salon.f4">Design responsivo com tema dark moderno</span></div>
         </div>
 
         <div class="projeto-actions">
-          <a href="https://mariliamezalheiradev.github.io/projeto-faculdade/" target="_blank" class="projeto-link">
-            Ver projeto online
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          <a href="https://mariliamezalheiradev.github.io/projeto-faculdade/" target="_blank" rel="noopener noreferrer" class="projeto-link">
+            <span data-i18n="projects.btnView">Ver projeto online</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
-
-          <a href="https://github.com/mariliamezalheiradev/projeto-faculdade" target="_blank" class="projeto-link">
-            Ver no GitHub
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          <a href="https://github.com/mariliamezalheiradev/projeto-faculdade" target="_blank" rel="noopener noreferrer" class="projeto-link">
+            <span data-i18n="projects.btnGithub">Ver no GitHub</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
         </div>
       </div>
@@ -232,7 +246,6 @@
         <div class="media-frame financas-frame">
           <img src="imagens/projetofinancas.gif" alt="Demonstração do projeto Finanças Pessoais com Firebase" class="projeto-img financas-gif" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
           <div class="media-placeholder">
-            <span>💰</span>
             <p>Adicione um screenshot do dashboard financeiro aqui<br><small>telainicialfinancas.png</small></p>
           </div>
           <div class="frame-badge">Dashboard Financeiro</div>
@@ -241,9 +254,9 @@
 
       <div class="projeto-info">
         <div class="projeto-num">03</div>
-        <span class="status-projeto status-finalizado">Projeto pessoal · Finalizado</span>
-        <h3>Finanças <em>Pessoais</em></h3>
-        <p>
+        <span class="status-projeto status-finalizado" data-i18n="projects.financas.status">Projeto pessoal · Finalizado</span>
+        <h3>Finanças <em data-i18n="projects.financas.title">Pessoais</em></h3>
+        <p data-i18n="projects.financas.desc">
           Sistema web desenvolvido para controle financeiro pessoal, integrado ao Firebase,
           com login e cadastro por e-mail e senha, salvamento online de dados, dashboard mensal,
           páginas separadas por área, cadastro de transações, contas a pagar, total em aberto,
@@ -260,137 +273,154 @@
         </div>
 
         <div class="feature-list">
-          <div class="feature">
-            <div class="feature-dot"></div>
-            <span>Login e cadastro com autenticação pelo Firebase</span>
-          </div>
-          <div class="feature">
-            <div class="feature-dot"></div>
-            <span>Dados salvos online para acessar pelo celular, PC ou notebook</span>
-          </div>
-          <div class="feature">
-            <div class="feature-dot"></div>
-            <span>Dashboard mensal com entradas, saídas, saldo e total em aberto</span>
-          </div>
-          <div class="feature">
-            <div class="feature-dot"></div>
-            <span>Cadastro de transações, contas a pagar, alertas e alarme automático</span>
-          </div>
+          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.financas.f1">Login e cadastro com autenticação pelo Firebase</span></div>
+          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.financas.f2">Dados salvos online para acessar pelo celular, PC ou notebook</span></div>
+          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.financas.f3">Dashboard mensal com entradas, saídas, saldo e total em aberto</span></div>
+          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.financas.f4">Cadastro de transações, contas a pagar, alertas e alarme automático</span></div>
         </div>
 
         <div class="projeto-actions">
-          <a href="https://mariliamezalheiradev.github.io/financas-pessoais/" target="_blank" class="projeto-link">
-            Ver projeto online
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          <a href="https://mariliamezalheiradev.github.io/financas-pessoais/" target="_blank" rel="noopener noreferrer" class="projeto-link">
+            <span data-i18n="projects.btnView">Ver projeto online</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
-
-          <a href="https://github.com/mariliamezalheiradev/financas-pessoais" target="_blank" class="projeto-link">
-            Ver no GitHub
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          <a href="https://github.com/mariliamezalheiradev/financas-pessoais" target="_blank" rel="noopener noreferrer" class="projeto-link">
+            <span data-i18n="projects.btnGithub">Ver no GitHub</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
         </div>
       </div>
     </article>
   </section>
 
+  <!-- ESTUDOS -->
   <section class="estudos reveal" id="estudos">
-  <div class="section-label">EM APRENDIZADO</div>
-  <h2 class="section-title">Estudando <em>agora</em></h2>
+    <div class="section-label" data-i18n="studies.label">EM APRENDIZADO</div>
+    <h2 class="section-title"><span data-i18n="studies.titleA">Estudando</span> <em data-i18n="studies.titleB">agora</em></h2>
 
-  <div class="estudos-grid">
-    <div class="estudo-card">
-      <span class="estudo-num">01</span>
-      <h3>Java</h3>
-      <p>Fundamentos da linguagem Java, orientação a objetos, classes, métodos e organização de código.</p>
-    </div>
+    <div class="estudos-grid">
+      <div class="estudo-card">
+        <span class="estudo-num">01</span>
+        <h3 data-i18n="studies.s1.title">Java &amp; Python</h3>
+        <p data-i18n="studies.s1.desc">Fundamentos de orientação a objetos e lógica de programação back-end com Java e Python.</p>
+      </div>
 
-    <div class="estudo-card">
-      <span class="estudo-num">02</span>
-      <h3>JavaScript</h3>
-      <p>Interatividade, manipulação do DOM, lógica de programação e evolução para projetos mais dinâmicos.</p>
-    </div>
+      <div class="estudo-card">
+        <span class="estudo-num">02</span>
+        <h3 data-i18n="studies.s2.title">JavaScript &amp; TypeScript</h3>
+        <p data-i18n="studies.s2.desc">Manipulação do DOM, lógica avançada e tipagem estática para projetos robustos.</p>
+      </div>
 
-    <div class="estudo-card">
-      <span class="estudo-num">03</span>
-      <h3>HTML5</h3>
-      <p>Estruturação de páginas web, organização semântica do conteúdo e criação da base visual dos projetos.</p>
-    </div>
+      <div class="estudo-card">
+        <span class="estudo-num">03</span>
+        <h3 data-i18n="studies.s3.title">React &amp; Next.js</h3>
+        <p data-i18n="studies.s3.desc">Criação de SPAs modernas, componentes reutilizáveis, SSR e roteamento avançado.</p>
+      </div>
 
-    <div class="estudo-card">
-      <span class="estudo-num">04</span>
-      <h3>CSS3</h3>
-      <p>Estilização de interfaces, responsividade, animações, layouts com Flexbox e Grid e melhoria da experiência visual.</p>
-    </div>
-  </div>
-</section>
-<section class="stack" id="stack">
-    <div class="section-label">TECNOLOGIAS</div>
-    <h2 class="section-title">Tecnologias e <em>Ferramentas</em></h2>
-
-    <div class="stack-grid reveal">
-  <div class="stack-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="stack-icon-img">
-    <span class="stack-nome">HTML5</span>
-    <p class="stack-desc">Estruturação semântica de páginas e interfaces web modernas.</p>
-  </div>
-  <div class="stack-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="stack-icon-img">
-    <span class="stack-nome">CSS3</span>
-    <p class="stack-desc">Estilização, animações, responsividade e layouts com Flexbox e Grid.</p>
-  </div>
-  <div class="stack-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="stack-icon-img">
-    <span class="stack-nome">JavaScript</span>
-    <p class="stack-desc">Lógica de programação, manipulação do DOM e interatividade.</p>
-  </div>
-  <div class="stack-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="stack-icon-img">
-    <span class="stack-nome">Java</span>
-    <p class="stack-desc">Desenvolvimento back-end em formação, orientação a objetos.</p>
-  </div>
-  <div class="stack-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="stack-icon-img" style="filter: invert(1);">
-    <span class="stack-nome">Git & GitHub</span>
-    <p class="stack-desc">Versionamento de código e colaboração em repositórios.</p>
-  </div>
-  <div class="stack-item">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="stack-icon-img">
-    <span class="stack-nome">VS Code</span>
-    <p class="stack-desc">Ferramenta utilizada para desenvolvimento front-end e organização dos projetos.</p>
-  </div>
-
-    <div class="stack-item">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" class="stack-icon-img" alt="IntelliJ IDEA">
-  <span class="stack-nome">IntelliJ IDEA</span>
-  <p class="stack-desc">IDE utilizada para estudos e desenvolvimento em Java.</p>
-</div>
-</div>
-  </section>
-  
-  <section class="contato reveal" id="contato">
-    <div class="section-label">CONTATO</div>
-    <h2 class="section-title">Vamos <em>conversar?</em></h2>
-
-    <div class="contato-card">
-      <p class="contato-texto">
-        Estou aberta a oportunidades de estágio, conexões na área de tecnologia, projetos e novos aprendizados.
-        Se quiser conversar comigo, escolha uma das opções abaixo.
-      </p>
-
-      <div class="contato-actions">
-        <a href="mailto:mariliagpedrosa@outlook.com" class="link-btn">Enviar e-mail</a>
-        <a href="https://www.linkedin.com/in/mar%C3%ADlia-mezalheira/" target="_blank" class="link-btn">LinkedIn</a>
-        <a href="https://github.com/mariliamezalheiradev" target="_blank" class="link-btn">GitHub</a>
-        <a href="https://www.instagram.com/liamezalheira/" target="_blank" class="link-btn">Instagram</a>
+      <div class="estudo-card">
+        <span class="estudo-num">04</span>
+        <h3 data-i18n="studies.s4.title">Tailwind CSS</h3>
+        <p data-i18n="studies.s4.desc">Estilização rápida e utilitária, layouts responsivos e design system moderno.</p>
       </div>
     </div>
   </section>
-<footer class="footer">
-    <div class="footer-orb"></div>
-    <p>Feito com 💜 por <strong>Marília Mezalheira</strong></p>
-    <p class="footer-sub">© 2026 · Todos os direitos reservados</p>
+
+  <!-- STACK / TECNOLOGIAS -->
+  <section class="stack" id="stack">
+    <div class="section-label" data-i18n="stack.label">TECNOLOGIAS</div>
+    <h2 class="section-title"><span data-i18n="stack.titleA">Tecnologias e</span> <em data-i18n="stack.titleB">Ferramentas</em></h2>
+
+    <div class="stack-grid reveal">
+      <div class="stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="stack-icon-img" loading="lazy">
+        <span class="stack-nome">HTML5</span>
+        <p class="stack-desc">Estruturação semântica de páginas e interfaces web modernas.</p>
+      </div>
+      <div class="stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="stack-icon-img" loading="lazy">
+        <span class="stack-nome">CSS3</span>
+        <p class="stack-desc">Estilização, animações, responsividade e layouts com Flexbox e Grid.</p>
+      </div>
+      <div class="stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="stack-icon-img" loading="lazy">
+        <span class="stack-nome">JavaScript</span>
+        <p class="stack-desc">Lógica de programação, manipulação do DOM e interatividade.</p>
+      </div>
+      <div class="stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="stack-icon-img" loading="lazy">
+        <span class="stack-nome">TypeScript</span>
+        <p class="stack-desc">Superset tipado do JavaScript para aplicações escaláveis.</p>
+      </div>
+      <div class="stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="stack-icon-img" loading="lazy">
+        <span class="stack-nome">React</span>
+        <p class="stack-desc">Biblioteca para construção de interfaces de usuário reativas.</p>
+      </div>
+      <div class="stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="stack-icon-img" loading="lazy">
+        <span class="stack-nome">Next.js</span>
+        <p class="stack-desc">Framework React com SSR, SSG e roteamento para produção.</p>
+      </div>
+      <div class="stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="stack-icon-img" loading="lazy">
+        <span class="stack-nome">Tailwind CSS</span>
+        <p class="stack-desc">Framework CSS utilitário para designs rápidos e responsivos.</p>
+      </div>
+      <div class="stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="stack-icon-img" loading="lazy">
+        <span class="stack-nome">Python</span>
+        <p class="stack-desc">Linguagem versátil para back-end, automação e ciência de dados.</p>
+      </div>
+      <div class="stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="stack-icon-img" loading="lazy">
+        <span class="stack-nome">Java</span>
+        <p class="stack-desc">Desenvolvimento back-end em formação, orientação a objetos.</p>
+      </div>
+      <div class="stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="stack-icon-img invert" loading="lazy">
+        <span class="stack-nome">Git &amp; GitHub</span>
+        <p class="stack-desc">Versionamento de código e colaboração em repositórios.</p>
+      </div>
+      <div class="stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" class="stack-icon-img" loading="lazy">
+        <span class="stack-nome">VS Code</span>
+        <p class="stack-desc">Editor principal para desenvolvimento front-end e organização.</p>
+      </div>
+      <div class="stack-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" alt="IntelliJ IDEA" class="stack-icon-img" loading="lazy">
+        <span class="stack-nome">IntelliJ IDEA</span>
+        <p class="stack-desc">IDE utilizada para estudos e desenvolvimento em Java.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO (movido para logo antes do footer) -->
+  <section class="contato reveal" id="contato">
+    <div class="section-label" data-i18n="contact.label">CONTATO</div>
+    <h2 class="section-title"><span data-i18n="contact.titleA">Vamos</span> <em data-i18n="contact.titleB">conversar?</em></h2>
+
+    <div class="contato-card">
+      <p class="contato-texto" data-i18n="contact.text">
+        Estou aberta a oportunidades de estágio, conexões na área de tecnologia, projetos e
+        novos aprendizados. Se quiser conversar comigo, escolha uma das opções abaixo.
+      </p>
+
+      <div class="contato-actions">
+        <a href="mailto:mariliagpedrosa@outlook.com" class="link-btn" data-i18n="contact.email">Enviar e-mail</a>
+        <a href="https://www.linkedin.com/in/mar%C3%ADlia-mezalheira/" target="_blank" rel="noopener noreferrer" class="link-btn">LinkedIn</a>
+        <a href="https://github.com/mariliamezalheiradev" target="_blank" rel="noopener noreferrer" class="link-btn">GitHub</a>
+        <a href="https://www.instagram.com/liamezalheira/" target="_blank" rel="noopener noreferrer" class="link-btn">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-orb" aria-hidden="true"></div>
+    <p><span data-i18n="footer.made">Feito com 💙 por</span> <strong>Marília Mezalheira</strong></p>
+    <p class="footer-sub" data-i18n="footer.copy">© 2026 · Todos os direitos reservados</p>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script src="js/script.js" defer></script>
 </body>
 </html>

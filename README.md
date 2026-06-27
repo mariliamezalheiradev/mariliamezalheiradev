@@ -1,4 +1,4 @@
-<h1 align="center">Olá, eu sou a Marília Mezalheira 💜</h1>
+<h1 align="center">Olá, eu sou a Marília Mezalheira 💙</h1>
 
 <p align="center">
   Desenvolvedora Full Stack em formação • Estudante de Análise e Desenvolvimento de Sistemas
@@ -18,7 +18,7 @@ Estou iniciando minha jornada na área de desenvolvimento, criando projetos com 
 
 Tenho experiência com suporte técnico, atendimento ao usuário, análise de processos e resolução de bugs, o que me ajuda a desenvolver soluções pensando também na experiência de quem utiliza o sistema.
 
-Atualmente curso Análise e Desenvolvimento de Sistemas e sigo desenvolvendo projetos práticos para evoluir minhas habilidades em HTML, CSS, JavaScript e Java.
+Atualmente curso Análise e Desenvolvimento de Sistemas (UNINOVE) e sigo desenvolvendo projetos práticos para evoluir minhas habilidades no ecossistema Full Stack, abrangendo desde o front-end com React até o back-end com Java e Python.
 
 ---
 
@@ -32,13 +32,35 @@ Atualmente curso Análise e Desenvolvimento de Sistemas e sigo desenvolvendo pro
 &nbsp;&nbsp;
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="45" title="JavaScript"/>
 &nbsp;&nbsp;
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="45" title="TypeScript"/>
+&nbsp;&nbsp;
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="45" title="React"/>
+&nbsp;&nbsp;
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" width="45" title="Next.js"/>
+&nbsp;&nbsp;
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" width="45" title="Tailwind CSS"/>
+&nbsp;&nbsp;
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="45" title="Java"/>
+&nbsp;&nbsp;
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="45" title="Python"/>
 &nbsp;&nbsp;
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="45" title="Git"/>
 &nbsp;&nbsp;
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="45" title="GitHub"/>
 
 </div>
+
+### 🛠️ Stack completo
+
+- HTML5, CSS3, JavaScript, TypeScript, React, Next.js, Tailwind CSS, Java, Python
+- Git, GitHub, VS Code, IntelliJ IDEA
+
+---
+
+## 🌐 Idiomas / Languages
+
+- 🇧🇷 **Português** — Nativo
+- 🇺🇸 **Inglês** — Intermediate English
 
 ---
 
@@ -74,9 +96,9 @@ Sistema web para salão/barbearia, com agendamento online, painel administrativo
 
 ### Finanças Pessoais
 
-Sistema web desenvolvido para controle de finanças pessoais, com login e cadastro local, dashboard financeiro, cadastro de transações, contas a pagar, total em aberto, alertas automáticos de vencimento e badge de notificação no menu.
+Sistema web desenvolvido para controle de finanças pessoais, integrado ao Firebase, com login e cadastro por e-mail e senha, salvamento online dos dados no Firestore, dashboard financeiro mensal, cadastro de transações, contas a pagar, total em aberto, alertas automáticos de vencimento e badge de notificação no menu.
 
-O projeto foi criado com foco em organização mensal, usabilidade e praticidade, utilizando HTML, CSS, JavaScript e LocalStorage para armazenamento dos dados no navegador.
+O projeto foi criado com foco em organização mensal, usabilidade e praticidade, utilizando HTML, CSS, JavaScript, Firebase Auth e Cloud Firestore para autenticação e armazenamento dos dados.
 
 **Projeto online:** https://mariliamezalheiradev.github.io/financas-pessoais/
 
@@ -86,15 +108,15 @@ O projeto foi criado com foco em organização mensal, usabilidade e praticidade
 
 ## Atualmente estudando
 
-* HTML, CSS e JavaScript
-* Java para back-end
-* Responsividade
-* Organização de código
-* Git e GitHub
-* Boas práticas de desenvolvimento
+* React e Next.js (Front-end moderno)
+* TypeScript (Tipagem estática)
+* Tailwind CSS (Estilização utilitária)
+* Java e Python (Back-end)
+* Arquitetura Full Stack e boas práticas de desenvolvimento
+* Git e GitHub para versionamento
 
 ---
 
 <p align="center">
-  Feito com 💜 por <strong>Marília Mezalheira</strong>
+  Feito com 💙 por <strong>Marília Mezalheira</strong>
 </p>
