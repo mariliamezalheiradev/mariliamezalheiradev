@@ -195,7 +195,7 @@
           <!-- GIF servido via CDN (jsDelivr) com lazy loading.
                Fallback local via onerror (caso a CDN esteja offline).
                TODO: comprimir com gifsicle -O3 --lossy=80 ou converter para WebM/MP4. -->
-          <img src="https://cdn.jsdelivr.net/gh/mariliamezalheiradev/mariliamezalheiradev/imagens/mariocartvideo.gif" alt="Mario Cart Game" class="projeto-img" loading="lazy" onerror="this.onerror=null;this.src='imagens/mariocartvideo.gif'; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="https://cdn.jsdelivr.net/gh/mariliamezalheiradev/mariliamezalheiradev/imagens/mariocartvideo.gif" alt="Mario Cart Game" class="projeto-img" loading="lazy" onerror="if(!this.hasAttribute('data-retry')){this.setAttribute('data-retry','true');this.src='imagens/mariocartvideo.gif';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">
           <div class="media-placeholder">
             <p>Adicione um screenshot do jogo aqui<br><small>mariocart.png</small></p>
           </div>
@@ -246,7 +246,7 @@
           <!-- GIF FlowSalon (~16 MB) servido via jsDelivr CDN com lazy loading
                para não bloquear a renderização inicial da homepage.
                Fallback local mantido via onerror. -->
-          <img src="https://cdn.jsdelivr.net/gh/mariliamezalheiradev/mariliamezalheiradev/imagens/flowsalonvideo.gif" alt="FlowSalon Dashboard" class="projeto-img" loading="lazy" onerror="this.onerror=null;this.src='imagens/flowsalonvideo.gif'; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="https://cdn.jsdelivr.net/gh/mariliamezalheiradev/mariliamezalheiradev/imagens/flowsalonvideo.gif" alt="FlowSalon Dashboard" class="projeto-img" loading="lazy" onerror="if(!this.hasAttribute('data-retry')){this.setAttribute('data-retry','true');this.src='imagens/flowsalonvideo.gif';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">
           <div class="media-placeholder">
             <p>Adicione um screenshot do dashboard aqui<br><small>flowsalon.png</small></p>
           </div>
@@ -298,7 +298,7 @@
         <div class="media-frame financas-frame">
           <!-- GIF Finanças Pessoais (~4 MB) servido via jsDelivr CDN com lazy loading.
                Fallback local mantido via onerror. -->
-          <img src="https://cdn.jsdelivr.net/gh/mariliamezalheiradev/mariliamezalheiradev/imagens/projetofinancas.gif" alt="Demonstração do projeto Finanças Pessoais com Firebase" class="projeto-img financas-gif" loading="lazy" onerror="this.onerror=null;this.src='imagens/projetofinancas.gif'; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="https://cdn.jsdelivr.net/gh/mariliamezalheiradev/mariliamezalheiradev/imagens/projetofinancas.gif" alt="Demonstração do projeto Finanças Pessoais com Firebase" class="projeto-img financas-gif" loading="lazy" onerror="if(!this.hasAttribute('data-retry')){this.setAttribute('data-retry','true');this.src='imagens/projetofinancas.gif';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">
           <div class="media-placeholder">
             <p>Adicione um screenshot do dashboard financeiro aqui<br><small>telainicialfinancas.png</small></p>
           </div>

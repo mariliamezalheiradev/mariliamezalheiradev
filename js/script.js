@@ -680,13 +680,31 @@
 
   /* ============================================
      FALLBACK DE IMAGENS
+     Estratégia de 2 tentativas (espelha o data-retry do onerror inline):
+       1ª falha → tenta o arquivo local (fallback)
+       2ª falha → esconde a imagem e mostra o placeholder
+     O atributo `data-retry` impede loop infinito.
      ============================================ */
   function initImageFallbacks() {
     document.querySelectorAll('.projeto-img').forEach((img) => {
       img.addEventListener('error', () => {
-        img.style.display = 'none';
         const placeholder = img.nextElementSibling;
-        if (placeholder && placeholder.classList.contains('media-placeholder')) placeholder.style.display = 'flex';
+        if (!placeholder || !placeholder.classList.contains('media-placeholder')) {
+          img.style.display = 'none';
+          return;
+        }
+        if (!img.hasAttribute('data-retry')) {
+          // 1ª falha: tenta o fallback local antes de desistir.
+          img.setAttribute('data-retry', 'true');
+          // Extrai apenas o basename do src atual para apontar para a versão local.
+          const src = img.getAttribute('src') || '';
+          const filename = src.split('/').pop();
+          if (filename) img.src = 'imagens/' + filename;
+        } else {
+          // 2ª falha (fallback local também ausente): mostra o placeholder.
+          img.style.display = 'none';
+          placeholder.style.display = 'flex';
+        }
       });
     });
   }
