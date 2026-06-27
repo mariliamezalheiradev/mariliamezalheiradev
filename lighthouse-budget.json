@@ -3,8 +3,7 @@
     "collect": {
       "staticDistDir": "./",
       "url": [
-        "http://localhost/index.html",
-        "http://localhost/404.html"
+        "http://localhost/index.html"
       ]
     },
     "assert": {

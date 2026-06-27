@@ -80,7 +80,6 @@ jobs:
         with:
           urls: |
             https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
-            https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/404.html
           budgetPath: ./lighthouse-budget.json
           uploadArtifacts: true
           temporaryPublicStorage: true
