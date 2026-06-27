@@ -78,7 +78,7 @@
           total: 'Total: 14 habilidades ativas no stack (incluindo Inglês Intermediário).'
         },
         status: {
-          text: 'Construir mais habilidades ainda para aprimorar minha carreira profissional e pessoal também.'
+          text: 'Meu foco está em construir habilidades sólidas que impulsionem meu crescimento profissional e pessoal. Busco não apenas aprender, mas também conectar-me com pessoas que compartilham da mesma paixão por tecnologia e inovação. Acredito que as melhores oportunidades surgem quando nos cercamos de pessoas inspiradoras que nos desafiam a ser melhores.'
         },
         contact: {
           emailLabel: '▸ E-mail:',
@@ -212,7 +212,7 @@
           total: 'Total: 14 active skills in the stack (including Intermediate English).'
         },
         status: {
-          text: 'Building even more skills to enhance my professional and personal career.'
+          text: 'My focus is on building solid skills that drive my professional and personal growth. I seek not only to learn but also to connect with people who share the same passion for technology and innovation. I believe that the best opportunities arise when we surround ourselves with inspiring people who challenge us to be better.'
         },
         contact: {
           emailLabel: '▸ Email:',
@@ -560,14 +560,20 @@
           <div class="terminal-line"><span class="cyan">${escapeHTML(d.langs)}</span></div>
           <div class="terminal-line">${escapeHTML(d.langsList)}</div>
           <div class="terminal-line"></div>
+          <div class="terminal-line"><span class="cyan">${escapeHTML(d.frameworks)}</span></div>
+          <div class="terminal-line">${escapeHTML(d.frameworksList)}</div>
+          <div class="terminal-line"></div>
+          <div class="terminal-line"><span class="cyan">${escapeHTML(d.tools)}</span></div>
+          <div class="terminal-line">${escapeHTML(d.toolsList)}</div>
+          <div class="terminal-line"></div>
           <div class="terminal-line"><span class="dim">${escapeHTML(d.total)}</span></div>
         `;
       },
 
       status: () => {
-        const PT = 'Meu foco está em construir habilidades sólidas que impulsionem meu crescimento profissional e pessoal. Busco não apenas aprender, mas também conectar-me com pessoas que compartilham da mesma paixão por tecnologia e inovação. Acredito que as melhores oportunidades surgem quando nos cercamos de pessoas inspiradoras que nos desafiam a ser melhores.';
-        const EN = 'My focus is on building solid skills that drive my professional and personal growth. I seek not only to learn but also to connect with people who share the same passion for technology and innovation. I believe that the best opportunities arise when we surround ourselves with inspiring people who challenge us to be better.';
-        const text = currentLang === 'pt' ? PT : EN;
+        // Lê do dicionário i18n (dict().status.text) em vez de consts inline
+        // para manter uma única fonte da verdade.
+        const text = dict().status.text;
         return `
           <div class="terminal-line"><span class="green">●</span> ${escapeHTML(text)}</div>
         `;

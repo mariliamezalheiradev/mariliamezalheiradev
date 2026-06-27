@@ -1065,8 +1065,8 @@ body.theme-light .salon-frame {
 .media-placeholder p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
 .media-placeholder small { color: var(--text-faint); font-family: 'Space Mono', monospace; font-size: 0.72rem; }
 
-body.theme-light .media-placeholder p { color: rgba(255, 255, 255, 0.92); }
-body.theme-light .media-placeholder small { color: rgba(255, 255, 255, 0.78); }
+body.theme-light .media-placeholder p { color: var(--text-muted); }
+body.theme-light .media-placeholder small { color: var(--text-faint); }
 
 .frame-badge {
   position: absolute;
