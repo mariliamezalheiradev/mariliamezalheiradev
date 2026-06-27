@@ -1,17 +1,3 @@
-/* =============================================
-   MARÍLIA MEZALHEIRA — Portfolio script.js
-   Refatorado: blue/cyan theme + PT/EN toggle
-   Audit fixes 2026-06-27:
-     - All HTML data-i18n keys now match dictionary
-     - Topbar button IDs aligned with JS (kebab-case)
-     - Terminal about/skills/status have the spec-required content
-     - Terminal help title pulled from dictionary
-     - i18n toggle applies og:title + og:description too
-     - Desktop JS-fail fallback delegated to CSS animation
-   Cleanup 2026-06-27:
-     - Typed.js removed entirely (CDN script, HTML element, JS logic, dictionary keys)
-   ============================================= */
-
 (function () {
   'use strict';
 
@@ -88,11 +74,7 @@
         status:  'Aberta a oportunidades',
         statusInternship: 'Estágio',
         aboutTitle: 'Sobre mim',
-        bio: [
-          'Sou Marília Mezalheira, estudante de Análise e Desenvolvimento de Sistemas (TADS) na UNINOVE, em transição de carreira do suporte técnico para o desenvolvimento Full Stack.',
-          'Minha jornada na tecnologia começou no suporte técnico, onde aprendi a lidar com usuários, analisar processos e resolver problemas com agilidade — habilidades que hoje aplico diretamente na criação de interfaces funcionais e bem projetadas.',
-          'Atualmente curso TADS na UNINOVE e sigo construindo projetos práticos para evoluir no ecossistema Full Stack, do front-end com React e Next.js ao back-end com Java e Python.',
-        ].join('\n\n'),
+        bio: 'Sou Marília Mezalheira, estudante de Análise e Desenvolvimento de Sistemas na UNINOVE, em transição de carreira do suporte técnico para o Desenvolvimento Full Stack. Busco unir minha experiência com usuários à criação de interfaces funcionais e bem projetadas.',
         aboutCard: {
           title:  'Sobre Mim',
           paragraph: [
@@ -122,13 +104,13 @@
           '<span class="cyan">clear</span>    → limpa o terminal',
         ].join('\n'),
         about: {
-          title:  '> Marília Mezalheira — Biografia completa (4 parágrafos)',
+          title:  '> Marília Mezalheira — Biografia completa',
           lines: [
             '<span class="cyan">01.</span> Sou Marília Mezalheira, atualmente estudante de Análise e Desenvolvimento de Sistemas (TADS) na UNINOVE. Estou em transição de carreira, vindo da área de suporte técnico — onde atuei diretamente com usuários, análise de processos e resolução de bugs — para o desenvolvimento Full Stack, área na qual encontrei meu verdadeiro propósito profissional.',
             '',
             '<span class="cyan">02.</span> Minha trajetória profissional inclui passagem pelo <span class="cyan">Grupo Stefanini</span>, uma das maiores empresas de tecnologia do Brasil, onde trabalhei com suporte técnico e operações de TI. Essa experiência foi fundamental para desenvolver uma mentalidade orientada a soluções, foco em resultados e respeito pelo usuário final.',
             '',
-            '<span class="cyan">03.</span> Também busquei formação complementar em instituições como a <span class="cyan">ADA</span> (Academia de Desenvolvimento Ágil) e em projetos internos, complementando a grade curricular da faculdade com cursos livres de programação, lógica e desenvolvimento web. Na faculdade e na vida profissional, aprendi a integrar sistemas, lidar com a <span class="cyan">Intranet</span> corporativa, versionar código em Git, documentar processos e colaborar em times multidisciplinares.',
+            '<span class="cyan">03.</span> Também atuei na <span class="cyan">AGF</span> (Allianz Global Corporate & Specialty), em ambiente corporativo internacional, e busquei formação complementar em instituições como a <span class="cyan">ADA</span> (Academia de Desenvolvimento Ágil) e em projetos internos, complementando a grade curricular da faculdade com cursos livres de programação, lógica e desenvolvimento web. Na faculdade e na vida profissional, aprendi a integrar sistemas, lidar com a <span class="cyan">Intranet</span> corporativa, versionar código em Git, documentar processos e colaborar em times multidisciplinares.',
             '',
             '<span class="cyan">04.</span> Hoje, foco em desenvolvimento Full Stack com ênfase em UI/UX moderno — unindo a experiência de bastidores em suporte/infra com a paixão por construir interfaces claras, acessíveis e funcionais. Stack principal: HTML5, CSS3, JavaScript (ES6+), TypeScript, React, Next.js, Tailwind CSS no front; Java e Python no back. Atualmente disponível para estágio, freelancer ou posição júnior em desenvolvimento.',
             '',
@@ -347,11 +329,7 @@
         status:  'Open to opportunities',
         statusInternship: 'Internship',
         aboutTitle: 'About me',
-        bio: [
-          "I'm Marília Mezalheira, currently studying Systems Analysis and Development (TADS) at UNINOVE, transitioning my career from technical support into Full Stack development.",
-          'My journey into tech started in technical support, where I learned to deal with users, analyze processes and solve problems with agility — skills I now apply directly to building functional and well-designed interfaces.',
-          'I am currently studying TADS at UNINOVE and keep building hands-on projects to grow in the Full Stack ecosystem, from front-end with React and Next.js to back-end with Java and Python.',
-        ].join('\n\n'),
+        bio: 'I am Marília Mezalheira, a Systems Analysis and Development student at UNINOVE, transitioning my career from technical support to Full Stack Development. I aim to combine my user-facing experience with the creation of functional and well-designed interfaces.',
         aboutCard: {
           title:  'About Me',
           paragraph: [
@@ -381,13 +359,13 @@
           '<span class="cyan">clear</span>    → clear the terminal',
         ].join('\n'),
         about: {
-          title:  '> Marília Mezalheira — Full Biography (4 paragraphs)',
+          title:  '> Marília Mezalheira — Full Biography',
           lines: [
             '<span class="cyan">01.</span> I am Marília Mezalheira, currently a Systems Analysis and Development (TADS) student at UNINOVE. I am transitioning my career from technical support — where I worked directly with users, process analysis and bug resolution — into Full Stack development, the area where I found my true professional purpose.',
             '',
             '<span class="cyan">02.</span> My professional background includes a stint at the <span class="cyan">Stefanini Group</span>, one of the largest technology companies in Brazil, where I worked with technical support and IT operations. That experience was key to developing a solution-oriented mindset, results focus, and respect for the end user.',
             '',
-            '<span class="cyan">03.</span> I also pursued complementary education at institutions like <span class="cyan">ADA</span> (Academy of Agile Development) and through internal projects, complementing my college curriculum with programming, logic and web development courses. At college and in professional life, I learned to integrate systems, work with the corporate <span class="cyan">Intranet</span>, version code in Git, document processes and collaborate in multidisciplinary teams.',
+            '<span class="cyan">03.</span> I also worked at <span class="cyan">AGF</span> (Allianz Global Corporate & Specialty) in an international corporate environment, and pursued complementary education at institutions like <span class="cyan">ADA</span> (Academy of Agile Development) and through internal projects, complementing my college curriculum with programming, logic and web development courses. At college and in professional life, I learned to integrate systems, work with the corporate <span class="cyan">Intranet</span>, version code in Git, document processes and collaborate in multidisciplinary teams.',
             '',
             '<span class="cyan">04.</span> Today, I focus on Full Stack development with modern UI/UX emphasis — combining my back-office support/infra experience with a passion for building clear, accessible and functional interfaces. Main stack: HTML5, CSS3, JavaScript (ES6+), TypeScript, React, Next.js, Tailwind CSS on the front; Java and Python on the back. Currently available for internships, freelance or junior developer positions.',
             '',
@@ -672,30 +650,94 @@
   /* ========================
      CUSTOM CURSOR
      ======================== */
+  function canUseHoverCursor() {
+    // Primary: media query (hover: hover) — true on devices with a real mouse.
+    if (window.matchMedia && window.matchMedia('(hover: hover)').matches) return true;
+    // Secondary: explicit pointer:fine.
+    if (window.matchMedia && window.matchMedia('(pointer: fine)').matches) return true;
+    return false;
+  }
+
   function initCustomCursor() {
     const cursor = document.getElementById('cursor');
     const follower = document.getElementById('cursor-follower');
     if (!cursor || !follower) return;
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    let mouseX = 0, mouseY = 0;
-    let fx = 0, fy = 0;
+    // Task 2.4: touch detection — only block the cursor when the device is
+    // truly touch-only. Touch-capable laptops/tablets with a mouse still get
+    // the cursor. (hover: hover) is the canonical CSS signal for "real mouse".
+    let mouseCapable =
+      (window.matchMedia && window.matchMedia('(hover: hover)').matches) ||
+      (window.matchMedia && window.matchMedia('(pointer: fine)').matches);
+
+    // Hard fallback: if a mousemove ever fires, this device has a mouse
+    // regardless of what the touch heuristics said.
+    let mouseSeen = false;
+    const onFirstMouse = function () {
+      mouseSeen = true;
+      mouseCapable = true;
+    };
+    document.addEventListener('mousemove', onFirstMouse, { once: true, passive: true });
+
+    if (!mouseCapable && !mouseSeen) {
+      // Truly touch-only device — hide both cursor elements.
+      cursor.style.display = 'none';
+      follower.style.display = 'none';
+      document.body.style.cursor = 'auto';
+      return;
+    }
+
+    // Task 2.2: start at -1000 so the dot is not visible at (0, 0) before
+    // the first mousemove. The CSS initial top:-100px / left:-100px is the
+    // belt; these JS values are the suspenders.
+    let mouseX = -1000;
+    let mouseY = -1000;
+    let followerX = -1000;
+    let followerY = -1000;
+    let firstMove = false;
+
+    // Task 2.1: do NOT touch cursor.style.transform or follower.style.transform
+    // in JS — the CSS owns it (translate(-50%, -50%) for centering).
+    // Only set left/top to keep coordinates aligned with the mouse.
+    cursor.style.left = '-100px';
+    cursor.style.top  = '-100px';
+    follower.style.left = '-100px';
+    follower.style.top  = '-100px';
 
     document.addEventListener('mousemove', function (e) {
       mouseX = e.clientX;
       mouseY = e.clientY;
+
+      // Task 2.3: apply left/top directly to both elements. No transform
+      // writes here — CSS transform stays "translate(-50%, -50%)" forever.
       cursor.style.left = mouseX + 'px';
       cursor.style.top  = mouseY + 'px';
+      follower.style.left = mouseX + 'px';
+      follower.style.top  = mouseY + 'px';
+
+      if (!firstMove) {
+        firstMove = true;
+        // Belt-and-suspenders: kill the native cursor if the CSS hasn't done it.
+        document.body.style.cursor = 'none';
+      }
     });
 
-    function loop() {
-      fx += (mouseX - fx) * 0.18;
-      fy += (mouseY - fy) * 0.18;
-      follower.style.left = fx + 'px';
-      follower.style.top  = fy + 'px';
-      requestAnimationFrame(loop);
+    document.addEventListener('mouseleave', function () {
+      // Soft fallback if the mouse leaves the window: stop chasing.
+      mouseX = followerX;
+      mouseY = followerY;
+    });
+
+    // Task 2.5: animateCursor only writes left/top to the follower.
+    // No transform writes — CSS keeps translate(-50%, -50%) fixed.
+    function animateCursor() {
+      followerX += (mouseX - followerX) * 0.2;
+      followerY += (mouseY - followerY) * 0.2;
+      follower.style.left = followerX + 'px';
+      follower.style.top  = followerY + 'px';
+      requestAnimationFrame(animateCursor);
     }
-    loop();
+    animateCursor();
 
     const hoverSel = 'a, button, .topbar-toggle, .menu-fixo a, .projeto-link, .link-btn, .stack-item, .estudo-card, input';
     document.querySelectorAll(hoverSel).forEach(function (el) {
@@ -749,7 +791,7 @@
         },
       },
       interactivity: {
-        detect_on: 'canvas',
+        detect_on: 'window',
         events: {
           onhover: { enable: true, mode: 'grab' },
           onclick: { enable: false },
@@ -851,7 +893,25 @@
         d.terminal.help.split('\n').forEach(function (l) { termAppendRaw(l); });
       },
       about: function () {
-        printBlock(d.terminal.about.title, d.terminal.about.lines);
+        const bio = d.terminal.about;
+        // Structured object form: { title, lines } — render the title with
+        // the standard "title" styling and each line as a .terminal-line.
+        if (bio && typeof bio === 'object' && !Array.isArray(bio)) {
+          printBlock(bio.title, bio.lines);
+          return;
+        }
+        // Flat string form: split on blank lines into clean paragraphs.
+        if (typeof bio === 'string') {
+          const paragraphs = bio.split(/\n\s*\n/).map(function (p) { return p.trim(); }).filter(Boolean);
+          if (paragraphs.length === 0) {
+            termAppendRaw(escapeHTML(bio));
+          } else {
+            paragraphs.forEach(function (p, i) {
+              termAppendRaw(escapeHTML(p));
+              if (i < paragraphs.length - 1) termAppendRaw('');
+            });
+          }
+        }
       },
       skills: function () {
         printBlock(d.terminal.skills.title, d.terminal.skills.lines);
