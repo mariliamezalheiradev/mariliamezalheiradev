@@ -68,40 +68,6 @@ Para conhecer melhor meus projetos, minha trajetória e ver mais detalhes do meu
 
 ---
 
-## Projetos
-
-### Mario Cart Game
-
-Mini-jogo web desenvolvido com HTML, CSS e JavaScript, utilizando animações, colisão em tempo real e lógica de game over.
-
-**Projeto online:** https://mariliamezalheiradev.github.io/mario-cart-game/
-
-**Repositório:** https://github.com/mariliamezalheiradev/mario-cart-game
-
----
-
-### FlowSalon
-
-Sistema web para salão/barbearia, com agendamento online, painel administrativo, gestão de clientes, serviços e profissionais, LocalStorage e integração com API ViaCEP.
-
-**Projeto online:** https://mariliamezalheiradev.github.io/projeto-faculdade/
-
-**Repositório:** https://github.com/mariliamezalheiradev/projeto-faculdade
-
----
-
-### Finanças Pessoais
-
-Sistema web desenvolvido para controle de finanças pessoais, integrado ao Firebase, com login e cadastro por e-mail e senha, salvamento online dos dados no Firestore, dashboard financeiro mensal, cadastro de transações, contas a pagar, total em aberto, alertas automáticos de vencimento e badge de notificação no menu.
-
-O projeto foi criado com foco em organização mensal, usabilidade e praticidade, utilizando HTML, CSS, JavaScript, Firebase Auth e Cloud Firestore para autenticação e armazenamento dos dados.
-
-**Projeto online:** https://mariliamezalheiradev.github.io/financas-pessoais/
-
-**Repositório:** https://github.com/mariliamezalheiradev/financas-pessoais
-
----
-
 ## Atualmente estudando
 
 * React e Next.js (Front-end moderno)
