@@ -50,15 +50,13 @@
         ogDescription: 'Desenvolvedora Full Stack em formação • Estudante de TADS (UNINOVE) • HTML, CSS, JavaScript, React, Java.',
       },
       nav: {
-        // HTML keys used: nav.home / nav.projects / nav.studies / nav.stack / nav.contact
+        // HTML keys used: nav.home / nav.studies / nav.stack / nav.contact
         home:    'Início',
-        projects:'Projetos',
         studies: 'Estudos',
         stack:   'Tecnologias',
         contact: 'Contato',
         // aliases (kept for backwards-compat with earlier keys)
         inicio:    'Início',
-        projetos:  'Projetos',
         estudos:   'Estudos',
         tecnologias:'Tecnologias',
         contato:   'Contato',
@@ -78,9 +76,7 @@
         aboutCard: {
           title:  'Sobre Mim',
           paragraph: [
-            'Iniciei minha jornada na área de desenvolvimento criando projetos com foco em interfaces modernas, responsivas e funcionais. Antes da programação, trabalhei com suporte técnico, atendimento ao usuário, análise de processos e resolução de bugs — uma base que me ajuda a pensar em soluções também pela perspectiva de quem usa o sistema.',
-            'Atualmente curso Análise e Desenvolvimento de Sistemas na UNINOVE e sigo construindo projetos práticos para evoluir no ecossistema Full Stack, do front-end com React ao back-end com Java e Python.',
-            'Para conhecer melhor meus projetos e minha trajetória, acesse meu portfólio completo abaixo 👇',
+            'Sou Marília Mezalheira, estudante de Análise e Desenvolvimento de Sistemas na UNINOVE, em transição de carreira do suporte técnico para o Desenvolvimento Full Stack. Busco unir minha experiência com usuários à criação de interfaces funcionais e bem projetadas.',
           ],
           portfolioBtn: 'Ver portfólio completo',
         },
@@ -104,22 +100,15 @@
           '<span class="cyan">clear</span>    → limpa o terminal',
         ].join('\n'),
         about: {
-          title:  '> Marília Mezalheira — Biografia completa',
+          title: '> Sobre mim',
           lines: [
-            '<span class="cyan">01.</span> Sou Marília Mezalheira, atualmente estudante de Análise e Desenvolvimento de Sistemas (TADS) na UNINOVE. Estou em transição de carreira, vindo da área de suporte técnico — onde atuei diretamente com usuários, análise de processos e resolução de bugs — para o desenvolvimento Full Stack, área na qual encontrei meu verdadeiro propósito profissional.',
+            'Sou Marília Mezalheira, atualmente estudante de Análise e Desenvolvimento de Sistemas (TADS) na UNINOVE. Estou em transição de carreira, vindo da área de suporte técnico — onde atuei diretamente com usuários, análise de processos e resolução de bugs — para o desenvolvimento Full Stack, área na qual encontrei meu verdadeiro propósito profissional.',
             '',
-            '<span class="cyan">02.</span> Minha trajetória profissional inclui passagem pelo <span class="cyan">Grupo Stefanini</span>, uma das maiores empresas de tecnologia do Brasil, onde trabalhei com suporte técnico e operações de TI. Essa experiência foi fundamental para desenvolver uma mentalidade orientada a soluções, foco em resultados e respeito pelo usuário final.',
+            'Minha trajetória profissional inclui passagem pelo Grupo Stefanini, uma das maiores empresas de tecnologia do Brasil, onde trabalhei com suporte técnico e operações de TI. Essa experiência foi fundamental para desenvolver uma mentalidade orientada a soluções, foco em resultados e respeito pelo usuário final.',
             '',
-            '<span class="cyan">03.</span> Também atuei na <span class="cyan">AGF</span> (Allianz Global Corporate & Specialty), em ambiente corporativo internacional, e busquei formação complementar em instituições como a <span class="cyan">ADA</span> (Academia de Desenvolvimento Ágil) e em projetos internos, complementando a grade curricular da faculdade com cursos livres de programação, lógica e desenvolvimento web. Na faculdade e na vida profissional, aprendi a integrar sistemas, lidar com a <span class="cyan">Intranet</span> corporativa, versionar código em Git, documentar processos e colaborar em times multidisciplinares.',
+            'Também atuei na AGF, em ambiente corporativo internacional, e busquei formação complementar em instituições como a ADA e em projetos internos, complementando a grade curricular da faculdade com cursos livres de programação, lógica e desenvolvimento web. Na faculdade e na vida profissional, aprendi a integrar sistemas, lidar com a Intranet corporativa, versionar código em Git, documentar processos e colaborar em times multidisciplinares.',
             '',
-            '<span class="cyan">04.</span> Hoje, foco em desenvolvimento Full Stack com ênfase em UI/UX moderno — unindo a experiência de bastidores em suporte/infra com a paixão por construir interfaces claras, acessíveis e funcionais. Stack principal: HTML5, CSS3, JavaScript (ES6+), TypeScript, React, Next.js, Tailwind CSS no front; Java e Python no back. Atualmente disponível para estágio, freelancer ou posição júnior em desenvolvimento.',
-            '',
-            '<span class="cyan">Projetos em destaque:</span>',
-            '  • <span class="title">Mario Cart Game</span>   — mini-jogo web com animações e colisão',
-            '  • <span class="title">FlowSalon</span>         — sistema de agendamento para salão/barbearia',
-            '  • <span class="title">Finanças Pessoais</span> — app integrado ao Firebase (Auth + Firestore)',
-            '',
-            '<span class="dim">> "Código que resolve problemas reais começa por entender pessoas."</span>',
+            'Hoje, foco em desenvolvimento Full Stack com ênfase em UI/UX moderno — unindo a experiência de bastidores em suporte/infra com a paixão por construir interfaces claras, acessíveis e funcionais. Stack principal: HTML5, CSS3, JavaScript (ES6+), Next.js, Tailwind CSS no front; Java e Python no back. Atualmente disponível para estágio ou posição júnior em desenvolvimento.',
           ].join('\n'),
         },
         skills: {
@@ -167,10 +156,6 @@
         },
       },
       sections: {
-        projetosTitle: 'Projetos',
-        projetosLabel: '/ PROJETOS',
-        projetosLead:  'Conheça alguns dos meus projetos mais recentes',
-        projetosDesc:  'Cada projeto é uma oportunidade de aprendizado. Aqui estão os que mais representaram minha evolução como desenvolvedora Full Stack.',
         estudosTitle:  'Atualmente Estudando',
         estudosLabel:  '/ ESTUDOS',
         stackTitle:    'Stack & Tecnologias',
@@ -178,65 +163,6 @@
         contatoTitle:  'Vamos Conversar',
         contatoLabel:  '/ CONTATO',
         contatoLead:   'Estou aberta a oportunidades, parcerias e conversas sobre tecnologia. Entre em contato pelo canal de sua preferência:',
-      },
-      // HTML uses projects.label / projects.titleA / projects.titleB / projects.btnView / projects.btnGithub
-      projects: {
-        label:    'PORTFÓLIO',
-        titleA:   'Projetos que',
-        titleB:   'construí',
-        btnView:  'Ver projeto online',
-        btnGithub:'Ver no GitHub',
-        mario: {
-          numero:    '01 /',
-          nome:      'Mario Cart Game',
-          title:     'Game',
-          status:    'Projeto de estudo · Pendente de Evolução',
-          statusKind:'finalizado',
-          desc:      'Mini-jogo web inspirado no clássico Mario, desenvolvido com o objetivo de praticar conceitos fundamentais de front-end. O projeto apresenta um personagem animado que deve saltar para desviar de obstáculos, utilizando detecção de colisão, animações em CSS e lógica de game over.',
-          descricao: 'Mini-jogo web inspirado no clássico Mario, desenvolvido com o objetivo de praticar conceitos fundamentais de front-end. O projeto apresenta um personagem animado que deve saltar para desviar de obstáculos, utilizando detecção de colisão, animações em CSS e lógica de game over.',
-          techs:     ['HTML5', 'CSS3 Animations', 'JavaScript', 'Game Logic'],
-          features:  ['Animações de pulo com keyframes CSS', 'Detecção de colisão em tempo real', 'Obstáculos com velocidade dinâmica', 'Tela de Game Over com sprite'],
-          f1: 'Animações de pulo com keyframes CSS',
-          f2: 'Detecção de colisão em tempo real',
-          f3: 'Obstáculos com velocidade dinâmica',
-          f4: 'Tela de Game Over com sprite',
-          demoLabel: 'Jogar agora',
-          repoLabel: 'Ver repositório',
-        },
-        salon: {
-          numero:    '02 /',
-          nome:      'FlowSalon',
-          title:     'Salon',
-          status:    'Projeto acadêmico · Finalizado',
-          statusKind:'evolucao',
-          desc:      'Plataforma de gestão completa para salões de beleza e barbearias. O sistema inclui agendamento online para clientes, painel administrativo com controle de agenda, gestão de clientes, catálogo de serviços e equipe de profissionais, tudo com uma interface dark moderna e fluida.',
-          descricao: 'Plataforma de gestão completa para salões de beleza e barbearias. O sistema inclui agendamento online para clientes, painel administrativo com controle de agenda, gestão de clientes, catálogo de serviços e equipe de profissionais, tudo com uma interface dark moderna e fluida.',
-          techs:     ['HTML5', 'CSS3', 'JavaScript', 'LocalStorage', 'API ViaCEP'],
-          features:  ['Agendamento online com validação de formulário', 'Dashboard administrativo completo', 'Gestão de clientes, serviços e profissionais', 'Design responsivo com tema dark moderno'],
-          f1: 'Agendamento online com validação de formulário',
-          f2: 'Dashboard administrativo completo',
-          f3: 'Gestão de clientes, serviços e profissionais',
-          f4: 'Design responsivo com tema dark moderno',
-          demoLabel: 'Ver online',
-          repoLabel: 'Ver repositório',
-        },
-        financas: {
-          numero:    '03 /',
-          nome:      'Finanças Pessoais',
-          title:     'Pessoais',
-          status:    'Projeto pessoal · Finalizado',
-          statusKind:'finalizado',
-          desc:      'Sistema web desenvolvido para controle financeiro pessoal, integrado ao Firebase, com login e cadastro por e-mail e senha, salvamento online de dados, dashboard mensal, páginas separadas por área, cadastro de transações, contas a pagar, total em aberto, alertas automáticos de vencimento e alarme visual/sonoro dentro do próprio site.',
-          descricao: 'Sistema web desenvolvido para controle financeiro pessoal, integrado ao Firebase, com login e cadastro por e-mail e senha, salvamento online de dados, dashboard mensal, páginas separadas por área, cadastro de transações, contas a pagar, total em aberto, alertas automáticos de vencimento e alarme visual/sonoro dentro do próprio site.',
-          techs:     ['HTML5', 'CSS3', 'JavaScript', 'Firebase Auth', 'Cloud Firestore', 'Responsivo'],
-          features:  ['Login e cadastro com autenticação pelo Firebase', 'Dados salvos online para acessar pelo celular, PC ou notebook', 'Dashboard mensal com entradas, saídas, saldo e total em aberto', 'Cadastro de transações, contas a pagar, alertas e alarme automático'],
-          f1: 'Login e cadastro com autenticação pelo Firebase',
-          f2: 'Dados salvos online para acessar pelo celular, PC ou notebook',
-          f3: 'Dashboard mensal com entradas, saídas, saldo e total em aberto',
-          f4: 'Cadastro de transações, contas a pagar, alertas e alarme automático',
-          demoLabel: 'Ver online',
-          repoLabel: 'Ver repositório',
-        },
       },
       // HTML uses studies.label / studies.titleA / studies.titleB / studies.s1.title / studies.s1.desc ...
       studies: {
@@ -294,7 +220,6 @@
       },
       scroll: {
         topTitle: 'Voltar ao topo',
-        projBtn:  'Ver projetos',
       },
     },
     en: {
@@ -306,12 +231,10 @@
       },
       nav: {
         home:    'Home',
-        projects:'Projects',
         studies: 'Studies',
         stack:   'Tech',
         contact: 'Contact',
         inicio:    'Home',
-        projetos:  'Projects',
         estudos:   'Studies',
         tecnologias:'Tech',
         contato:   'Contact',
@@ -331,9 +254,7 @@
         aboutCard: {
           title:  'About Me',
           paragraph: [
-            'I started my journey in development by building projects focused on modern, responsive, and functional interfaces. Before programming, I worked with technical support, user assistance, process analysis, and bug resolution — a foundation that helps me think about solutions from the perspective of the people who use them.',
-            'I am currently studying Systems Analysis and Development at UNINOVE and keep building hands-on projects to grow in the Full Stack ecosystem, from front-end with React to back-end with Java and Python.',
-            'To explore my projects and journey in more detail, check my full portfolio below 👇',
+            'I am Marília Mezalheira, a Systems Analysis and Development student at UNINOVE, transitioning my career from technical support to Full Stack Development. I aim to combine my user-facing experience with the creation of functional and well-designed interfaces.',
           ],
           portfolioBtn: 'View full portfolio',
         },
@@ -357,22 +278,15 @@
           '<span class="cyan">clear</span>    → clear the terminal',
         ].join('\n'),
         about: {
-          title:  '> Marília Mezalheira — Full Biography',
+          title: '> About Me',
           lines: [
-            '<span class="cyan">01.</span> I am Marília Mezalheira, currently a Systems Analysis and Development (TADS) student at UNINOVE. I am transitioning my career from technical support — where I worked directly with users, process analysis and bug resolution — into Full Stack development, the area where I found my true professional purpose.',
+            'I am Marília Mezalheira, currently a Systems Analysis and Development (TADS) student at UNINOVE. I am transitioning my career from technical support — where I worked directly with end users, process analysis, and bug resolution — into Full Stack development, the area where I found my true professional purpose.',
             '',
-            '<span class="cyan">02.</span> My professional background includes a stint at the <span class="cyan">Stefanini Group</span>, one of the largest technology companies in Brazil, where I worked with technical support and IT operations. That experience was key to developing a solution-oriented mindset, results focus, and respect for the end user.',
+            'My professional path includes time at Grupo Stefanini, one of the largest technology companies in Brazil, where I worked in technical support and IT operations. That experience was fundamental in shaping a solution-oriented mindset, a results-driven focus, and a deep respect for the end user.',
             '',
-            '<span class="cyan">03.</span> I also worked at <span class="cyan">AGF</span> (Allianz Global Corporate & Specialty) in an international corporate environment, and pursued complementary education at institutions like <span class="cyan">ADA</span> (Academy of Agile Development) and through internal projects, complementing my college curriculum with programming, logic and web development courses. At college and in professional life, I learned to integrate systems, work with the corporate <span class="cyan">Intranet</span>, version code in Git, document processes and collaborate in multidisciplinary teams.',
+            'I also worked at AGF in an international corporate environment, and pursued complementary training at institutions such as ADA and through internal projects, supplementing my college curriculum with free programming, logic, and web development courses. Throughout college and my professional life, I learned to integrate systems, work with corporate intranets, version code in Git, document processes, and collaborate in multidisciplinary teams.',
             '',
-            '<span class="cyan">04.</span> Today, I focus on Full Stack development with modern UI/UX emphasis — combining my back-office support/infra experience with a passion for building clear, accessible and functional interfaces. Main stack: HTML5, CSS3, JavaScript (ES6+), TypeScript, React, Next.js, Tailwind CSS on the front; Java and Python on the back. Currently available for internships, freelance or junior developer positions.',
-            '',
-            '<span class="cyan">Featured projects:</span>',
-            '  • <span class="title">Mario Cart Game</span>  — mini web game with animations and collision',
-            '  • <span class="title">FlowSalon</span>        — booking system for salon/barbershop',
-            '  • <span class="title">Personal Finance</span> — app integrated with Firebase (Auth + Firestore)',
-            '',
-            '<span class="dim">> "Code that solves real problems starts by understanding people."</span>',
+            'Today, I focus on Full Stack development with an emphasis on modern UI/UX — combining my background in support and infrastructure with a passion for building clear, accessible, and functional interfaces. Main stack: HTML5, CSS3, JavaScript (ES6+), Next.js, and Tailwind CSS on the front-end; Java and Python on the back-end. Currently open to internship or junior developer positions.',
           ].join('\n'),
         },
         skills: {
@@ -420,10 +334,6 @@
         },
       },
       sections: {
-        projetosTitle: 'Projects',
-        projetosLabel: '/ PROJECTS',
-        projetosLead:  'Check out some of my most recent projects',
-        projetosDesc:  'Every project is a learning opportunity. Here are the ones that best represent my growth as a Full Stack developer.',
         estudosTitle:  'Currently Studying',
         estudosLabel:  '/ STUDIES',
         stackTitle:    'Stack & Technologies',
@@ -431,64 +341,6 @@
         contatoTitle:  'Let\'s Talk',
         contatoLabel:  '/ CONTACT',
         contatoLead:   'I\'m open to opportunities, partnerships and conversations about tech. Reach out through any channel:',
-      },
-      projects: {
-        label:    'PORTFOLIO',
-        titleA:   'Projects I',
-        titleB:   'built',
-        btnView:  'View project online',
-        btnGithub:'View on GitHub',
-        mario: {
-          numero:    '01 /',
-          nome:      'Mario Cart Game',
-          title:     'Game',
-          status:    'Study project · Pending evolution',
-          statusKind:'finalizado',
-          desc:      'Mini web game inspired by the classic Mario, developed to practice fundamental front-end concepts. The project features an animated character that must jump to dodge obstacles, using collision detection, CSS animations and game over logic.',
-          descricao: 'Mini web game inspired by the classic Mario, developed to practice fundamental front-end concepts. The project features an animated character that must jump to dodge obstacles, using collision detection, CSS animations and game over logic.',
-          techs:     ['HTML5', 'CSS3 Animations', 'JavaScript', 'Game Logic'],
-          features:  ['Jump animations with CSS keyframes', 'Real-time collision detection', 'Obstacles with dynamic speed', 'Game Over screen with sprite'],
-          f1: 'Jump animations with CSS keyframes',
-          f2: 'Real-time collision detection',
-          f3: 'Obstacles with dynamic speed',
-          f4: 'Game Over screen with sprite',
-          demoLabel: 'Play now',
-          repoLabel: 'View repository',
-        },
-        salon: {
-          numero:    '02 /',
-          nome:      'FlowSalon',
-          title:     'Salon',
-          status:    'Academic project · Finished',
-          statusKind:'evolucao',
-          desc:      'Complete management platform for beauty salons and barbershops. The system includes online booking for clients, administrative panel with agenda control, client management, services catalog and professional staff, all with a modern and fluid dark interface.',
-          descricao: 'Complete management platform for beauty salons and barbershops. The system includes online booking for clients, administrative panel with agenda control, client management, services catalog and professional staff, all with a modern and fluid dark interface.',
-          techs:     ['HTML5', 'CSS3', 'JavaScript', 'LocalStorage', 'ViaCEP API'],
-          features:  ['Online booking with form validation', 'Complete admin dashboard', 'Client, services and staff management', 'Responsive design with modern dark theme'],
-          f1: 'Online booking with form validation',
-          f2: 'Complete admin dashboard',
-          f3: 'Client, services and staff management',
-          f4: 'Responsive design with modern dark theme',
-          demoLabel: 'View live',
-          repoLabel: 'View repository',
-        },
-        financas: {
-          numero:    '03 /',
-          nome:      'Personal Finance',
-          title:     'App',
-          status:    'Personal project · Finished',
-          statusKind:'finalizado',
-          desc:      'Web system developed for personal financial control, integrated with Firebase, with login and signup by email and password, online data saving, monthly dashboard, area-separated pages, transactions registration, bills to pay, total open, automatic due-date alerts and visual/audible alarm inside the site.',
-          descricao: 'Web system developed for personal financial control, integrated with Firebase, with login and signup by email and password, online data saving, monthly dashboard, area-separated pages, transactions registration, bills to pay, total open, automatic due-date alerts and visual/audible alarm inside the site.',
-          techs:     ['HTML5', 'CSS3', 'JavaScript', 'Firebase Auth', 'Cloud Firestore', 'Responsive'],
-          features:  ['Login & signup with Firebase authentication', 'Data saved online to access from phone, PC or laptop', 'Monthly dashboard with income, expenses, balance and total open', 'Transactions, bills to pay, alerts and automatic alarm'],
-          f1: 'Login & signup with Firebase authentication',
-          f2: 'Data saved online to access from phone, PC or laptop',
-          f3: 'Monthly dashboard with income, expenses, balance and total open',
-          f4: 'Transactions, bills to pay, alerts and automatic alarm',
-          demoLabel: 'View live',
-          repoLabel: 'View repository',
-        },
       },
       studies: {
         label:  'LEARNING',
@@ -540,7 +392,6 @@
       },
       scroll: {
         topTitle: 'Back to top',
-        projBtn:  'View projects',
       },
     },
   };
@@ -735,7 +586,7 @@
     }
     animateCursor();
 
-    const hoverSel = 'a, button, .topbar-toggle, .menu-fixo a, .projeto-link, .link-btn, .stack-item, .estudo-card, input';
+    const hoverSel = 'a, button, .topbar-toggle, .menu-fixo a, .link-btn, .stack-item, .estudo-card, input';
     document.querySelectorAll(hoverSel).forEach(function (el) {
       el.addEventListener('mouseenter', function () {
         cursor.classList.add('hover');
@@ -811,7 +662,7 @@
     const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced) return;
 
-    const cardSelectors = ['.estudo-card', '.stack-item', '.projeto-card'];
+    const cardSelectors = ['.estudo-card', '.stack-item'];
     cardSelectors.forEach(function (sel) {
       gsap.utils.toArray(sel).forEach(function (el, i) {
         gsap.from(el, {
@@ -889,24 +740,15 @@
         d.terminal.help.split('\n').forEach(function (l) { termAppendRaw(l); });
       },
       about: function () {
-        const bio = d.terminal.about;
-        // Structured object form: { title, lines } — render the title with
-        // the standard "title" styling and each line as a .terminal-line.
-        if (bio && typeof bio === 'object' && !Array.isArray(bio)) {
-          printBlock(bio.title, bio.lines);
-          return;
-        }
-        // Flat string form: split on blank lines into clean paragraphs.
-        if (typeof bio === 'string') {
-          const paragraphs = bio.split(/\n\s*\n/).map(function (p) { return p.trim(); }).filter(Boolean);
-          if (paragraphs.length === 0) {
-            termAppendRaw(escapeHTML(bio));
-          } else {
-            paragraphs.forEach(function (p, i) {
-              termAppendRaw(escapeHTML(p));
-              if (i < paragraphs.length - 1) termAppendRaw('');
-            });
-          }
+        // Defensive: d.terminal.about may be an object {title, lines} (current shape)
+        // or a plain string (legacy shape). printBlock() already handles both.
+        const a = d.terminal.about;
+        if (a && typeof a === 'object') {
+          printBlock(a.title, a.lines);
+        } else if (typeof a === 'string') {
+          termAppendRaw(a);
+        } else {
+          termAppendRaw('<span class="dim">(about: conteúdo indisponível)</span>');
         }
       },
       skills: function () {
@@ -1000,7 +842,7 @@
      ======================== */
   function initRevealObserver() {
     if (!('IntersectionObserver' in window)) {
-      document.querySelectorAll('.reveal, .stack-item, .estudo-card, .projeto-card, .section-label, .section-title')
+      document.querySelectorAll('.reveal, .stack-item, .estudo-card, .section-label, .section-title')
         .forEach(function (el) { el.classList.add('visible'); });
       return;
     }
@@ -1014,7 +856,7 @@
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
 
-    document.querySelectorAll('.reveal, .stack-item, .estudo-card, .projeto-card, .section-label, .section-title')
+    document.querySelectorAll('.reveal, .stack-item, .estudo-card, .section-label, .section-title')
       .forEach(function (el) { io.observe(el); });
   }
 
