@@ -48,7 +48,7 @@ Atualmente curso Análise e Desenvolvimento de Sistemas (UNINOVE) e sigo desenvo
 
 ### 🛠️ Stack completo
 
-- **Front-end:** HTML5, CSS3, JavaScript, Next.js e Tailwind CSS
+- **Front-end:** HTML5, CSS3, JavaScript, Next.js, Tailwind CSS
 - **Back-end:** Java, Python
 - **Ferramentas:** Git, GitHub, VS Code, IntelliJ IDEA
 - **Idiomas humanos:** Português (nativo), Intermediate English
