@@ -1,0 +1,12 @@
+{
+  "name": "projeto-pessoal-build",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build-time script to strip the Projects section and the 'about' terminal command from the static landing page.",
+  "scripts": {
+    "build:strip": "node scripts/remove-sections.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0"
+  }
+}

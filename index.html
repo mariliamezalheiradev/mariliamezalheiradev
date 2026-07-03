@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+<!DOCTYPE html><html lang="pt-BR"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Marília Mezalheira | Desenvolvedora Full Stack em formação, apaixonada por criar experiências digitais modernas.">
@@ -34,16 +32,16 @@
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
 
   <!-- Critical CSS inlined for FCP -->
   <style>:root{color-scheme:dark;--bg-page:#0b121f;--text-white:#f5fbff;}body{background:var(--bg-page);color:var(--text-white);margin:0;}</style>
 
   <!-- Vendor scripts (defer para não bloquear render) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer=""></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer=""></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer=""></script>
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -65,7 +63,7 @@
   <header class="topbar" id="topbar">
     <nav class="menu-fixo" aria-label="Navegação principal">
       <a href="#home" data-i18n="nav.home">Início</a>
-      <a href="#projetos" data-i18n="nav.projects">Projetos</a>
+      
       <a href="#estudos" data-i18n="nav.studies">Estudos</a>
       <a href="#stack" data-i18n="nav.stack">Tecnologias</a>
       <a href="#contato" data-i18n="nav.contact">Contato</a>
@@ -75,8 +73,8 @@
         <span class="topbar-toggle-opt is-active" data-lang-opt="pt">PT</span><span class="topbar-toggle-sep">/</span><span class="topbar-toggle-opt" data-lang-opt="en">EN</span>
       </button>
       <button class="topbar-toggle topbar-theme" id="theme-toggle" type="button" aria-label="Alternar tema" title="Tema claro / escuro">
-        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path></svg>
       </button>
     </div>
   </header>
@@ -95,15 +93,7 @@
       <!-- Avatar circular central com glow -->
       <div class="hero-avatar reveal" style="--delay: 0.05s">
         <div class="hero-avatar-ring" aria-hidden="true"></div>
-        <img
-          src="imagens/pixel-art-marilia.png"
-          alt="Marília Mezalheira — avatar pixel art"
-          class="hero-avatar-img"
-          width="220"
-          height="220"
-          decoding="async"
-          onerror="if(!this.hasAttribute('data-retry')){this.setAttribute('data-retry','true');this.src='imagens/img.marilia.png';}else{this.style.display='none';}"
-        >
+        <img src="imagens/pixel-art-marilia.png" alt="Marília Mezalheira — avatar pixel art" class="hero-avatar-img" width="220" height="220" decoding="async" onerror="if(!this.hasAttribute('data-retry')){this.setAttribute('data-retry','true');this.src='imagens/img.marilia.png';}else{this.style.display='none';}">
       </div>
 
       <!-- Tag pequena -->
@@ -124,7 +114,7 @@
       <div class="hero-about-card reveal" style="--delay: 0.42s">
         <div class="hero-card-header">
           <span class="hero-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
           </span>
           <span class="hero-card-title" data-i18n="hero.aboutTitle">Sobre mim</span>
         </div>
@@ -146,14 +136,7 @@
 
           <div class="terminal-input-line">
             <span class="prompt-symbol">~$</span>
-            <input
-              type="text"
-              id="terminal-input"
-              placeholder="clique aqui e pressione Enter para executar um comando"
-              autocomplete="off"
-              spellcheck="false"
-              aria-label="Entrada de comando do terminal"
-            >
+            <input type="text" id="terminal-input" placeholder="clique aqui e pressione Enter para executar um comando" autocomplete="off" spellcheck="false" aria-label="Entrada de comando do terminal">
           </div>
         </div>
       </div>
@@ -161,124 +144,7 @@
   </section>
 
   <!-- PROJETOS -->
-  <section class="projetos" id="projetos">
-    <div class="section-label" data-i18n="projects.label">PORTFÓLIO</div>
-    <h2 class="section-title"><span data-i18n="projects.titleA">Projetos que</span> <em data-i18n="projects.titleB">construí</em></h2>
-
-    <article class="projeto-card reveal" id="mario">
-      <div class="projeto-media">
-        <div class="media-frame mario-frame">
-          <img src="https://cdn.jsdelivr.net/gh/mariliamezalheiradev/mariliamezalheiradev@main/imagens/mariocartvideo.gif" alt="Mario Cart Game — preview GIF" class="projeto-img" loading="lazy" decoding="async" onerror="if(!this.hasAttribute('data-retry')){this.setAttribute('data-retry','true');this.src='imagens/mariocartvideo.gif';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">
-          <div class="media-placeholder">
-            <p>Adicione um preview do GIF aqui<br><small>mariocartvideo.gif</small></p>
-          </div>
-          <div class="frame-badge">HTML · CSS · JS</div>
-        </div>
-      </div>
-
-      <div class="projeto-info">
-        <div class="projeto-num">01</div>
-        <span class="status-projeto status-finalizado" data-i18n="projects.mario.status">Projeto de estudo · Pendente de Evolução</span>
-        <h3>Mario Cart <em data-i18n="projects.mario.title">Game</em></h3>
-        <p data-i18n="projects.mario.desc">Mini-jogo web inspirado no clássico Mario, desenvolvido com o objetivo de praticar conceitos fundamentais de front-end. O projeto apresenta um personagem animado que deve saltar para desviar de obstáculos, utilizando detecção de colisão, animações em CSS e lógica de game over.</p>
-        <div class="tech-list">
-          <span>HTML5</span><span>CSS3 Animations</span><span>JavaScript</span><span>Game Logic</span>
-        </div>
-        <div class="feature-list">
-          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.mario.f1">Animações de pulo com keyframes CSS</span></div>
-          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.mario.f2">Detecção de colisão em tempo real</span></div>
-          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.mario.f3">Obstáculos com velocidade dinâmica</span></div>
-          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.mario.f4">Tela de Game Over com sprite</span></div>
-        </div>
-        <div class="projeto-actions">
-          <a href="https://mariliamezalheiradev.github.io/mario-cart-game/" target="_blank" rel="noopener noreferrer" class="projeto-link">
-            <span data-i18n="projects.btnView">Ver projeto online</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
-          <a href="https://github.com/mariliamezalheiradev/mario-cart-game" target="_blank" rel="noopener noreferrer" class="projeto-link">
-            <span data-i18n="projects.btnGithub">Ver no GitHub</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article class="projeto-card reveal" id="salon">
-      <div class="projeto-media">
-        <div class="media-frame salon-frame">
-          <img src="https://cdn.jsdelivr.net/gh/mariliamezalheiradev/mariliamezalheiradev@main/imagens/flowsalonvideo.gif" alt="FlowSalon — preview GIF" class="projeto-img" loading="lazy" decoding="async" onerror="if(!this.hasAttribute('data-retry')){this.setAttribute('data-retry','true');this.src='imagens/flowsalonvideo.gif';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">
-          <div class="media-placeholder">
-            <p>Adicione um preview do GIF aqui<br><small>flowsalonvideo.gif</small></p>
-          </div>
-          <div class="frame-badge">Sistema Web</div>
-        </div>
-      </div>
-
-      <div class="projeto-info">
-        <div class="projeto-num">02</div>
-        <span class="status-projeto status-evolucao" data-i18n="projects.salon.status">Projeto acadêmico · Finalizado</span>
-        <h3>Flow<em data-i18n="projects.salon.title">Salon</em></h3>
-        <p data-i18n="projects.salon.desc">Plataforma de gestão completa para salões de beleza e barbearias. O sistema inclui agendamento online para clientes, painel administrativo com controle de agenda, gestão de clientes, catálogo de serviços e equipe de profissionais, tudo com uma interface dark moderna e fluida.</p>
-        <div class="tech-list">
-          <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>LocalStorage</span><span>API ViaCEP</span>
-        </div>
-        <div class="feature-list">
-          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.salon.f1">Agendamento online com validação de formulário</span></div>
-          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.salon.f2">Dashboard administrativo completo</span></div>
-          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.salon.f3">Gestão de clientes, serviços e profissionais</span></div>
-          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.salon.f4">Design responsivo com tema dark moderno</span></div>
-        </div>
-        <div class="projeto-actions">
-          <a href="https://mariliamezalheiradev.github.io/projeto-faculdade/" target="_blank" rel="noopener noreferrer" class="projeto-link">
-            <span data-i18n="projects.btnView">Ver projeto online</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
-          <a href="https://github.com/mariliamezalheiradev/projeto-faculdade" target="_blank" rel="noopener noreferrer" class="projeto-link">
-            <span data-i18n="projects.btnGithub">Ver no GitHub</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article class="projeto-card reveal" id="financas">
-      <div class="projeto-media">
-        <div class="media-frame financas-frame">
-          <img src="https://cdn.jsdelivr.net/gh/mariliamezalheiradev/mariliamezalheiradev@main/imagens/projetofinancas.gif" alt="Finanças Pessoais — preview GIF com Firebase" class="projeto-img financas-gif" loading="lazy" decoding="async" onerror="if(!this.hasAttribute('data-retry')){this.setAttribute('data-retry','true');this.src='imagens/projetofinancas.gif';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">
-          <div class="media-placeholder">
-            <p>Adicione um preview do GIF aqui<br><small>projetofinancas.gif</small></p>
-          </div>
-          <div class="frame-badge">Dashboard Financeiro</div>
-        </div>
-      </div>
-
-      <div class="projeto-info">
-        <div class="projeto-num">03</div>
-        <span class="status-projeto status-finalizado" data-i18n="projects.financas.status">Projeto pessoal · Finalizado</span>
-        <h3>Finanças <em data-i18n="projects.financas.title">Pessoais</em></h3>
-        <p data-i18n="projects.financas.desc">Sistema web desenvolvido para controle financeiro pessoal, integrado ao Firebase, com login e cadastro por e-mail e senha, salvamento online de dados, dashboard mensal, páginas separadas por área, cadastro de transações, contas a pagar, total em aberto, alertas automáticos de vencimento e alarme visual/sonoro dentro do próprio site.</p>
-        <div class="tech-list">
-          <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Firebase Auth</span><span>Cloud Firestore</span><span>Responsivo</span>
-        </div>
-        <div class="feature-list">
-          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.financas.f1">Login e cadastro com autenticação pelo Firebase</span></div>
-          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.financas.f2">Dados salvos online para acessar pelo celular, PC ou notebook</span></div>
-          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.financas.f3">Dashboard mensal com entradas, saídas, saldo e total em aberto</span></div>
-          <div class="feature"><div class="feature-dot"></div><span data-i18n="projects.financas.f4">Cadastro de transações, contas a pagar, alertas e alarme automático</span></div>
-        </div>
-        <div class="projeto-actions">
-          <a href="https://mariliamezalheiradev.github.io/financas-pessoais/" target="_blank" rel="noopener noreferrer" class="projeto-link">
-            <span data-i18n="projects.btnView">Ver projeto online</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
-          <a href="https://github.com/mariliamezalheiradev/financas-pessoais" target="_blank" rel="noopener noreferrer" class="projeto-link">
-            <span data-i18n="projects.btnGithub">Ver no GitHub</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </div>
-    </article>
-  </section>
+  
 
   <!-- ESTUDOS -->
   <section class="estudos reveal" id="estudos">
@@ -337,6 +203,6 @@
     <p class="footer-sub" data-i18n="footer.copy">© 2026 · Todos os direitos reservados</p>
   </footer>
 
-  <script src="js/script.js" defer></script>
-</body>
-</html>
+  <script src="js/script.js" defer=""></script>
+
+</body></html>
