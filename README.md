@@ -84,7 +84,7 @@ Para conhecer melhor meus projetos, minha trajetória e ver mais detalhes do meu
 ## 📊 Estatísticas do GitHub
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=mariliamezalheiradev&show_icons=true&bg_color=000000&text_color=FFFFFF&title_color=3B82F6&icon_color=3B82F6&hide_border=true&include_all_commits=true&count_private=true" alt="Estatísticas de Marília" />
+  <img src="https://github-readme-stats.vercel.app/api?username=mariliamezalheiradev&show_icons=true&bg_color=000000&text_color=FFFFFF&title_color=3B82F6&icon_color=3B82F6&hide_border=true" alt="Estatísticas de Marília" />
 </div>
 
 ---
