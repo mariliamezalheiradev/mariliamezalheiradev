@@ -85,7 +85,7 @@ Para conhecer melhor meus projetos, minha trajetória e ver mais detalhes do meu
 
 <div align="center">
   <a href="https://github.com/mariliamezalheiradev">
-    <img src="https://github-readme-stats.vercel.app/api?username=mariliamezalheiradev&theme=dark&bg_color=000000&title_color=3B82F6&icon_color=3B82F6&hide_border=true" alt="Estatísticas de Marília" />
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=mariliamezalheiradev&theme=dark&background=000000&ring=3B82F6&fire=3B82F6&currStreakNum=FFFFFF" alt="GitHub Streak" />
   </a>
 </div>
 
