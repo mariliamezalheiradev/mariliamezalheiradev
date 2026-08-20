@@ -76,7 +76,7 @@ Para conhecer melhor meus projetos, minha trajetória e ver mais detalhes do meu
 
 <div align="center">
   <a href="https://github.com/mariliamezalheiradev">
-    <img src="https://streak-stats.demolab.com/?user=mariliamezalheiradev&theme=dark&background=000000&ring=3B82F6&fire=3B82F6&currStreakNum=FFFFFF" alt="GitHub Streak" />
+    <img src="https://streak-stats.demolab.com/?user=mariliamezalheiradev&theme=dark&background=000000&ring=3B82F6&fire=3B82F6&currStreakNum=FFFFFF&cache=2" />
   </a>
 </div>
 
