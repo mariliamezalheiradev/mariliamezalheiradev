@@ -77,6 +77,8 @@ Para conhecer melhor meus projetos, minha trajetória e ver mais detalhes do meu
 <div align="center">
   <img src="https://img.shields.io/github/followers/mariliamezalheiradev?label=Seguidores&style=for-the-badge&color=3B82F6&labelColor=000000" alt="Seguidores" />
   <img src="https://img.shields.io/github/stars/mariliamezalheiradev?label=Estrelas&style=for-the-badge&color=3B82F6&labelColor=000000" alt="Estrelas" />
+  <img src="https://img.shields.io/badge/dynamic/json?url=https://api.github.com/users/mariliamezalheiradev&label=Reposit%C3%B3rios&query=$.public_repos&color=3B82F6&style=for-the-badge&labelColor=000000" alt="Repositórios" />
+  <img src="https://github-readme-stats.vercel.app/api?username=mariliamezalheiradev&show_icons=true&count_private=true&theme=dark&bg_color=000000&title_color=3B82F6&icon_color=3B82F6&text_color=FFFFFF" alt="GitHub Stats" />
 </div>
 
 ---
