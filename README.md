@@ -36,6 +36,8 @@ Atualmente curso Análise e Desenvolvimento de Sistemas (UNINOVE) e sigo desenvo
 &nbsp;&nbsp;
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="45" title="Python"/>
 &nbsp;&nbsp;
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="45" title="SQL"/>
+&nbsp;&nbsp;
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="45" title="Git"/>
 &nbsp;&nbsp;
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="45" title="GitHub"/>
@@ -44,6 +46,7 @@ Atualmente curso Análise e Desenvolvimento de Sistemas (UNINOVE) e sigo desenvo
 ### 🛠️ Stack completo
 - **Front-end:** HTML5, CSS3, JavaScript, Tailwind CSS
 - **Back-end:** Java, Python
+- **Banco de dados:** SQL
 - **Ferramentas:** Git, GitHub, VS Code, IntelliJ IDEA
 - **Idiomas humanos:** Português (nativo), Intermediate English
 
