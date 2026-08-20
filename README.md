@@ -15,11 +15,8 @@
 ---
 
 ## Sobre mim
-
 Estou iniciando minha jornada na área de desenvolvimento, criando projetos com foco em interfaces modernas, responsivas e funcionais.
-
 Tenho experiência com suporte técnico, atendimento ao usuário, análise de processos e resolução de bugs, o que me ajuda a desenvolver soluções pensando também na experiência de quem utiliza o sistema.
-
 Atualmente curso Análise e Desenvolvimento de Sistemas (UNINOVE) e sigo desenvolvendo projetos práticos para evoluir minhas habilidades no ecossistema Full Stack, abrangendo desde o front-end com React até o back-end com Java e Python.
 
 ---
@@ -27,7 +24,6 @@ Atualmente curso Análise e Desenvolvimento de Sistemas (UNINOVE) e sigo desenvo
 ## Tecnologias
 
 <div align="center">
-
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="45" title="HTML5"/>
 &nbsp;&nbsp;
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="45" title="CSS3"/>
@@ -43,11 +39,9 @@ Atualmente curso Análise e Desenvolvimento de Sistemas (UNINOVE) e sigo desenvo
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="45" title="Git"/>
 &nbsp;&nbsp;
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="45" title="GitHub"/>
-
 </div>
 
 ### 🛠️ Stack completo
-
 - **Front-end:** HTML5, CSS3, JavaScript, Tailwind CSS
 - **Back-end:** Java, Python
 - **Ferramentas:** Git, GitHub, VS Code, IntelliJ IDEA
@@ -56,14 +50,12 @@ Atualmente curso Análise e Desenvolvimento de Sistemas (UNINOVE) e sigo desenvo
 ---
 
 ## 🌐 Idiomas / Languages
-
 - 🇧🇷 **Português** — Nativo
 - 🇺🇸 **Inglês** — Intermediate English
 
 ---
 
 ## Portfólio pessoal
-
 Para conhecer melhor meus projetos, minha trajetória e ver mais detalhes do meu desenvolvimento, acesse meu portfólio pessoal:
 
 **Portfólio:** https://mariliamezalheiradev.github.io/mariliamezalheiradev/
@@ -71,7 +63,6 @@ Para conhecer melhor meus projetos, minha trajetória e ver mais detalhes do meu
 ---
 
 ## Atualmente estudando
-
 * React e Next.js (Front-end moderno)
 * TypeScript (Tipagem estática)
 * Tailwind CSS (Estilização utilitária)
@@ -85,7 +76,7 @@ Para conhecer melhor meus projetos, minha trajetória e ver mais detalhes do meu
 
 <div align="center">
   <a href="https://github.com/mariliamezalheiradev">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=mariliamezalheiradev&theme=dark&background=000000&ring=3B82F6&fire=3B82F6&currStreakNum=FFFFFF" alt="GitHub Streak" />
+    <img src="https://streak-stats.demolab.com/?user=mariliamezalheiradev&theme=dark&background=000000&ring=3B82F6&fire=3B82F6&currStreakNum=FFFFFF" alt="GitHub Streak" />
   </a>
 </div>
 
