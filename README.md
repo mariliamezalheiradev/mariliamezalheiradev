@@ -3,10 +3,6 @@
 </div>
 
 <p align="center">
-  Software Engineer Full Stack em formação • Estudante de Análise e Desenvolvimento de Sistemas
-</p>
-
-<p align="center">
   <a href="https://www.linkedin.com/in/mar%C3%ADlia-mezalheira/">LinkedIn</a> •
   <a href="mailto:mariliagpedrosa@outlook.com">E-mail</a> •
   <a href="https://github.com/mariliamezalheiradev">GitHub</a>
