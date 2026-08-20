@@ -75,9 +75,7 @@ Para conhecer melhor meus projetos, minha trajetória e ver mais detalhes do meu
 ## 📊 Estatísticas do GitHub
 
 <div align="center">
-  <a href="https://github.com/mariliamezalheiradev">
-    <img src="https://streak-stats.demolab.com/?user=mariliamezalheiradev&theme=dark&background=000000&ring=3B82F6&fire=3B82F6&currStreakNum=FFFFFF&cache=2" />
-  </a>
+  <img src="https://github-readme-stats.vercel.app/api?username=mariliamezalheiradev&show_icons=true&theme=dark&bg_color=000000&title_color=3B82F6&icon_color=3B82F6&text_color=FFFFFF" alt="GitHub Stats" />
 </div>
 
 ---
