@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=30&pause=1000&color=3B82F6&center=true&vCenter=true&width=700&lines=Hi+I+am+Marilia+Mezalheira;Software+Engineer+Full+Stack+Student" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=30&pause=1000&color=3B82F6&background=000000&center=true&vCenter=true&width=700&lines=Hi+I+am+Marilia+Mezalheira;Software+Engineer+Full+Stack+Student" alt="Typing SVG" />
 </div>
 
 <p align="center">
@@ -78,6 +78,14 @@ Para conhecer melhor meus projetos, minha trajetória e ver mais detalhes do meu
 * Java e Python (Back-end)
 * Arquitetura Full Stack e boas práticas de desenvolvimento
 * Git e GitHub para versionamento
+
+---
+
+## 📊 Estatísticas do GitHub
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=mariliamezalheiradev&show_icons=true&bg_color=000000&text_color=FFFFFF&title_color=3B82F6&icon_color=3B82F6&hide_border=true&include_all_commits=true&count_private=true" alt="Estatísticas de Marília" />
+</div>
 
 ---
 
