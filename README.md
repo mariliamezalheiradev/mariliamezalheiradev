@@ -1,7 +1,7 @@
 <h1 align="center">Olá, eu sou a Marília Mezalheira 💙</h1>
 
 <p align="center">
-  Desenvolvedora Full Stack em formação • Estudante de Análise e Desenvolvimento de Sistemas
+  Software Engineer Full Stack em formação • Estudante de Análise e Desenvolvimento de Sistemas
 </p>
 
 <p align="center">
