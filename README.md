@@ -19,12 +19,12 @@ Engenheira de Software focada no desenvolvimento de soluções robustas, escalá
 ## 🛠️ Tecnologias e Ferramentas
 
 <div align="center">
-  <img src="https://jsdelivr.net" width="45" title="TypeScript"/> &nbsp;&nbsp;
-  <img src="https://jsdelivr.net" width="45" title="Java"/> &nbsp;&nbsp;
-  <img src="https://jsdelivr.net" width="45" title="Spring Boot"/> &nbsp;&nbsp;
-  <img src="https://jsdelivr.net" width="45" title="SQL"/> &nbsp;&nbsp;
-  <img src="https://jsdelivr.net" width="45" title="Docker"/> &nbsp;&nbsp;
-  <img src="https://jsdelivr.net" width="45" title="Cloud / AWS"/> &nbsp;&nbsp;
+  <img src="https://githubusercontent.com" width="45" title="TypeScript"/> &nbsp;&nbsp;
+  <img src="https://githubusercontent.com" width="45" title="Java"/> &nbsp;&nbsp;
+  <img src="https://githubusercontent.com" width="45" title="Spring Boot"/> &nbsp;&nbsp;
+  <img src="https://githubusercontent.com" width="45" title="SQL"/> &nbsp;&nbsp;
+  <img src="https://githubusercontent.com" width="45" title="Docker"/> &nbsp;&nbsp;
+  <img src="https://githubusercontent.com" width="45" title="Cloud / AWS"/> &nbsp;&nbsp;
 </div>
 
 ### 🎯 Stack Focado
@@ -40,10 +40,8 @@ Engenheira de Software focada no desenvolvimento de soluções robustas, escalá
 ## 📈 Estatísticas do GitHub
 
 <div align="center">
-  <!-- GitHub Stats Card -->
   <img src="https://vercel.app" height="190" alt="GitHub Stats" />
   &nbsp;&nbsp;
-  <!-- GitHub Streak Card -->
   <img src="https://herokuapp.com" height="190" alt="GitHub Streak" />
 </div>
 
