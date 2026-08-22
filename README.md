@@ -41,18 +41,14 @@ Engenheira de Software focada no desenvolvimento de soluções robustas, escalá
 <br>
 
 <div align="center">
-  <img src="https://img.shields.io/github/followers/SEU_USUARIO?label=Seguidores&style=social" alt="Seguidores" />
-  <img src="https://img.shields.io/github/stars/SEU_USUARIO?label=Estrelas&style=social" alt="Estrelas" />
-  <img src="https://img.shields.io/badge/dynamic/json?url=https://api.github.com/users/SEU_USUARIO&label=Repositórios&query=$.public_repos&color=blue" alt="Repositórios" />
+  <img src="https://img.shields.io/github/followers/mariliamezalheiradev?label=Seguidores&style=social" alt="Seguidores" />
+  <img src="https://img.shields.io/badge/dynamic/json?url=https://api.github.com/users/mariliamezalheiradev&label=Reposit%C3%B3rios&query=$.public_repos&color=blue" alt="Repositórios" />
 </div>
-
 ---
 
 ## 🐍 Contribution Snake
 
-<div align="center">
-  <img src="https://raw.githubusercontent.com/SEU_USUARIO/SEU_USUARIO/output/github-contribution-grid-snake.svg" alt="Snake animation" />
-</div>
+<img src="https://github-readme-streak-stats.herokuapp.com?user=mariliamezalheiradev&theme=tokyonight&hide_border=true" height="190" alt="GitHub Streak" />
 
 ---
 
