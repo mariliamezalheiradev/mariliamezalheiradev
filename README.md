@@ -31,12 +31,8 @@ Engenheira de Software focada no desenvolvimento de soluções robustas, escalá
 
 ## 📈 Estatísticas do GitHub
 <div align="center">
-  <img src="https://ghstats.17lai.site/api?username=mariliamezalheiradev&show_icons=true&theme=tokyonight&hide_border=true" height="190" alt="GitHub Stats" />
-  &nbsp;&nbsp;
   <img src="https://streak-stats.demolab.com?user=mariliamezalheiradev&theme=tokyonight&hide_border=true" height="190" alt="GitHub Streak" />
 </div>
-
-<br>
 
 <div align="center">
   <img src="https://img.shields.io/github/followers/mariliamezalheiradev?label=Seguidores&style=social" alt="Seguidores" />
