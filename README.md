@@ -3,9 +3,9 @@
 </div>
 
 <p align="center">
-  <a href="https://linkedin.com/in/SEU_USUARIO">LinkedIn</a> • 
+  <a href="https://linkedin.com/in/mariliamezalheiradev">LinkedIn</a> • 
   <a href="mailto:mariliagpedrosa@outlook.com">E-mail</a> • 
-  <a href="https://github.com/SEU_USUARIO">GitHub</a>
+  <a href="https://github.com/mariliamezalheiradev">GitHub</a>
 </p>
 
 ---
@@ -16,7 +16,6 @@ Engenheira de Software focada no desenvolvimento de soluções robustas, escalá
 ---
 
 ## 🛠️ Tecnologias e Ferramentas
-
 <div align="center">
   <img src="https://skillicons.dev/icons?i=ts,java,spring,mysql,docker,aws" />
 </div>
@@ -31,11 +30,10 @@ Engenheira de Software focada no desenvolvimento de soluções robustas, escalá
 ---
 
 ## 📈 Estatísticas do GitHub
-
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=SEU_USUARIO&show_icons=true&theme=tokyonight&hide_border=true" height="190" alt="GitHub Stats" />
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=mariliamezalheiradev&show_icons=true&theme=tokyonight&hide_border=true" height="190" alt="GitHub Stats" />
   &nbsp;&nbsp;
-  <img src="https://streak-stats.demolab.com?user=SEU_USUARIO&theme=tokyonight&hide_border=true" height="190" alt="GitHub Streak" />
+  <img src="https://streak-stats.demolab.com?user=mariliamezalheiradev&theme=tokyonight&hide_border=true" height="190" alt="GitHub Streak" />
 </div>
 
 <br>
@@ -44,11 +42,13 @@ Engenheira de Software focada no desenvolvimento de soluções robustas, escalá
   <img src="https://img.shields.io/github/followers/mariliamezalheiradev?label=Seguidores&style=social" alt="Seguidores" />
   <img src="https://img.shields.io/badge/dynamic/json?url=https://api.github.com/users/mariliamezalheiradev&label=Reposit%C3%B3rios&query=$.public_repos&color=blue" alt="Repositórios" />
 </div>
+
 ---
 
 ## 🐍 Contribution Snake
-
-<img src="https://github-readme-streak-stats.herokuapp.com?user=mariliamezalheiradev&theme=tokyonight&hide_border=true" height="190" alt="GitHub Streak" />
+<div align="center">
+  <img src="https://raw.githubusercontent.com/mariliamezalheiradev/mariliamezalheiradev/output/github-contribution-grid-snake.svg" alt="Snake animation" />
+</div>
 
 ---
 
