@@ -17,11 +17,11 @@ Engenheira de Software focada no desenvolvimento de soluções robustas, escalá
 
 ## 🛠️ Tecnologias e Ferramentas
 <div align="center">
-  <img src="https://skillicons.dev/icons?i=ts,java,spring,mysql,docker,aws" />
+  <img src="https://skillicons.dev/icons?i=ts,java,mysql,docker,aws" />
 </div>
 
 ### 🎯 Stack Focado
-- **Linguagens & Frameworks:** TypeScript, Java, Spring Boot
+- **Linguagens & Frameworks:** TypeScript, Java
 - **Banco de Dados:** SQL
 - **DevOps & Cloud:** Docker, Conceitos de Cloud (AWS)
 - **Ferramentas de Trabalho:** Git, GitHub, VS Code, IntelliJ IDEA
