@@ -45,9 +45,9 @@
     pt: {
       htmlLang: 'pt-BR',
       meta: {
-        description: 'Marília Mezalheira | Software Engineer focada em Java, Spring Boot e TypeScript.',
+        description: 'Marília Mezalheira | Software Engineer focada em Java, TypeScript e SQL.',
         ogTitle:       'Marília Mezalheira | Software Engineer',
-        ogDescription: 'Software Engineer • Java, Spring Boot, TypeScript • Grupo Stefanini.',
+        ogDescription: 'Software Engineer • Java, TypeScript, SQL • Grupo Stefanini.',
       },
       nav: {
         // HTML keys used: nav.home / nav.studies / nav.stack / nav.contact
@@ -106,19 +106,19 @@
             '',
             'Minha trajetória inclui passagem pelo Grupo Stefanini, uma das maiores empresas de tecnologia do Brasil, onde atuei com suporte técnico, análise de processos e resolução de bugs — experiência que moldou minha mentalidade orientada a soluções e meu respeito pelo usuário final.',
             '',
-            'Hoje aplico esse conhecimento na construção de arquiteturas eficientes, focadas em performance e qualidade. Trabalho principalmente com Java, Spring Boot e TypeScript, unindo back-end robusto a integrações modernas.',
+            'Hoje aplico esse conhecimento na construção de arquiteturas eficientes, focadas em performance e qualidade. Trabalho principalmente com Java, TypeScript e SQL unindo back-end robusto a integrações modernas.',
             '',
-            'Stack principal: TypeScript, Java, Spring Boot, MySQL, Docker e conceitos de Cloud (AWS). Atualmente estagiária de TI, aberta a oportunidades júnior.',
+            'Stack principal: TypeScript, Java, SQL, Docker e conceitos de Cloud (AWS). Atualmente estagiária de TI, aberta a oportunidades júnior.',
           ].join('\n'),
         },
         skills: {
           title: '> Stack & Ferramentas',
           lines: [
             '<span class="cyan">Stack completa:</span>',
-            '  TypeScript, Java, Spring Boot, MySQL, Docker, AWS,',
+            '  TypeScript, Java, SQL, Docker, AWS,',
             '  Git, GitHub, VS Code, IntelliJ IDEA',
             '',
-            '<span class="cyan">Back-end:</span>      Java, Spring Boot, MySQL',
+            '<span class="cyan">Back-end:</span>      Java, SQL',
             '<span class="cyan">Front-end:</span>     TypeScript',
             '<span class="cyan">DevOps & Cloud:</span> Docker, AWS',
             '<span class="cyan">Ferramentas:</span>   Git, GitHub, VS Code, IntelliJ IDEA',
@@ -224,9 +224,9 @@
     en: {
       htmlLang: 'en',
       meta: {
-        description: 'Marília Mezalheira | Software Engineer focused on Java, Spring Boot and TypeScript.',
+        description: 'Marília Mezalheira | Software Engineer focused on Java, TypeScript and SQL.',
         ogTitle:       'Marília Mezalheira | Software Engineer',
-        ogDescription: 'Software Engineer • Java, Spring Boot, TypeScript • Grupo Stefanini.',
+        ogDescription: 'Software Engineer • Java, TypeScript, SQL • Grupo Stefanini.',
       },
       nav: {
         home:    'Home',
@@ -285,17 +285,17 @@
             '',
             'Today I apply that knowledge to building efficient architectures focused on performance and quality. I work mainly with Java, Spring Boot and TypeScript, pairing a solid back-end with modern integrations.',
             '',
-            'Main stack: TypeScript, Java, Spring Boot, MySQL, Docker and Cloud concepts (AWS). Currently an IT Intern, open to Junior opportunities.',
+            'Main stack: TypeScript, Java, SQL, Docker and Cloud concepts (AWS). Currently an IT Intern, open to Junior opportunities.',
           ].join('\n'),
         },
         skills: {
           title: '> Stack & Tools',
           lines: [
             '<span class="cyan">Full stack:</span>',
-            '  TypeScript, Java, Spring Boot, MySQL, Docker, AWS,',
+            '  TypeScript, Java, SQL, Docker, AWS,',
             '  Git, GitHub, VS Code, IntelliJ IDEA',
             '',
-            '<span class="cyan">Back-end:</span>     Java, Spring Boot, MySQL',
+            '<span class="cyan">Back-end:</span>     Java, SQL',
             '<span class="cyan">Front-end:</span>    TypeScript',
             '<span class="cyan">DevOps & Cloud:</span> Docker, AWS',
             '<span class="cyan">Tools:</span>        Git, GitHub, VS Code, IntelliJ IDEA',
