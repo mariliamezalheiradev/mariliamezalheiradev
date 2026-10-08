@@ -10,17 +10,17 @@
 
 ---
 
-## 🧑‍💻 Sobre mim
+##  Sobre mim
 Engenheira de Software focada no desenvolvimento de soluções robustas, escaláveis e alinhadas às melhores práticas de mercado. Tenho experiência com suporte técnico, análise de processos e resolução de bugs, aplicando esse conhecimento para criar arquiteturas eficientes e focadas em performance e qualidade.
 
 ---
 
-## 🛠️ Tecnologias e Ferramentas
+##  Tecnologias e Ferramentas
 <div align="center">
   <img src="https://skillicons.dev/icons?i=ts,java,mysql,docker,aws" />
 </div>
 
-### 🎯 Stack Focado
+###  Stack Focado
 - **Linguagens & Frameworks:** TypeScript, Java
 - **Banco de Dados:** SQL
 - **DevOps & Cloud:** Docker, Conceitos de Cloud (AWS)
@@ -29,7 +29,7 @@ Engenheira de Software focada no desenvolvimento de soluções robustas, escalá
 
 ---
 
-## 📈 Estatísticas do GitHub
+##  Estatísticas do GitHub
 <div align="center">
   <img src="https://streak-stats.demolab.com?user=mariliamezalheiradev&theme=tokyonight&hide_border=true" height="190" alt="GitHub Streak" />
 </div>
@@ -41,7 +41,7 @@ Engenheira de Software focada no desenvolvimento de soluções robustas, escalá
 
 ---
 
-## 🐍 Contribution Snake
+##  Contribution Snake
 <div align="center">
   <img src="https://raw.githubusercontent.com/mariliamezalheiradev/mariliamezalheiradev/output/github-contribution-grid-snake.svg" alt="Snake animation" />
 </div>
