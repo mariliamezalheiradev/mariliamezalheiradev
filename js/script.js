@@ -702,23 +702,9 @@
     const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced) return;
 
-    const cardSelectors = ['.estudo-card', '.stack-item'];
-    cardSelectors.forEach(function (sel) {
-      gsap.utils.toArray(sel).forEach(function (el, i) {
-        gsap.from(el, {
-          opacity: 0,
-          y: 50,
-          duration: 0.85,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 90%',
-            toggleActions: 'play none none reverse',
-          },
-          delay: (i % 6) * 0.08,
-        });
-      });
-    });
+    // Os cards (.estudo-card / .stack-item) aparecem via CSS + IntersectionObserver
+    // (classe .visible). Animá-los também com gsap.from() travava o opacity em 0,
+    // porque o GSAP lê o opacity:0 do CSS como valor final e grava inline.
 
     if (typeof ScrollTrigger !== 'undefined') {
       gsap.to('.orb-1', {
