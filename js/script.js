@@ -45,13 +45,14 @@
     pt: {
       htmlLang: 'pt-BR',
       meta: {
-        description: 'Marília Mezalheira | Software Engineer focada em Java, TypeScript e SQL.',
-        ogTitle:       'Marília Mezalheira | Software Engineer',
-        ogDescription: 'Software Engineer • Java, TypeScript, SQL • Grupo Stefanini.',
+        description: 'Marília Mezalheira | Desenvolvedora Java Júnior focada em back-end, APIs REST e Spring Boot.',
+        ogTitle:       'Marília Mezalheira | Desenvolvedora Java Júnior',
+        ogDescription: 'Desenvolvedora Java Júnior • Java, Spring Boot, SQL • Projeto NutriConect.',
       },
       nav: {
         // HTML keys used: nav.home / nav.studies / nav.stack / nav.contact
         home:    'Início',
+        projects: 'Projetos',
         studies: 'Estudos',
         stack:   'Tecnologias',
         contact: 'Contato',
@@ -67,16 +68,16 @@
         themeTitle:'Alternar tema',
       },
       hero: {
-        tag:     '> Software Engineer',
+        tag:     '> Desenvolvedora Java Júnior',
         lastname:'Mezalheira',
         status:  'Estagiária de TI',
         statusInternship: 'Aberta a oportunidades Júnior',
         aboutTitle: 'Sobre mim',
-        bio: 'Sou Marília Mezalheira, Engenheira de Software focada no desenvolvimento de soluções robustas, escaláveis e alinhadas às melhores práticas de mercado. Tenho experiência com suporte técnico, análise de processos e resolução de bugs, aplicando esse conhecimento para criar arquiteturas eficientes e focadas em performance e qualidade.',
+        bio: 'Sou a Marília, desenvolvedora Java júnior com foco em back-end e APIs REST. Venho do suporte técnico e da análise de processos, o que me ajuda a entender o problema antes de escrever o código. Participei da construção do NutriConect, uma API com Spring Boot, JWT e PostgreSQL que conecta comércios locais e ONGs, e sigo me aprofundando em Spring Boot, TypeScript, Docker e AWS.',
         aboutCard: {
           title:  'Sobre Mim',
           paragraph: [
-            'Sou Marília Mezalheira, Engenheira de Software focada no desenvolvimento de soluções robustas, escaláveis e alinhadas às melhores práticas de mercado. Tenho experiência com suporte técnico, análise de processos e resolução de bugs, aplicando esse conhecimento para criar arquiteturas eficientes e focadas em performance e qualidade.',
+            'Sou a Marília, desenvolvedora Java júnior com foco em back-end e APIs REST. Venho do suporte técnico e da análise de processos, o que me ajuda a entender o problema antes de escrever o código. Participei da construção do NutriConect, uma API com Spring Boot, JWT e PostgreSQL que conecta comércios locais e ONGs, e sigo me aprofundando em Spring Boot, TypeScript, Docker e AWS.',
           ],
           portfolioBtn: 'Ver portfólio completo',
         },
@@ -102,13 +103,13 @@
         about: {
           title: '> Sobre mim',
           lines: [
-            'Sou Marília Mezalheira, Engenheira de Software focada no desenvolvimento de soluções robustas, escaláveis e alinhadas às melhores práticas de mercado.',
+            'Sou a Marília, desenvolvedora Java júnior com foco em back-end e APIs REST.',
             '',
-            'Minha trajetória inclui passagem pelo Grupo Stefanini, uma das maiores empresas de tecnologia do Brasil, onde atuei com suporte técnico, análise de processos e resolução de bugs — experiência que moldou minha mentalidade orientada a soluções e meu respeito pelo usuário final.',
+            'Venho do suporte técnico e da análise de processos, onde atuei com resolução de bugs e atendimento ao usuário. Essa experiência me ensinou a entender o problema antes de escrever o código.',
             '',
-            'Hoje aplico esse conhecimento na construção de arquiteturas eficientes, focadas em performance e qualidade. Trabalho principalmente com Java, TypeScript e SQL unindo back-end robusto a integrações modernas.',
+            'Participei da construção do NutriConect, uma API com Spring Boot, JWT e PostgreSQL que conecta comércios locais e ONGs.',
             '',
-            'Stack principal: TypeScript, Java, SQL, Docker e conceitos de Cloud (AWS). Atualmente estagiária de TI, aberta a oportunidades júnior.',
+            'Stack atual: Java, Spring Boot, SQL e Git. Em estudo: TypeScript, Docker e conceitos de Cloud (AWS). Atualmente estagiária de TI, aberta a oportunidades júnior.',
           ].join('\n'),
         },
         skills: {
@@ -165,6 +166,25 @@
         contatoLabel:  '/ CONTATO',
         contatoLead:   'Estou aberta a oportunidades júnior, projetos e colaborações. Entre em contato pelo canal de sua preferência:',
       },
+      projects: {
+        label:  'PROJETOS',
+        titleA: 'O que eu',
+        titleB: 'construí',
+        code:   'Código',
+        demo:   'Demo',
+        p1: {
+          tag:  'Projeto em grupo · Back-end',
+          desc: 'Sistema que conecta comércios locais e ONGs para reduzir o desperdício de alimentos (ODS 2). API REST com autenticação JWT, tratamento global de erros e integração com IA generativa.',
+        },
+        p2: {
+          tag:  'Projeto acadêmico · Front-end',
+          desc: 'Sistema web para salões e barbearias organizarem agendamentos, clientes, serviços e profissionais, com dashboard e tela de agendamento para o cliente. Consome a API ViaCEP.',
+        },
+        p3: {
+          tag:  'Projeto pessoal · Full stack',
+          desc: 'Controle de receitas, despesas e contas a pagar, com alertas de vencimento, login, dados na nuvem, tema claro/escuro e interface em português e inglês.',
+        },
+      },
       // HTML uses studies.label / studies.titleA / studies.titleB / studies.s1.title / studies.s1.desc ...
       studies: {
         label:  'EM APROFUNDAMENTO',
@@ -190,6 +210,7 @@
         typescript: { name: 'TypeScript', desc: 'Superset tipado do JavaScript para aplicações escaláveis.' },
         java: { name: 'Java', desc: 'Linguagem principal para desenvolvimento back-end orientado a objetos.' },
         spring: { name: 'Spring Boot', desc: 'Framework Java para APIs REST e microsserviços.' },
+        postgresql: { name: 'PostgreSQL', desc: 'Banco relacional usado no NutriConect.' },
         mysql: { name: 'MySQL', desc: 'Modelagem e consultas em banco de dados relacional.' },
         docker: { name: 'Docker', desc: 'Containerização de aplicações para ambientes consistentes.' },
         aws: { name: 'AWS', desc: 'Conceitos de infraestrutura e deploy em nuvem.' },
@@ -215,7 +236,7 @@
         copy: '© 2026 · Todos os direitos reservados',
         // aliases kept for JS-internal use
         full: 'Feito com 💙 por <strong>Marília Mezalheira</strong>',
-        sub:  '© 2026 • Software Engineer',
+        sub:  '© 2026 • Desenvolvedora Java Júnior',
       },
       scroll: {
         topTitle: 'Voltar ao topo',
@@ -224,12 +245,13 @@
     en: {
       htmlLang: 'en',
       meta: {
-        description: 'Marília Mezalheira | Software Engineer focused on Java, TypeScript and SQL.',
-        ogTitle:       'Marília Mezalheira | Software Engineer',
-        ogDescription: 'Software Engineer • Java, TypeScript, SQL • Grupo Stefanini.',
+        description: 'Marília Mezalheira | Junior Java Developer focused on back-end, REST APIs and Spring Boot.',
+        ogTitle:       'Marília Mezalheira | Junior Java Developer',
+        ogDescription: 'Junior Java Developer • Java, Spring Boot, SQL • NutriConect project.',
       },
       nav: {
         home:    'Home',
+        projects: 'Projects',
         studies: 'Studies',
         stack:   'Tech',
         contact: 'Contact',
@@ -244,16 +266,16 @@
         themeTitle:'Toggle theme',
       },
       hero: {
-        tag:     '> Software Engineer',
+        tag:     '> Junior Java Developer',
         lastname:'Mezalheira',
         status:  'IT Intern',
         statusInternship: 'Open to Junior opportunities',
         aboutTitle: 'About me',
-        bio: 'I am Marília Mezalheira, a Software Engineer focused on robust, scalable solutions. Experienced in technical support, process analysis, and bug resolution, applying this knowledge to create efficient architectures focused on performance and quality.',
+        bio: 'I\'m Marília, a junior Java developer focused on back-end and REST APIs. I come from technical support and process analysis, which helps me understand the problem before writing code. I helped build NutriConect, an API with Spring Boot, JWT and PostgreSQL that connects local businesses with NGOs, and I\'m currently deepening my knowledge of Spring Boot, TypeScript, Docker and AWS.',
         aboutCard: {
           title:  'About Me',
           paragraph: [
-            'I am Marília Mezalheira, a Software Engineer focused on robust, scalable solutions. Experienced in technical support, process analysis, and bug resolution, applying this knowledge to create efficient architectures focused on performance and quality.',
+            'I\'m Marília, a junior Java developer focused on back-end and REST APIs. I come from technical support and process analysis, which helps me understand the problem before writing code. I helped build NutriConect, an API with Spring Boot, JWT and PostgreSQL that connects local businesses with NGOs, and I\'m currently deepening my knowledge of Spring Boot, TypeScript, Docker and AWS.',
           ],
           portfolioBtn: 'View full portfolio',
         },
@@ -279,13 +301,13 @@
         about: {
           title: '> About Me',
           lines: [
-            'I am Marília Mezalheira, a Software Engineer focused on building robust, scalable solutions aligned with market best practices.',
+            'I\'m Marília, a junior Java developer focused on back-end and REST APIs.',
             '',
-            'My professional path includes time at Grupo Stefanini, one of the largest technology companies in Brazil, where I worked in technical support, process analysis, and bug resolution — experience that shaped a solution-oriented mindset and a deep respect for the end user.',
+            'I come from technical support and process analysis, where I worked on bug resolution and user support. That experience taught me to understand the problem before writing code.',
             '',
-            'Today I apply that knowledge to building efficient architectures focused on performance and quality. I work mainly with Java, Spring Boot and TypeScript, pairing a solid back-end with modern integrations.',
+            'I helped build NutriConect, an API with Spring Boot, JWT and PostgreSQL that connects local businesses with NGOs.',
             '',
-            'Main stack: TypeScript, Java, SQL, Docker and Cloud concepts (AWS). Currently an IT Intern, open to Junior opportunities.',
+            'Current stack: Java, Spring Boot, SQL and Git. Learning: TypeScript, Docker and cloud concepts (AWS). Currently an IT intern, open to Junior opportunities.',
           ].join('\n'),
         },
         skills: {
@@ -342,6 +364,25 @@
         contatoLabel:  '/ CONTACT',
         contatoLead:   'I\'m open to Junior opportunities, projects, and collaborations. Reach out through any channel:',
       },
+      projects: {
+        label:  'PROJECTS',
+        titleA: 'What I',
+        titleB: 'built',
+        code:   'Code',
+        demo:   'Live demo',
+        p1: {
+          tag:  'Team project · Back-end',
+          desc: 'System that connects local businesses with NGOs to reduce food waste (UN SDG 2). REST API with JWT authentication, global error handling and generative AI integration.',
+        },
+        p2: {
+          tag:  'Academic project · Front-end',
+          desc: 'Web system for salons and barbershops to manage appointments, clients, services and staff, with a dashboard and a customer booking page. Uses the ViaCEP API.',
+        },
+        p3: {
+          tag:  'Personal project · Full stack',
+          desc: 'Income, expense and bills tracker with due-date alerts, login, cloud data, light/dark theme and a Portuguese/English interface.',
+        },
+      },
       studies: {
         label:  'DEEPENING',
         titleA: 'Deepening',
@@ -364,6 +405,7 @@
         typescript: { name: 'TypeScript', desc: 'Typed superset of JavaScript for scalable applications.' },
         java: { name: 'Java', desc: 'Main language for object-oriented back-end development.' },
         spring: { name: 'Spring Boot', desc: 'Java framework for REST APIs and microservices.' },
+        postgresql: { name: 'PostgreSQL', desc: 'Relational database used in NutriConect.' },
         mysql: { name: 'MySQL', desc: 'Relational database modeling and querying.' },
         docker: { name: 'Docker', desc: 'Containerization of applications for consistent environments.' },
         aws: { name: 'AWS', desc: 'Cloud infrastructure and deployment concepts.' },
@@ -386,7 +428,7 @@
         made: 'Made with 💙 by',
         copy: '© 2026 · All rights reserved',
         full: 'Made with 💙 by <strong>Marília Mezalheira</strong>',
-        sub:  '© 2026 • Software Engineer',
+        sub:  '© 2026 • Junior Java Developer',
       },
       scroll: {
         topTitle: 'Back to top',
