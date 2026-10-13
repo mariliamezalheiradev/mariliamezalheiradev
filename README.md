@@ -22,14 +22,6 @@ Sou desenvolvedora Java júnior, com foco em back-end e APIs REST. Venho do supo
 
 Hoje trabalho como estagiária de TI e estou aberta a oportunidades de estágio e júnior. Participei da construção do **NutriConect**, uma API com Spring Boot, JWT e PostgreSQL que conecta comércios locais e ONGs, e sigo me aprofundando em Spring Boot, TypeScript, Docker e AWS.
 
-### Projetos em destaque
-
-| Projeto | O que é | Tecnologias |
-|---|---|---|
-| [**NutriConect**](https://github.com/mariliamezalheiradev/NutriConect) | Sistema que conecta comércios locais e ONGs para reduzir o desperdício de alimentos (ODS 2). API REST com autenticação JWT, tratamento global de erros e integração com IA generativa. Projeto em grupo. | Java, Spring Boot, Spring Security, JWT, PostgreSQL |
-| [**FlowSalon**](https://github.com/mariliamezalheiradev/flowsalon) · [demo](https://mariliamezalheiradev.github.io/flowsalon/) | Sistema web para salões e barbearias organizarem agendamentos, clientes, serviços e profissionais. Projeto acadêmico. | HTML, CSS, JavaScript, LocalStorage, ViaCEP |
-| [**Finanças Pessoais**](https://github.com/mariliamezalheiradev/personal-finances) · [demo](https://mariliamezalheiradev.github.io/personal-finances/) | Controle de receitas, despesas e contas a pagar, com alertas de vencimento, login e dados na nuvem. | JavaScript, Firebase Auth, Firestore |
-
 ### Tecnologias e ferramentas
 
 **Já usei em projetos**
@@ -59,14 +51,6 @@ Hoje trabalho como estagiária de TI e estou aberta a oportunidades de estágio 
 I'm a junior Java developer focused on back-end and REST APIs. I come from technical support and process analysis, which helps me understand the problem before writing code.
 
 I currently work as an IT intern and I'm open to junior and intern opportunities. I helped build **NutriConect**, an API with Spring Boot, JWT and PostgreSQL that connects local businesses with NGOs, and I'm deepening my knowledge of Spring Boot, TypeScript, Docker and AWS.
-
-### Featured projects
-
-| Project | What it is | Tech |
-|---|---|---|
-| [**NutriConect**](https://github.com/mariliamezalheiradev/NutriConect) | System that connects local businesses with NGOs to reduce food waste (UN SDG 2). REST API with JWT authentication, global error handling and generative AI integration. Team project. | Java, Spring Boot, Spring Security, JWT, PostgreSQL |
-| [**FlowSalon**](https://github.com/mariliamezalheiradev/flowsalon) · [demo](https://mariliamezalheiradev.github.io/flowsalon/) | Web system for salons and barbershops to manage appointments, clients, services and staff. Academic project. | HTML, CSS, JavaScript, LocalStorage, ViaCEP |
-| [**Finanças Pessoais**](https://github.com/mariliamezalheiradev/personal-finances) · [demo](https://mariliamezalheiradev.github.io/personal-finances/) | Income, expense and bills tracker with due-date alerts, login and cloud data. | JavaScript, Firebase Auth, Firestore |
 
 ### Technologies and tools
 
