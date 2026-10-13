@@ -20,7 +20,7 @@
 
 Sou desenvolvedora Java júnior, com foco em back-end e APIs REST. Venho do suporte técnico e da análise de processos, o que me ajuda a entender o problema antes de escrever o código.
 
-Hoje trabalho como estagiária de TI e estou aberta a oportunidades júnior. Participei da construção do **NutriConect**, uma API com Spring Boot, JWT e PostgreSQL que conecta comércios locais e ONGs, e sigo me aprofundando em Spring Boot, TypeScript, Docker e AWS.
+Hoje trabalho como estagiária de TI e estou aberta a oportunidades de estágio e júnior. Participei da construção do **NutriConect**, uma API com Spring Boot, JWT e PostgreSQL que conecta comércios locais e ONGs, e sigo me aprofundando em Spring Boot, TypeScript, Docker e AWS.
 
 ### Projetos em destaque
 
