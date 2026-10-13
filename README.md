@@ -22,6 +22,8 @@ Sou desenvolvedora Java júnior, com foco em back-end e APIs REST. Venho do supo
 
 Hoje trabalho como estagiária de TI e estou aberta a oportunidades de estágio e júnior. Participei da construção do **NutriConect**, uma API com Spring Boot, JWT e PostgreSQL que conecta comércios locais e ONGs, e sigo me aprofundando em Spring Boot, TypeScript, Docker e AWS.
 
+---
+
 ### Tecnologias e ferramentas
 
 **Já usei em projetos**
@@ -51,6 +53,8 @@ Hoje trabalho como estagiária de TI e estou aberta a oportunidades de estágio 
 I'm a junior Java developer focused on back-end and REST APIs. I come from technical support and process analysis, which helps me understand the problem before writing code.
 
 I currently work as an IT intern and I'm open to junior and intern opportunities. I helped build **NutriConect**, an API with Spring Boot, JWT and PostgreSQL that connects local businesses with NGOs, and I'm deepening my knowledge of Spring Boot, TypeScript, Docker and AWS.
+
+---
 
 ### Technologies and tools
 
